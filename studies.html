@@ -1,0 +1,7869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Study OS | Growth Map</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #181b17;
+      --panel: rgba(24, 28, 23, 0.78);
+      --panel-strong: rgba(25, 29, 24, 0.94);
+
+      --cream: #fff4e7;
+      --text: #fff8ef;
+      --muted: rgba(255, 248, 239, 0.52);
+
+      --peach: #e88772;
+      --peach-light: #f3b09f;
+
+      --green: #718467;
+      --green-light: #a3b296;
+
+      --border: rgba(255, 244, 231, 0.12);
+
+      --shadow:
+        0 30px 90px rgba(0, 0, 0, 0.25);
+
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 15px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      color:
+        var(--text);
+
+      background:
+        #21251f;
+
+      overflow-x:
+        hidden;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    .background {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -5;
+
+      background-image:
+        url("./assets/image/studies-bg.png");
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
+      transform:
+        scale(1.025);
+    }
+
+    .background-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -4;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(14, 17, 14, 0.38),
+          rgba(17, 20, 17, 0.76) 45%,
+          rgba(15, 18, 15, 0.96)
+        );
+    }
+
+    .background-overlay::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 70% 10%,
+          rgba(232, 135, 114, 0.16),
+          transparent 34%
+        ),
+
+        radial-gradient(
+          circle at 10% 55%,
+          rgba(113, 132, 103, 0.12),
+          transparent 35%
+        );
+    }
+
+
+    /* =========================================================
+       TOPBAR
+    ========================================================= */
+
+    .topbar {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      min-height: 70px;
+
+      padding:
+        0 5vw;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr auto 1fr;
+
+      align-items:
+        center;
+
+      border-bottom:
+        1px solid rgba(255, 244, 231, 0.08);
+
+      background:
+        rgba(18, 21, 17, 0.72);
+
+      backdrop-filter:
+        blur(26px);
+    }
+
+    .back {
+      width: fit-content;
+
+      color:
+        rgba(255, 248, 239, 0.65);
+
+      text-decoration:
+        none;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        10px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.15em;
+    }
+
+    .brand {
+      text-align: center;
+    }
+
+    .brand span {
+      display: block;
+
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.23em;
+    }
+
+    .brand strong {
+      display: block;
+
+      margin-top:
+        2px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        15px;
+
+      letter-spacing:
+        0.16em;
+    }
+
+    .save-state {
+      justify-self: end;
+
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.12em;
+    }
+
+
+    /* =========================================================
+       PAGE
+    ========================================================= */
+
+    .page {
+      width:
+        min(1450px, 92vw);
+
+      margin:
+        auto;
+
+      padding:
+        55px 0 100px;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height:
+        420px;
+
+      padding:
+        45px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        36px;
+
+      background:
+        linear-gradient(
+          125deg,
+          rgba(24, 28, 23, 0.88),
+          rgba(24, 28, 23, 0.48)
+        );
+
+      backdrop-filter:
+        blur(20px);
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width:
+        500px;
+
+      height:
+        500px;
+
+      right:
+        -200px;
+
+      top:
+        -240px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(232, 135, 114, 0.14);
+
+      filter:
+        blur(8px);
+    }
+
+    .hero-top {
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+    }
+
+    .day-chip {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap:
+        8px;
+
+      min-height:
+        31px;
+
+      padding:
+        0 12px;
+
+      border:
+        1px solid rgba(243, 176, 159, 0.26);
+
+      border-radius:
+        999px;
+
+      color:
+        var(--peach-light);
+
+      background:
+        rgba(232, 135, 114, 0.08);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.12em;
+    }
+
+    .day-chip::before {
+      content: "";
+
+      width:
+        6px;
+
+      height:
+        6px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--peach-light);
+
+      box-shadow:
+        0 0 12px
+        rgba(243, 176, 159, 0.9);
+    }
+
+    .hero-date {
+      text-align: right;
+    }
+
+    .hero-date span {
+      display: block;
+
+      color:
+        rgba(255, 248, 239, 0.4);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .hero-date strong {
+      display: block;
+
+      margin-top:
+        5px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        17px;
+    }
+
+    .hero-main {
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 390px;
+
+      gap:
+        50px;
+
+      align-items:
+        end;
+
+      margin-top:
+        60px;
+    }
+
+    .hero-copy small {
+      color:
+        var(--peach-light);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.2em;
+    }
+
+    .hero-copy h1 {
+      max-width:
+        850px;
+
+      margin-top:
+        12px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        clamp(45px, 6vw, 82px);
+
+      line-height:
+        0.94;
+
+      letter-spacing:
+        -0.055em;
+    }
+
+    .hero-copy h1 span {
+      color:
+        rgba(255, 248, 239, 0.35);
+    }
+
+    .hero-copy p {
+      max-width:
+        620px;
+
+      margin-top:
+        22px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.7;
+    }
+
+    .hero-progress {
+      padding:
+        24px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        24px;
+
+      background:
+        rgba(255, 244, 231, 0.045);
+    }
+
+    .hero-progress-top {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+    }
+
+    .hero-progress-top span {
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.15em;
+    }
+
+    .hero-progress-top strong {
+      color:
+        var(--peach-light);
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        12px;
+    }
+
+    .progress-ring {
+      width:
+        150px;
+
+      height:
+        150px;
+
+      margin:
+        25px auto 18px;
+
+      padding:
+        8px;
+
+      border-radius:
+        50%;
+
+      background:
+        conic-gradient(
+          var(--peach-light) 0deg,
+          rgba(255, 255, 255, 0.08) 0deg
+        );
+
+      transition:
+        background 0.4s ease;
+    }
+
+    .progress-ring-inner {
+      width:
+        100%;
+
+      height:
+        100%;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        50%;
+
+      text-align:
+        center;
+
+      background:
+        rgba(23, 26, 22, 0.98);
+    }
+
+    .progress-ring-inner strong {
+      display: block;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        31px;
+    }
+
+    .progress-ring-inner span {
+      display: block;
+
+      margin-top:
+        -24px;
+
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.13em;
+    }
+
+    .hero-progress-bottom {
+      text-align: center;
+    }
+
+    .hero-progress-bottom strong {
+      display: block;
+
+      font-size:
+        12px;
+    }
+
+    .hero-progress-bottom small {
+      display: block;
+
+      margin-top:
+        4px;
+
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        9px;
+    }
+
+
+    /* =========================================================
+       WORKSPACE NAV
+    ========================================================= */
+
+    .workspace-nav {
+      position: sticky;
+
+      top: 82px;
+
+      z-index: 800;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(6, 1fr);
+
+      gap:
+        6px;
+
+      margin-top:
+        18px;
+
+      padding:
+        7px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        17px;
+
+      background:
+        rgba(20, 23, 19, 0.84);
+
+      backdrop-filter:
+        blur(24px);
+    }
+
+    .workspace-button {
+      min-height:
+        43px;
+
+      border:
+        0;
+
+      border-radius:
+        11px;
+
+      color:
+        rgba(255, 248, 239, 0.43);
+
+      background:
+        transparent;
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.11em;
+
+      transition:
+        0.22s ease;
+    }
+
+    .workspace-button:hover {
+      color:
+        var(--cream);
+
+      background:
+        rgba(255, 244, 231, 0.05);
+    }
+
+    .workspace-button.active {
+      color:
+        #33241f;
+
+      background:
+        var(--cream);
+    }
+
+
+    /* =========================================================
+       WORKSPACE
+    ========================================================= */
+
+    .workspace {
+      display:
+        none;
+
+      margin-top:
+        28px;
+    }
+
+    .workspace.active {
+      display:
+        block;
+
+      animation:
+        workspaceIn 0.32s ease;
+    }
+
+    @keyframes workspaceIn {
+      from {
+        opacity: 0;
+        transform:
+          translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0);
+      }
+    }
+
+    .section-head {
+      display: flex;
+
+      align-items:
+        flex-end;
+
+      justify-content:
+        space-between;
+
+      gap:
+        25px;
+
+      margin:
+        54px 0 20px;
+    }
+
+    .section-head:first-child {
+      margin-top:
+        0;
+    }
+
+    .section-head small {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.18em;
+    }
+
+    .section-head h2 {
+      margin-top:
+        5px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        clamp(26px, 3vw, 40px);
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .section-head p {
+      max-width:
+        520px;
+
+      margin-top:
+        8px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.55;
+    }
+
+    .action {
+      min-height:
+        42px;
+
+      padding:
+        0 17px;
+
+      border:
+        0;
+
+      border-radius:
+        999px;
+
+      color:
+        #30221e;
+
+      background:
+        var(--cream);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.08em;
+    }
+
+    .action.secondary {
+      color:
+        var(--cream);
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255, 244, 231, 0.05);
+    }
+
+
+    /* =========================================================
+       TODAY
+    ========================================================= */
+
+    .today-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        390px;
+
+      gap:
+        15px;
+    }
+
+    .panel {
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius-lg);
+
+      background:
+        var(--panel);
+
+      backdrop-filter:
+        blur(22px);
+
+      box-shadow:
+        0 18px 55px rgba(0, 0, 0, 0.13);
+    }
+
+    .mission-board {
+      min-height:
+        530px;
+
+      padding:
+        26px;
+    }
+
+    .panel-title {
+      display: flex;
+
+      align-items:
+        flex-start;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+    }
+
+    .panel-title span {
+      display: block;
+
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.15em;
+    }
+
+    .panel-title h3 {
+      margin-top:
+        5px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        24px;
+    }
+
+    .panel-title small {
+      display: block;
+
+      margin-top:
+        7px;
+
+      color:
+        rgba(255, 248, 239, 0.36);
+
+      font-size:
+        10px;
+    }
+
+    .target-list {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        10px;
+
+      margin-top:
+        25px;
+    }
+
+    .empty {
+      min-height:
+        120px;
+
+      padding:
+        25px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border:
+        1px dashed rgba(255, 244, 231, 0.11);
+
+      border-radius:
+        15px;
+
+      color:
+        rgba(255, 248, 239, 0.28);
+
+      text-align:
+        center;
+
+      font-size:
+        11px;
+    }
+
+    .target {
+      position: relative;
+
+      overflow: hidden;
+
+      display: grid;
+
+      grid-template-columns:
+        auto 1fr auto;
+
+      gap:
+        15px;
+
+      align-items:
+        center;
+
+      min-height:
+        110px;
+
+      padding:
+        17px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.09);
+
+      border-radius:
+        17px;
+
+      background:
+        rgba(255, 244, 231, 0.035);
+
+      transition:
+        0.22s ease;
+    }
+
+    .target:hover {
+      transform:
+        translateY(-2px);
+
+      border-color:
+        rgba(243, 176, 159, 0.25);
+
+      background:
+        rgba(255, 244, 231, 0.052);
+    }
+
+    .target.done {
+      opacity:
+        0.58;
+    }
+
+    .target.done::after {
+      content: "COMPLETED";
+
+      position: absolute;
+
+      right:
+        16px;
+
+      top:
+        11px;
+
+      color:
+        var(--green-light);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .target-check {
+      width:
+        38px;
+
+      height:
+        38px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.16);
+
+      border-radius:
+        50%;
+
+      color:
+        #30221e;
+
+      background:
+        rgba(255, 244, 231, 0.04);
+
+      font-weight:
+        800;
+    }
+
+    .target-check.checked {
+      border-color:
+        transparent;
+
+      background:
+        var(--green-light);
+    }
+
+    .target-copy span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .target-copy h4 {
+      margin-top:
+        5px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        15px;
+    }
+
+    .target-copy p {
+      margin-top:
+        5px;
+
+      color:
+        rgba(255, 248, 239, 0.42);
+
+      font-size:
+        9px;
+    }
+
+    .target-output {
+      margin-top:
+        7px !important;
+
+      color:
+        rgba(255, 248, 239, 0.62) !important;
+    }
+
+    .target-actions {
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        6px;
+    }
+
+    .mini-btn {
+      min-width:
+        92px;
+
+      min-height:
+        31px;
+
+      padding:
+        0 10px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.1);
+
+      border-radius:
+        9px;
+
+      color:
+        rgba(255, 248, 239, 0.55);
+
+      background:
+        rgba(255, 244, 231, 0.04);
+
+      font-size:
+        6.5px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.08em;
+    }
+
+    .mini-btn.primary {
+      color:
+        #30221e;
+
+      background:
+        var(--cream);
+    }
+
+    .today-side {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        15px;
+    }
+
+
+    /* =========================================================
+       DAY PROTOCOL
+    ========================================================= */
+
+    .protocol {
+      padding:
+        24px;
+    }
+
+    .protocol-mode {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+    }
+
+    .protocol-mode span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .protocol-mode strong {
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        13px;
+    }
+
+    .protocol-list {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        9px;
+
+      margin-top:
+        18px;
+    }
+
+    .protocol-item {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      padding:
+        12px 0;
+
+      border-bottom:
+        1px solid rgba(255, 244, 231, 0.065);
+    }
+
+    .protocol-item:last-child {
+      border-bottom:
+        0;
+    }
+
+    .protocol-item strong {
+      font-size:
+        11px;
+    }
+
+    .protocol-item span {
+      color:
+        rgba(255, 248, 239, 0.38);
+
+      font-size:
+        9px;
+    }
+
+    .protocol-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        8px;
+
+      margin-top:
+        18px;
+    }
+
+
+    /* =========================================================
+       FOCUS TIMER
+    ========================================================= */
+
+    .focus-card {
+      padding:
+        24px;
+    }
+
+    .focus-card h3 {
+      margin-top:
+        4px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        20px;
+    }
+
+    .focus-target-name {
+      margin-top:
+        13px;
+
+      color:
+        rgba(255, 248, 239, 0.45);
+
+      font-size:
+        10px;
+    }
+
+    .focus-time {
+      margin:
+        22px 0;
+
+      text-align:
+        center;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        45px;
+
+      letter-spacing:
+        -0.05em;
+    }
+
+    .focus-controls {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr 1fr;
+
+      gap:
+        7px;
+    }
+
+
+    /* =========================================================
+       ROADMAP
+    ========================================================= */
+
+    .roadmap-shell {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        335px;
+
+      gap:
+        15px;
+    }
+
+    .roadmap-canvas {
+      position: relative;
+
+      min-height:
+        670px;
+
+      overflow-x:
+        auto;
+
+      overflow-y:
+        hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15, 18, 15, 0.8),
+          rgba(23, 27, 22, 0.8)
+        );
+    }
+
+    .roadmap-map {
+      position: relative;
+
+      min-width:
+        1050px;
+
+      height:
+        670px;
+
+      overflow:
+        hidden;
+    }
+
+    .roadmap-map::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity:
+        0.15;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.07) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.07) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        55px 55px;
+
+      mask-image:
+        radial-gradient(
+          circle at center,
+          black,
+          transparent 80%
+        );
+    }
+
+    .roadmap-map::after {
+      content: "";
+
+      position: absolute;
+
+      width:
+        800px;
+
+      height:
+        250px;
+
+      left:
+        50%;
+
+      bottom:
+        -180px;
+
+      transform:
+        translateX(-50%);
+
+      border:
+        1px solid rgba(243, 176, 159, 0.1);
+
+      border-radius:
+        50%;
+    }
+
+    .roadmap-lines {
+      position: absolute;
+
+      inset: 0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      pointer-events:
+        none;
+    }
+
+    .road-edge {
+      fill: none;
+
+      stroke:
+        rgba(255, 244, 231, 0.13);
+
+      stroke-width:
+        2;
+
+      transition:
+        0.25s ease;
+    }
+
+    .road-edge.branch {
+      stroke-dasharray:
+        7 8;
+    }
+
+    .road-edge.active {
+      stroke:
+        var(--peach-light);
+
+      stroke-width:
+        3;
+
+      filter:
+        drop-shadow(
+          0 0 7px
+          rgba(243, 176, 159, 0.55)
+        );
+    }
+
+    .road-node {
+      position: absolute;
+
+      left:
+        var(--x);
+
+      top:
+        var(--y);
+
+      width:
+        145px;
+
+      min-height:
+        88px;
+
+      transform:
+        translate(-50%, -50%);
+
+      padding:
+        14px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.13);
+
+      border-radius:
+        16px;
+
+      color:
+        var(--cream);
+
+      text-align:
+        left;
+
+      background:
+        rgba(28, 32, 26, 0.94);
+
+      backdrop-filter:
+        blur(15px);
+
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.2);
+
+      transition:
+        0.25s ease;
+
+      z-index:
+        5;
+    }
+
+    .road-node::before {
+      content: "";
+
+      position: absolute;
+
+      left:
+        13px;
+
+      top:
+        -5px;
+
+      width:
+        9px;
+
+      height:
+        9px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(255, 248, 239, 0.3);
+    }
+
+    .road-node:hover,
+    .road-node.selected {
+      transform:
+        translate(-50%, -50%)
+        translateY(-6px)
+        scale(1.04);
+
+      border-color:
+        rgba(243, 176, 159, 0.5);
+
+      background:
+        rgba(44, 42, 34, 0.98);
+    }
+
+    .road-node.selected::before {
+      background:
+        var(--peach-light);
+
+      box-shadow:
+        0 0 15px
+        rgba(243, 176, 159, 0.8);
+    }
+
+    .road-node small {
+      display: block;
+
+      color:
+        rgba(255, 248, 239, 0.3);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .road-node strong {
+      display: block;
+
+      margin-top:
+        7px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        13px;
+    }
+
+    .road-node span {
+      display: block;
+
+      margin-top:
+        7px;
+
+      color:
+        var(--peach-light);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.11em;
+    }
+
+    .road-node.future {
+      opacity:
+        0.42;
+    }
+
+    .road-node.future:hover,
+    .road-node.future.selected {
+      opacity:
+        1;
+    }
+
+    .road-node.support {
+      opacity:
+        0.6;
+    }
+
+    .roadmap-inspector {
+      min-height:
+        670px;
+
+      padding:
+        26px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(66, 48, 40, 0.74),
+          rgba(24, 28, 23, 0.94)
+        );
+    }
+
+    .roadmap-inspector > span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.16em;
+    }
+
+    .roadmap-inspector h3 {
+      margin-top:
+        22px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        35px;
+
+      line-height:
+        1;
+    }
+
+    .roadmap-inspector > p {
+      margin-top:
+        12px;
+
+      color:
+        rgba(255, 248, 239, 0.47);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.6;
+    }
+
+    .inspector-block {
+      margin-top:
+        27px;
+
+      padding-top:
+        20px;
+
+      border-top:
+        1px solid rgba(255, 244, 231, 0.08);
+    }
+
+    .inspector-block span {
+      display: block;
+
+      color:
+        rgba(255, 248, 239, 0.3);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.16em;
+    }
+
+    .inspector-block p {
+      margin-top:
+        8px;
+
+      color:
+        rgba(255, 248, 239, 0.62);
+
+      font-size:
+        10px;
+
+      line-height:
+        1.55;
+    }
+
+    .road-tags {
+      display: flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        6px;
+
+      margin-top:
+        10px;
+    }
+
+    .road-tags span {
+      padding:
+        7px 9px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.1);
+
+      border-radius:
+        999px;
+
+      color:
+        rgba(255, 248, 239, 0.6);
+
+      background:
+        rgba(255, 244, 231, 0.04);
+    }
+
+
+    /* =========================================================
+       LEARN / PLAYLIST
+    ========================================================= */
+
+    .playlist-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        15px;
+    }
+
+    .playlist-card {
+      min-height:
+        320px;
+
+      padding:
+        24px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      background:
+        var(--panel);
+
+      backdrop-filter:
+        blur(20px);
+
+      transition:
+        0.25s ease;
+    }
+
+    .playlist-card:hover {
+      transform:
+        translateY(-4px);
+
+      border-color:
+        rgba(243, 176, 159, 0.28);
+    }
+
+    .playlist-card span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.12em;
+    }
+
+    .playlist-card h3 {
+      margin-top:
+        18px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        23px;
+    }
+
+    .playlist-card p {
+      margin-top:
+        8px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        10px;
+
+      line-height:
+        1.55;
+    }
+
+    .playlist-progress {
+      margin-top:
+        25px;
+    }
+
+    .playlist-progress-head {
+      display: flex;
+
+      justify-content:
+        space-between;
+    }
+
+    .playlist-progress-head strong {
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        22px;
+    }
+
+    .bar {
+      height:
+        5px;
+
+      margin-top:
+        11px;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        99px;
+
+      background:
+        rgba(255, 244, 231, 0.08);
+    }
+
+    .bar span {
+      display: block;
+
+      height:
+        100%;
+
+      border-radius:
+        inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--peach),
+          var(--peach-light)
+        );
+    }
+
+    .playlist-current {
+      margin-top:
+        22px;
+
+      padding:
+        12px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.08);
+
+      border-radius:
+        12px;
+
+      background:
+        rgba(255, 244, 231, 0.035);
+    }
+
+    .playlist-current small {
+      display: block;
+
+      color:
+        rgba(255, 248, 239, 0.3);
+
+      font-size:
+        6px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .playlist-current strong {
+      display: block;
+
+      margin-top:
+        5px;
+
+      font-size:
+        10px;
+    }
+
+    .playlist-actions {
+      display: flex;
+
+      gap:
+        7px;
+
+      margin-top:
+        18px;
+    }
+
+
+    /* =========================================================
+       PRACTICE / VAULT
+    ========================================================= */
+
+    .two-column {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        15px;
+    }
+
+    .list-panel {
+      min-height:
+        420px;
+
+      padding:
+        25px;
+    }
+
+    .item-list {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        9px;
+
+      margin-top:
+        20px;
+    }
+
+    .simple-item {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      padding:
+        14px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.08);
+
+      border-radius:
+        13px;
+
+      background:
+        rgba(255, 244, 231, 0.035);
+    }
+
+    .simple-item strong {
+      display: block;
+
+      font-size:
+        11px;
+    }
+
+    .simple-item small {
+      display: block;
+
+      margin-top:
+        4px;
+
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        8px;
+
+      line-height:
+        1.45;
+    }
+
+    .item-remove {
+      border:
+        0;
+
+      color:
+        rgba(255, 248, 239, 0.3);
+
+      background:
+        transparent;
+
+      font-size:
+        7px;
+    }
+
+
+    /* =========================================================
+       REVIEW
+    ========================================================= */
+
+    .week-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(7, 1fr);
+
+      gap:
+        9px;
+    }
+
+    .week-day {
+      min-height:
+        170px;
+
+      padding:
+        16px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        17px;
+
+      background:
+        var(--panel);
+    }
+
+    .week-day.current {
+      border-color:
+        rgba(243, 176, 159, 0.5);
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(232, 135, 114, 0.13),
+          rgba(24, 28, 23, 0.8)
+        );
+
+      box-shadow:
+        0 0 32px
+        rgba(232, 135, 114, 0.08);
+    }
+
+    .week-day > span {
+      color:
+        rgba(255, 248, 239, 0.35);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.13em;
+    }
+
+    .week-day h4 {
+      margin-top:
+        8px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        15px;
+    }
+
+    .week-day small {
+      display: block;
+
+      margin-top:
+        5px;
+
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+    }
+
+    .week-day ul {
+      margin:
+        16px 0 0 14px;
+
+      color:
+        rgba(255, 248, 239, 0.46);
+
+      font-size:
+        8px;
+
+      line-height:
+        1.8;
+    }
+
+    .analytics-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap:
+        12px;
+    }
+
+    .metric {
+      min-height:
+        140px;
+
+      padding:
+        22px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        18px;
+
+      background:
+        var(--panel);
+    }
+
+    .metric span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.14em;
+    }
+
+    .metric strong {
+      display: block;
+
+      margin-top:
+        25px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        27px;
+    }
+
+    .metric small {
+      display: block;
+
+      margin-top:
+        4px;
+
+      color:
+        rgba(255, 248, 239, 0.35);
+    }
+
+    .reflection-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+    }
+
+    .reflection {
+      padding:
+        19px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        17px;
+
+      background:
+        var(--panel);
+    }
+
+    .reflection span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.13em;
+    }
+
+
+    /* =========================================================
+       FORM
+    ========================================================= */
+
+    input,
+    textarea,
+    select {
+      width:
+        100%;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.1);
+
+      outline:
+        none;
+
+      border-radius:
+        11px;
+
+      color:
+        var(--cream);
+
+      background:
+        rgba(255, 244, 231, 0.055);
+    }
+
+    input,
+    select {
+      min-height:
+        44px;
+
+      padding:
+        0 13px;
+    }
+
+    textarea {
+      min-height:
+        110px;
+
+      padding:
+        13px;
+
+      resize:
+        vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color:
+        rgba(243, 176, 159, 0.45);
+    }
+
+    option {
+      color:
+        #222;
+
+      background:
+        white;
+    }
+
+    .reflection textarea {
+      margin-top:
+        12px;
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 5000;
+
+      display: none;
+
+      place-items:
+        center;
+
+      padding:
+        25px;
+
+      background:
+        rgba(7, 8, 7, 0.75);
+
+      backdrop-filter:
+        blur(18px);
+    }
+
+    .modal-overlay.open {
+      display:
+        grid;
+    }
+
+    .modal {
+      width:
+        min(560px, 95vw);
+
+      max-height:
+        88vh;
+
+      overflow-y:
+        auto;
+
+      padding:
+        28px;
+
+      border:
+        1px solid rgba(255, 244, 231, 0.14);
+
+      border-radius:
+        24px;
+
+      background:
+        rgba(25, 29, 24, 0.98);
+
+      box-shadow:
+        0 40px 120px rgba(0, 0, 0, 0.45);
+    }
+
+    .modal-head {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-start;
+    }
+
+    .modal-head span {
+      color:
+        var(--peach-light);
+
+      font-size:
+        7px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.15em;
+    }
+
+    .modal-head h2 {
+      margin-top:
+        5px;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+
+      font-size:
+        25px;
+    }
+
+    .modal-close {
+      border:
+        0;
+
+      color:
+        rgba(255, 248, 239, 0.4);
+
+      background:
+        transparent;
+
+      font-size:
+        9px;
+
+      font-weight:
+        700;
+    }
+
+    .modal-body {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        16px;
+
+      margin-top:
+        25px;
+    }
+
+    .modal-body label {
+      display: flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        7px;
+
+      color:
+        rgba(255, 248, 239, 0.5);
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.08em;
+    }
+
+    .modal-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        8px;
+
+      margin-top:
+        24px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .hero-main,
+      .today-grid,
+      .roadmap-shell {
+        grid-template-columns:
+          1fr;
+      }
+
+      .playlist-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .week-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .analytics-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .page {
+        width:
+          min(94vw, 1450px);
+      }
+
+      .hero {
+        padding:
+          26px;
+
+        min-height:
+          auto;
+      }
+
+      .hero-top {
+        align-items:
+          flex-start;
+      }
+
+      .hero-main {
+        margin-top:
+          40px;
+      }
+
+      .workspace-nav {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .two-column,
+      .playlist-grid,
+      .reflection-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .week-grid,
+      .analytics-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .target {
+        grid-template-columns:
+          auto 1fr;
+      }
+
+      .target-actions {
+        grid-column:
+          1 / -1;
+
+        flex-direction:
+          row;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="background"></div>
+  <div class="background-overlay"></div>
+
+
+  <!-- =====================================================
+       TOPBAR
+  ====================================================== -->
+
+  <header class="topbar">
+
+    <a
+      href="hub.html"
+      class="back"
+    >
+      ← GROWTH HUB
+    </a>
+
+
+    <div class="brand">
+
+      <span>
+        MIND STONE
+      </span>
+
+      <strong>
+        STUDY OS
+      </strong>
+
+    </div>
+
+
+    <div class="save-state">
+      SAVED LOCALLY
+    </div>
+
+  </header>
+
+
+
+  <main class="page">
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-top">
+
+        <div
+          class="day-chip"
+          id="dayModeChip"
+        >
+          DEEP WORK DAY
+        </div>
+
+
+        <div class="hero-date">
+
+          <span id="heroDay">
+            TUESDAY
+          </span>
+
+          <strong id="heroDate">
+            02 SEPTEMBER
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-main">
+
+        <div class="hero-copy">
+
+          <small>
+            TODAY'S EXECUTION SYSTEM
+          </small>
+
+
+          <h1>
+
+            Know what matters.
+
+            <span>
+              Then do it.
+            </span>
+
+          </h1>
+
+
+          <p id="heroDescription">
+            Your roadmap tells you where to go.
+            Today's plan tells you what to execute now.
+          </p>
+
+        </div>
+
+
+
+        <div class="hero-progress">
+
+          <div class="hero-progress-top">
+
+            <span>
+              TODAY
+            </span>
+
+            <strong id="heroProgressLabel">
+              0 / 0
+            </strong>
+
+          </div>
+
+
+          <div
+            class="progress-ring"
+            id="todayProgressRing"
+          >
+
+            <div class="progress-ring-inner">
+
+              <strong id="todayProgressPercent">
+                0%
+              </strong>
+
+              <span>
+                COMPLETE
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-progress-bottom">
+
+            <strong id="currentPhaseText">
+              Core Java
+            </strong>
+
+            <small>
+              CURRENT PHASE
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         NAV
+    =================================================== -->
+
+    <nav class="workspace-nav">
+
+      <button
+        class="workspace-button active"
+        data-workspace="today"
+      >
+        TODAY
+      </button>
+
+      <button
+        class="workspace-button"
+        data-workspace="roadmap"
+      >
+        ROADMAP
+      </button>
+
+      <button
+        class="workspace-button"
+        data-workspace="learn"
+      >
+        LEARN
+      </button>
+
+      <button
+        class="workspace-button"
+        data-workspace="practice"
+      >
+        PRACTICE
+      </button>
+
+      <button
+        class="workspace-button"
+        data-workspace="vault"
+      >
+        VAULT
+      </button>
+
+      <button
+        class="workspace-button"
+        data-workspace="review"
+      >
+        REVIEW
+      </button>
+
+    </nav>
+
+
+
+    <!-- ==================================================
+         TODAY
+    =================================================== -->
+
+    <section
+      class="workspace active"
+      data-workspace-view="today"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            EXECUTE
+          </small>
+
+          <h2>
+            Today's Mission
+          </h2>
+
+          <p>
+            Targets are not habits.
+            Each target should create an actual learning output.
+          </p>
+
+        </div>
+
+
+        <button
+          class="action"
+          id="addTargetButton"
+        >
+          + ADD TARGET
+        </button>
+
+      </div>
+
+
+
+      <div class="today-grid">
+
+
+        <!-- TARGETS -->
+
+        <article class="panel mission-board">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                MISSION BOARD
+              </span>
+
+              <h3 id="missionTitle">
+                Today's Targets
+              </h3>
+
+              <small id="missionSummary">
+                No targets yet.
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="target-list"
+            id="targetList"
+          ></div>
+
+        </article>
+
+
+
+        <div class="today-side">
+
+
+          <!-- PROTOCOL -->
+
+          <article class="panel protocol">
+
+            <div class="protocol-mode">
+
+              <span>
+                DAY PROTOCOL
+              </span>
+
+              <strong id="protocolMode">
+                DEEP
+              </strong>
+
+            </div>
+
+
+            <div
+              class="protocol-list"
+              id="protocolList"
+            ></div>
+
+
+            <div class="protocol-actions">
+
+              <button
+                class="action"
+                id="buildTodayButton"
+              >
+                BUILD PLAN
+              </button>
+
+              <button
+                class="action secondary"
+                id="endDayButton"
+              >
+                END DAY
+              </button>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- TIMER -->
+
+          <article class="panel focus-card">
+
+            <span class="day-chip">
+              FOCUS MODE
+            </span>
+
+            <h3>
+              Deep Work Timer
+            </h3>
+
+            <div
+              class="focus-target-name"
+              id="focusTargetName"
+            >
+              Select a target and press START FOCUS.
+            </div>
+
+
+            <div
+              class="focus-time"
+              id="focusTime"
+            >
+              00:00
+            </div>
+
+
+            <div class="focus-controls">
+
+              <button
+                class="mini-btn primary"
+                id="focusStart"
+              >
+                START
+              </button>
+
+              <button
+                class="mini-btn"
+                id="focusPause"
+              >
+                PAUSE
+              </button>
+
+              <button
+                class="mini-btn"
+                id="focusEnd"
+              >
+                END
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ROADMAP
+    =================================================== -->
+
+    <section
+      class="workspace"
+      data-workspace-view="roadmap"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            DIRECTION
+          </small>
+
+          <h2>
+            Learning Universe
+          </h2>
+
+          <p>
+            Not every skill is a current priority.
+            Explore the map without turning everything into “learn now”.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="roadmap-shell">
+
+
+        <div class="roadmap-canvas">
+
+          <div
+            class="roadmap-map"
+            id="roadmapMap"
+          >
+
+
+            <svg
+              class="roadmap-lines"
+              viewBox="0 0 1050 670"
+              preserveAspectRatio="none"
+            >
+
+              <path
+                class="road-edge"
+                data-from="java"
+                data-to="dsa"
+                d="M120 190 C190 190 235 190 305 190"
+              />
+
+              <path
+                class="road-edge"
+                data-from="dsa"
+                data-to="redis"
+                d="M350 210 C365 305 420 370 480 420"
+              />
+
+              <path
+                class="road-edge branch"
+                data-from="java"
+                data-to="backend"
+                d="M120 215 C170 315 225 355 315 405"
+              />
+
+              <path
+                class="road-edge branch"
+                data-from="backend"
+                data-to="system"
+                d="M360 410 C450 380 520 300 575 215"
+              />
+
+              <path
+                class="road-edge"
+                data-from="redis"
+                data-to="system"
+                d="M520 420 C570 365 590 300 590 215"
+              />
+
+              <path
+                class="road-edge"
+                data-from="system"
+                data-to="python"
+                d="M630 190 C690 190 725 190 780 190"
+              />
+
+              <path
+                class="road-edge"
+                data-from="python"
+                data-to="genai"
+                d="M815 190 C855 190 880 190 920 190"
+              />
+
+              <path
+                class="road-edge"
+                data-from="genai"
+                data-to="agentic"
+                d="M950 215 C930 300 890 350 850 420"
+              />
+
+              <path
+                class="road-edge branch"
+                data-from="hardware"
+                data-to="system"
+                d="M690 515 C660 400 620 300 605 220"
+              />
+
+            </svg>
+
+
+
+            <button
+              class="road-node selected"
+              data-road-node="java"
+              style="--x: 11%; --y: 29%;"
+            >
+
+              <small>
+                CURRENT FOUNDATION
+              </small>
+
+              <strong>
+                CORE JAVA
+              </strong>
+
+              <span>
+                ACTIVE
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node"
+              data-road-node="dsa"
+              style="--x: 32%; --y: 29%;"
+            >
+
+              <small>
+                PLACEMENT TRACK
+              </small>
+
+              <strong>
+                DSA IN JAVA
+              </strong>
+
+              <span>
+                NEXT
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node"
+              data-road-node="backend"
+              style="--x: 32%; --y: 61%;"
+            >
+
+              <small>
+                PARALLEL BUILD
+              </small>
+
+              <strong>
+                GROWTH MAP
+              </strong>
+
+              <span>
+                BACKEND
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node"
+              data-road-node="redis"
+              style="--x: 49%; --y: 66%;"
+            >
+
+              <small>
+                JAVA SYSTEMS
+              </small>
+
+              <strong>
+                MINI REDIS
+              </strong>
+
+              <span>
+                PROJECT
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node"
+              data-road-node="system"
+              style="--x: 58%; --y: 29%;"
+            >
+
+              <small>
+                ENGINEERING
+              </small>
+
+              <strong>
+                SYSTEM DESIGN
+              </strong>
+
+              <span>
+                LATER
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node support"
+              data-road-node="hardware"
+              style="--x: 66%; --y: 78%;"
+            >
+
+              <small>
+                SUPPORTING SKILL
+              </small>
+
+              <strong>
+                HARDWARE
+              </strong>
+
+              <span>
+                SIDE TRACK
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node future"
+              data-road-node="python"
+              style="--x: 76%; --y: 29%;"
+            >
+
+              <small>
+                FUTURE PHASE
+              </small>
+
+              <strong>
+                PYTHON
+              </strong>
+
+              <span>
+                FUTURE
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node future"
+              data-road-node="genai"
+              style="--x: 89%; --y: 29%;"
+            >
+
+              <small>
+                AI ENGINEERING
+              </small>
+
+              <strong>
+                GEN AI
+              </strong>
+
+              <span>
+                FUTURE
+              </span>
+
+            </button>
+
+
+
+            <button
+              class="road-node future"
+              data-road-node="agentic"
+              style="--x: 81%; --y: 66%;"
+            >
+
+              <small>
+                ADVANCED AI
+              </small>
+
+              <strong>
+                AGENTIC AI
+              </strong>
+
+              <span>
+                FUTURE
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+
+        <aside class="roadmap-inspector">
+
+          <span id="roadKicker">
+            CURRENT FOUNDATION
+          </span>
+
+          <h3 id="roadTitle">
+            Core Java
+          </h3>
+
+          <p id="roadDescription">
+            Your main programming foundation.
+          </p>
+
+
+          <div class="inspector-block">
+
+            <span>
+              WHY
+            </span>
+
+            <p id="roadWhy">
+              Builds the base for DSA,
+              backend and Java systems projects.
+            </p>
+
+          </div>
+
+
+          <div class="inspector-block">
+
+            <span>
+              PREREQUISITES
+            </span>
+
+            <p id="roadPrerequisites">
+              Start here.
+            </p>
+
+          </div>
+
+
+          <div class="inspector-block">
+
+            <span>
+              UNLOCKS
+            </span>
+
+            <div
+              class="road-tags"
+              id="roadUnlocks"
+            ></div>
+
+          </div>
+
+
+          <div class="inspector-block">
+
+            <span>
+              CURRENT TOPIC
+            </span>
+
+            <p id="roadCurrentTopic">
+              Set from your active playlist.
+            </p>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LEARN
+    =================================================== -->
+
+    <section
+      class="workspace"
+      data-workspace-view="learn"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            LEARNING INPUT
+          </small>
+
+          <h2>
+            Playlist Cockpit
+          </h2>
+
+          <p>
+            Courses and playlists should tell you
+            exactly where you stopped and where to continue.
+          </p>
+
+        </div>
+
+
+        <button
+          class="action"
+          id="addPlaylistButton"
+        >
+          + ADD PLAYLIST
+        </button>
+
+      </div>
+
+
+      <div
+        class="playlist-grid"
+        id="playlistGrid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PRACTICE
+    =================================================== -->
+
+    <section
+      class="workspace"
+      data-workspace-view="practice"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            OUTPUT
+          </small>
+
+          <h2>
+            Practice Arena
+          </h2>
+
+          <p>
+            Track programs and coding problems you actually solved.
+          </p>
+
+        </div>
+
+
+        <button
+          class="action"
+          id="addProblemButton"
+        >
+          + ADD PROBLEM
+        </button>
+
+      </div>
+
+
+      <div class="two-column">
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                CODING
+              </span>
+
+              <h3>
+                Problems Solved
+              </h3>
+
+              <small id="problemSummary">
+                0 problems
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="item-list"
+            id="problemList"
+          ></div>
+
+        </article>
+
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                PROOF OF LEARNING
+              </span>
+
+              <h3>
+                What counts?
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="item-list">
+
+            <div class="simple-item">
+              <div>
+                <strong>
+                  CODE
+                </strong>
+                <small>
+                  Write your own example.
+                </small>
+              </div>
+            </div>
+
+            <div class="simple-item">
+              <div>
+                <strong>
+                  SOLVE
+                </strong>
+                <small>
+                  Apply the concept without copying.
+                </small>
+              </div>
+            </div>
+
+            <div class="simple-item">
+              <div>
+                <strong>
+                  EXPLAIN
+                </strong>
+                <small>
+                  Explain it in your own words.
+                </small>
+              </div>
+            </div>
+
+            <div class="simple-item">
+              <div>
+                <strong>
+                  REVISE
+                </strong>
+                <small>
+                  Return before you forget it.
+                </small>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         VAULT
+    =================================================== -->
+
+    <section
+      class="workspace"
+      data-workspace-view="vault"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            SECOND BRAIN
+          </small>
+
+          <h2>
+            Knowledge Vault
+          </h2>
+
+          <p>
+            Notes, doubts and resources belong here —
+            not scattered across random tabs.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="two-column">
+
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                NOTES
+              </span>
+
+              <h3>
+                Knowledge Notes
+              </h3>
+
+            </div>
+
+            <button
+              class="mini-btn primary"
+              id="addNoteButton"
+            >
+              + NOTE
+            </button>
+
+          </div>
+
+
+          <div
+            class="item-list"
+            id="noteList"
+          ></div>
+
+        </article>
+
+
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                CONFUSION INBOX
+              </span>
+
+              <h3>
+                Doubts
+              </h3>
+
+            </div>
+
+            <button
+              class="mini-btn primary"
+              id="addDoubtButton"
+            >
+              + DOUBT
+            </button>
+
+          </div>
+
+
+          <div
+            class="item-list"
+            id="doubtList"
+          ></div>
+
+        </article>
+
+
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                SAVED MATERIAL
+              </span>
+
+              <h3>
+                Resources
+              </h3>
+
+            </div>
+
+            <button
+              class="mini-btn primary"
+              id="addResourceButton"
+            >
+              + RESOURCE
+            </button>
+
+          </div>
+
+
+          <div
+            class="item-list"
+            id="resourceList"
+          ></div>
+
+        </article>
+
+
+
+        <article class="panel list-panel">
+
+          <div class="panel-title">
+
+            <div>
+
+              <span>
+                LEARNING INBOX
+              </span>
+
+              <h3>
+                Not Now ≠ Never
+              </h3>
+
+              <small>
+                Park future skills instead of changing your roadmap every week.
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="item-list">
+
+            <div class="simple-item">
+              <div>
+                <strong>
+                  Future skill appears?
+                </strong>
+                <small>
+                  Save it as a note/resource and revisit during weekly review.
+                </small>
+              </div>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         REVIEW
+    =================================================== -->
+
+    <section
+      class="workspace"
+      data-workspace-view="review"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            WEEKLY SYSTEM
+          </small>
+
+          <h2>
+            Weekly Flight Plan
+          </h2>
+
+          <p>
+            Your timetable should guide execution,
+            not just sit on the page as decoration.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="week-grid"
+        id="weekGrid"
+      ></div>
+
+
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            REAL DATA
+          </small>
+
+          <h2>
+            This Week
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="analytics-grid">
+
+        <article class="metric">
+
+          <span>
+            FOCUS TIME
+          </span>
+
+          <strong id="weekFocusMetric">
+            0m
+          </strong>
+
+          <small>
+            Recorded from Focus Mode
+          </small>
+
+        </article>
+
+
+        <article class="metric">
+
+          <span>
+            TARGETS
+          </span>
+
+          <strong id="weekTargetMetric">
+            0 / 0
+          </strong>
+
+          <small>
+            Completed this week
+          </small>
+
+        </article>
+
+
+        <article class="metric">
+
+          <span>
+            PROBLEMS
+          </span>
+
+          <strong id="weekProblemMetric">
+            0
+          </strong>
+
+          <small>
+            Coding outputs
+          </small>
+
+        </article>
+
+
+        <article class="metric">
+
+          <span>
+            ACTIVE COURSE
+          </span>
+
+          <strong id="weekCourseMetric">
+            —
+          </strong>
+
+          <small>
+            Current learning input
+          </small>
+
+        </article>
+
+      </div>
+
+
+
+      <div class="section-head">
+
+        <div>
+
+          <small>
+            REFLECTION
+          </small>
+
+          <h2>
+            Close the Loop
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="reflection-grid">
+
+        <article class="reflection">
+
+          <span>
+            BIGGEST WIN
+          </span>
+
+          <textarea
+            id="weekWin"
+            placeholder="What moved forward?"
+          ></textarea>
+
+        </article>
+
+
+        <article class="reflection">
+
+          <span>
+            BLOCKER
+          </span>
+
+          <textarea
+            id="weekBlocker"
+            placeholder="What slowed you down?"
+          ></textarea>
+
+        </article>
+
+
+        <article class="reflection">
+
+          <span>
+            NEXT WEEK
+          </span>
+
+          <textarea
+            id="weekNext"
+            placeholder="What matters next?"
+          ></textarea>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       MODAL
+  ====================================================== -->
+
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+  >
+
+    <div class="modal">
+
+      <div class="modal-head">
+
+        <div>
+
+          <span id="modalKicker">
+            ADD
+          </span>
+
+          <h2 id="modalTitle">
+            New Item
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="modalClose"
+        >
+          CLOSE
+        </button>
+
+      </div>
+
+
+      <div
+        class="modal-body"
+        id="modalBody"
+      ></div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="action secondary"
+          id="modalCancel"
+        >
+          CANCEL
+        </button>
+
+        <button
+          class="action"
+          id="modalSave"
+        >
+          SAVE
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<script>
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ =
+  selector =>
+    document.querySelector(selector);
+
+
+const $$ =
+  selector =>
+    [...document.querySelectorAll(selector)];
+
+
+const STORE = {
+
+  targets:
+    "growthMapStudyTargetsV2",
+
+  sessions:
+    "growthMapStudyFocusSessionsV2",
+
+  playlists:
+    "growthMapLearningTracksV1",
+
+  problems:
+    "growthMapCodingProblemsV1",
+
+  notes:
+    "growthMapStudyKnowledgeV1",
+
+  doubts:
+    "growthMapStudyDoubtsV1",
+
+  resources:
+    "growthMapStudyResourcesV1",
+
+  review:
+    "growthMapStudyWeeklyReflectionV3"
+
+};
+
+
+function load(
+  key,
+  fallback
+) {
+
+  try {
+
+    const raw =
+      localStorage.getItem(
+        key
+      );
+
+    if (
+      raw === null
+    ) {
+
+      return fallback;
+
+    }
+
+    return (
+      JSON.parse(
+        raw
+      ) ?? fallback
+    );
+
+  }
+
+  catch {
+
+    return fallback;
+
+  }
+
+}
+
+
+function save(
+  key,
+  value
+) {
+
+  localStorage.setItem(
+    key,
+    JSON.stringify(
+      value
+    )
+  );
+
+}
+
+
+function uid(
+  prefix = "item"
+) {
+
+  return (
+    prefix +
+    "-" +
+    Date.now() +
+    "-" +
+    Math.random()
+      .toString(16)
+      .slice(2)
+  );
+
+}
+
+
+function escapeHTML(
+  value = ""
+) {
+
+  return String(value)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+function dateKey(
+  date = new Date()
+) {
+
+  const year =
+    date.getFullYear();
+
+  const month =
+    String(
+      date.getMonth() + 1
+    )
+      .padStart(
+        2,
+        "0"
+      );
+
+  const day =
+    String(
+      date.getDate()
+    )
+      .padStart(
+        2,
+        "0"
+      );
+
+  return (
+    `${year}-${month}-${day}`
+  );
+
+}
+
+
+function dateFromKey(
+  key
+) {
+
+  const [
+    y,
+    m,
+    d
+  ] =
+    key
+      .split("-")
+      .map(Number);
+
+  return new Date(
+    y,
+    m - 1,
+    d
+  );
+
+}
+
+
+function addDays(
+  key,
+  amount
+) {
+
+  const date =
+    dateFromKey(
+      key
+    );
+
+  date.setDate(
+    date.getDate() +
+    amount
+  );
+
+  return dateKey(
+    date
+  );
+
+}
+
+
+function startOfWeek(
+  date = new Date()
+) {
+
+  const copy =
+    new Date(
+      date
+    );
+
+  copy.setHours(
+    0,
+    0,
+    0,
+    0
+  );
+
+  const day =
+    copy.getDay();
+
+  const diff =
+    day === 0
+      ? -6
+      : 1 - day;
+
+  copy.setDate(
+    copy.getDate() +
+    diff
+  );
+
+  return copy;
+
+}
+
+
+function sameWeek(
+  key
+) {
+
+  const date =
+    dateFromKey(
+      key
+    );
+
+  const start =
+    startOfWeek();
+
+  const end =
+    new Date(
+      start
+    );
+
+  end.setDate(
+    end.getDate() +
+    7
+  );
+
+  return (
+    date >= start &&
+    date < end
+  );
+
+}
+
+
+function formatMinutes(
+  minutes
+) {
+
+  minutes =
+    Math.max(
+      0,
+      Math.round(
+        Number(minutes) || 0
+      )
+    );
+
+  const hours =
+    Math.floor(
+      minutes / 60
+    );
+
+  const mins =
+    minutes % 60;
+
+  if (!hours) {
+
+    return (
+      `${mins}m`
+    );
+
+  }
+
+  return (
+    `${hours}h ${mins}m`
+  );
+
+}
+
+
+
+/* =========================================================
+   WEEKLY PROTOCOL
+========================================================= */
+
+const WEEK_PROTOCOL = {
+
+  0: {
+
+    name:
+      "SUNDAY",
+
+    type:
+      "DEEP + REVIEW",
+
+    description:
+      "Build, revise and close the week properly.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "1–1.5h"
+      },
+
+      {
+        title:
+          "Growth Map Backend",
+
+        time:
+          "2h"
+      },
+
+      {
+        title:
+          "Hardware Basics",
+
+        time:
+          "1h"
+      },
+
+      {
+        title:
+          "Weekly Revision",
+
+        time:
+          "45m"
+      },
+
+      {
+        title:
+          "Next Week Plan",
+
+        time:
+          "15m"
+      }
+
+    ]
+
+  },
+
+
+  1: {
+
+    name:
+      "MONDAY",
+
+    type:
+      "LIGHT",
+
+    description:
+      "College day. Maintain momentum without overload.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "45–60m"
+      },
+
+      {
+        title:
+          "Coding Practice",
+
+        time:
+          "1–2 questions"
+      }
+
+    ]
+
+  },
+
+
+  2: {
+
+    name:
+      "TUESDAY",
+
+    type:
+      "DEEP",
+
+    description:
+      "Holiday. Push the main learning and build tracks.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "2h"
+      },
+
+      {
+        title:
+          "Java Practice",
+
+        time:
+          "1–1.5h"
+      },
+
+      {
+        title:
+          "Growth Map Backend",
+
+        time:
+          "2h"
+      }
+
+    ]
+
+  },
+
+
+  3: {
+
+    name:
+      "WEDNESDAY",
+
+    type:
+      "LIGHT",
+
+    description:
+      "College day. Protect consistency.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "45–60m"
+      },
+
+      {
+        title:
+          "Coding Practice",
+
+        time:
+          "1–2 questions"
+      }
+
+    ]
+
+  },
+
+
+  4: {
+
+    name:
+      "THURSDAY",
+
+    type:
+      "LIGHT",
+
+    description:
+      "College day. Small meaningful progress.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "45–60m"
+      },
+
+      {
+        title:
+          "Coding Practice",
+
+        time:
+          "1–2 questions"
+      }
+
+    ]
+
+  },
+
+
+  5: {
+
+    name:
+      "FRIDAY",
+
+    type:
+      "MEDIUM",
+
+    description:
+      "Half day. Use the extra space for one build block.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "1–1.5h"
+      },
+
+      {
+        title:
+          "Java Practice",
+
+        time:
+          "45–60m"
+      },
+
+      {
+        title:
+          "Growth Map Backend",
+
+        time:
+          "1–1.5h"
+      }
+
+    ]
+
+  },
+
+
+  6: {
+
+    name:
+      "SATURDAY",
+
+    type:
+      "DEEP",
+
+    description:
+      "Holiday. Long focused learning and building.",
+
+    items: [
+
+      {
+        title:
+          "Core Java",
+
+        time:
+          "1.5–2h"
+      },
+
+      {
+        title:
+          "Java Practice",
+
+        time:
+          "1–1.5h"
+      },
+
+      {
+        title:
+          "Growth Map Backend",
+
+        time:
+          "2–3h"
+      }
+
+    ]
+
+  }
+
+};
+
+
+
+/* =========================================================
+   WORKSPACES
+========================================================= */
+
+$$(
+  ".workspace-button"
+)
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const name =
+            button.dataset
+              .workspace;
+
+          $$(".workspace-button")
+            .forEach(
+              item =>
+                item.classList
+                  .toggle(
+                    "active",
+                    item === button
+                  )
+            );
+
+          $$(
+            "[data-workspace-view]"
+          )
+            .forEach(
+              view =>
+                view.classList
+                  .toggle(
+                    "active",
+                    view.dataset
+                      .workspaceView ===
+                      name
+                  )
+            );
+
+          if (
+            name === "review"
+          ) {
+
+            renderReview();
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+
+/* =========================================================
+   DATE + DAY MODE
+========================================================= */
+
+function renderDay() {
+
+  const now =
+    new Date();
+
+  const protocol =
+    WEEK_PROTOCOL[
+      now.getDay()
+    ];
+
+  $("#heroDay")
+    .textContent =
+      protocol.name;
+
+  $("#heroDate")
+    .textContent =
+      now
+        .toLocaleDateString(
+          "en-US",
+          {
+            day:
+              "2-digit",
+
+            month:
+              "long"
+          }
+        )
+        .toUpperCase();
+
+  $("#dayModeChip")
+    .textContent =
+      `${protocol.type} DAY`;
+
+  $("#protocolMode")
+    .textContent =
+      protocol.type;
+
+  $("#heroDescription")
+    .textContent =
+      protocol.description;
+
+}
+
+
+
+/* =========================================================
+   TARGETS
+========================================================= */
+
+function getTargets() {
+
+  return load(
+    STORE.targets,
+    []
+  );
+
+}
+
+
+function setTargets(
+  targets
+) {
+
+  save(
+    STORE.targets,
+    targets
+  );
+
+}
+
+
+function todayTargets() {
+
+  const today =
+    dateKey();
+
+  return getTargets()
+    .filter(
+      target =>
+        target.date ===
+        today
+    );
+
+}
+
+
+function buildTodayPlan() {
+
+  const protocol =
+    WEEK_PROTOCOL[
+      new Date()
+        .getDay()
+    ];
+
+  const targets =
+    getTargets();
+
+  const today =
+    dateKey();
+
+  let added =
+    0;
+
+  protocol.items
+    .forEach(
+      item => {
+
+        const exists =
+          targets.some(
+            target =>
+              target.date ===
+                today &&
+              target.title
+                .toLowerCase() ===
+              item.title
+                .toLowerCase()
+          );
+
+        if (exists) {
+
+          return;
+
+        }
+
+        targets.push({
+
+          id:
+            uid(
+              "target"
+            ),
+
+          date:
+            today,
+
+          title:
+            item.title,
+
+          category:
+            item.title,
+
+          targetTime:
+            item.time,
+
+          output:
+            "",
+
+          done:
+            false,
+
+          actualMinutes:
+            0,
+
+          createdAt:
+            new Date()
+              .toISOString()
+
+        });
+
+        added +=
+          1;
+
+      }
+    );
+
+  setTargets(
+    targets
+  );
+
+  renderTargets();
+
+  if (!added) {
+
+    alert(
+      "Today's protocol is already on your mission board."
+    );
+
+  }
+
+}
+
+
+function renderTargets() {
+
+  const list =
+    $("#targetList");
+
+  const targets =
+    todayTargets();
+
+  const completed =
+    targets.filter(
+      target =>
+        target.done
+    )
+      .length;
+
+  const total =
+    targets.length;
+
+  const percentage =
+    total
+      ? Math.round(
+          (
+            completed /
+            total
+          ) *
+          100
+        )
+      : 0;
+
+
+  $("#heroProgressLabel")
+    .textContent =
+      `${completed} / ${total}`;
+
+  $("#todayProgressPercent")
+    .textContent =
+      `${percentage}%`;
+
+  $("#todayProgressRing")
+    .style.background =
+      `conic-gradient(
+        var(--peach-light) 0deg,
+        var(--peach-light) ${percentage * 3.6}deg,
+        rgba(255,255,255,.08) ${percentage * 3.6}deg
+      )`;
+
+  $("#missionSummary")
+    .textContent =
+      total
+        ? `${completed} of ${total} targets completed`
+        : "No targets yet.";
+
+
+  if (
+    !targets.length
+  ) {
+
+    list.innerHTML = `
+
+      <div class="empty">
+
+        No missions yet.
+
+        <br><br>
+
+        Press BUILD PLAN to create today's
+        targets from your weekly protocol.
+
+      </div>
+
+    `;
+
+    renderReview();
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    targets
+
+      .map(
+        target => `
+
+          <div
+            class="
+              target
+              ${target.done
+                ? "done"
+                : ""}
+            "
+          >
+
+            <button
+              class="
+                target-check
+                ${target.done
+                  ? "checked"
+                  : ""}
+              "
+              data-target-toggle="${target.id}"
+            >
+              ${target.done
+                ? "✓"
+                : ""}
+            </button>
+
+
+            <div class="target-copy">
+
+              <span>
+                ${escapeHTML(
+                  String(
+                    target.category ||
+                    "STUDY"
+                  )
+                    .toUpperCase()
+                )}
+              </span>
+
+              <h4>
+                ${escapeHTML(
+                  target.title
+                )}
+              </h4>
+
+              <p>
+
+                TARGET:
+                ${escapeHTML(
+                  target.targetTime ||
+                  "No time target"
+                )}
+
+                ${
+                  target.actualMinutes
+                    ? ` · ACTUAL: ${formatMinutes(
+                        target.actualMinutes
+                      )}`
+                    : ""
+                }
+
+              </p>
+
+              ${
+                target.output
+
+                  ? `
+
+                    <p class="target-output">
+
+                      OUTPUT:
+                      ${escapeHTML(
+                        target.output
+                      )}
+
+                    </p>
+
+                  `
+
+                  : ""
+              }
+
+            </div>
+
+
+            <div class="target-actions">
+
+              ${
+                !target.done
+
+                  ? `
+
+                    <button
+                      class="mini-btn primary"
+                      data-target-focus="${target.id}"
+                    >
+                      START FOCUS
+                    </button>
+
+                  `
+
+                  : ""
+              }
+
+              <button
+                class="mini-btn"
+                data-target-edit="${target.id}"
+              >
+                EDIT
+              </button>
+
+            </div>
+
+          </div>
+
+        `
+      )
+
+      .join("");
+
+
+  renderReview();
+
+}
+
+
+$("#targetList")
+  .addEventListener(
+    "click",
+    event => {
+
+      const toggle =
+        event.target.closest(
+          "[data-target-toggle]"
+        );
+
+      const focus =
+        event.target.closest(
+          "[data-target-focus]"
+        );
+
+      const edit =
+        event.target.closest(
+          "[data-target-edit]"
+        );
+
+
+      if (toggle) {
+
+        const targets =
+          getTargets();
+
+        const item =
+          targets.find(
+            target =>
+              target.id ===
+              toggle.dataset
+                .targetToggle
+          );
+
+        if (item) {
+
+          item.done =
+            !item.done;
+
+          item.completedAt =
+            item.done
+              ? new Date()
+                  .toISOString()
+              : null;
+
+          setTargets(
+            targets
+          );
+
+          renderTargets();
+
+        }
+
+      }
+
+
+      if (focus) {
+
+        selectFocusTarget(
+          focus.dataset
+            .targetFocus
+        );
+
+      }
+
+
+      if (edit) {
+
+        openTargetModal(
+          edit.dataset
+            .targetEdit
+        );
+
+      }
+
+    }
+  );
+
+
+
+/* =========================================================
+   MODAL SYSTEM
+========================================================= */
+
+let modalSaveHandler =
+  null;
+
+
+function openModal(
+  kicker,
+  title,
+  body,
+  onSave
+) {
+
+  $("#modalKicker")
+    .textContent =
+      kicker;
+
+  $("#modalTitle")
+    .textContent =
+      title;
+
+  $("#modalBody")
+    .innerHTML =
+      body;
+
+  modalSaveHandler =
+    onSave;
+
+  $("#modalOverlay")
+    .classList
+    .add(
+      "open"
+    );
+
+}
+
+
+function closeModal() {
+
+  $("#modalOverlay")
+    .classList
+    .remove(
+      "open"
+    );
+
+  $("#modalBody")
+    .innerHTML =
+      "";
+
+  modalSaveHandler =
+    null;
+
+}
+
+
+$("#modalClose")
+  .onclick =
+    closeModal;
+
+
+$("#modalCancel")
+  .onclick =
+    closeModal;
+
+
+$("#modalSave")
+  .onclick =
+    () => {
+
+      modalSaveHandler?.();
+
+    };
+
+
+$("#modalOverlay")
+  .addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target.id ===
+        "modalOverlay"
+      ) {
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+function inputField(
+  label,
+  id,
+  value = "",
+  placeholder = ""
+) {
+
+  return `
+
+    <label>
+
+      ${label}
+
+      <input
+        id="${id}"
+        value="${escapeHTML(value)}"
+        placeholder="${escapeHTML(placeholder)}"
+      >
+
+    </label>
+
+  `;
+
+}
+
+
+function textareaField(
+  label,
+  id,
+  value = "",
+  placeholder = ""
+) {
+
+  return `
+
+    <label>
+
+      ${label}
+
+      <textarea
+        id="${id}"
+        placeholder="${escapeHTML(placeholder)}"
+      >${escapeHTML(value)}</textarea>
+
+    </label>
+
+  `;
+
+}
+
+
+
+/* =========================================================
+   ADD / EDIT TARGET
+========================================================= */
+
+function openTargetModal(
+  id = null
+) {
+
+  const targets =
+    getTargets();
+
+  const item =
+    id
+      ? targets.find(
+          target =>
+            target.id ===
+            id
+        )
+      : null;
+
+
+  openModal(
+
+    item
+      ? "EDIT MISSION"
+      : "NEW MISSION",
+
+    item
+      ? "Edit Target"
+      : "Add Today's Target",
+
+    inputField(
+      "TARGET",
+      "mTargetTitle",
+      item?.title || "",
+      "Core Java — Interfaces"
+    )
+
+    +
+
+    inputField(
+      "CATEGORY",
+      "mTargetCategory",
+      item?.category || "",
+      "Java / Backend / Practice"
+    )
+
+    +
+
+    inputField(
+      "TARGET TIME",
+      "mTargetTime",
+      item?.targetTime || "",
+      "90 min"
+    )
+
+    +
+
+    textareaField(
+      "EXPECTED OUTPUT",
+      "mTargetOutput",
+      item?.output || "",
+      "3 programs + own notes"
+    ),
+
+    () => {
+
+      const title =
+        $("#mTargetTitle")
+          .value
+          .trim();
+
+      if (!title) {
+
+        return alert(
+          "Target is required."
+        );
+
+      }
+
+
+      if (item) {
+
+        item.title =
+          title;
+
+        item.category =
+          $("#mTargetCategory")
+            .value
+            .trim();
+
+        item.targetTime =
+          $("#mTargetTime")
+            .value
+            .trim();
+
+        item.output =
+          $("#mTargetOutput")
+            .value
+            .trim();
+
+      }
+
+      else {
+
+        targets.push({
+
+          id:
+            uid(
+              "target"
+            ),
+
+          date:
+            dateKey(),
+
+          title,
+
+          category:
+            $("#mTargetCategory")
+              .value
+              .trim(),
+
+          targetTime:
+            $("#mTargetTime")
+              .value
+              .trim(),
+
+          output:
+            $("#mTargetOutput")
+              .value
+              .trim(),
+
+          actualMinutes:
+            0,
+
+          done:
+            false,
+
+          createdAt:
+            new Date()
+              .toISOString()
+
+        });
+
+      }
+
+      setTargets(
+        targets
+      );
+
+      closeModal();
+
+      renderTargets();
+
+    }
+
+  );
+
+}
+
+
+$("#addTargetButton")
+  .onclick =
+    () =>
+      openTargetModal();
+
+
+$("#buildTodayButton")
+  .onclick =
+    buildTodayPlan;
+
+
+
+/* =========================================================
+   END DAY
+========================================================= */
+
+$("#endDayButton")
+  .onclick =
+    () => {
+
+      const targets =
+        todayTargets();
+
+      const completed =
+        targets.filter(
+          target =>
+            target.done
+        );
+
+      const pending =
+        targets.filter(
+          target =>
+            !target.done
+        );
+
+      const minutes =
+        targets.reduce(
+          (
+            sum,
+            item
+          ) =>
+            sum +
+            Number(
+              item.actualMinutes ||
+              0
+            ),
+          0
+        );
+
+
+      openModal(
+
+        "DAY REVIEW",
+
+        "Close Today",
+
+        `
+
+          <div class="simple-item">
+
+            <div>
+
+              <strong>
+
+                ${completed.length}
+                /
+                ${targets.length}
+                targets completed
+
+              </strong>
+
+              <small>
+
+                ${formatMinutes(
+                  minutes
+                )}
+                focused
+
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="simple-item">
+
+            <div>
+
+              <strong>
+
+                ${pending.length}
+                pending
+
+              </strong>
+
+              <small>
+
+                SAVE will move all pending targets
+                to tomorrow.
+
+              </small>
+
+            </div>
+
+          </div>
+
+        `,
+
+        () => {
+
+          if (
+            !pending.length
+          ) {
+
+            closeModal();
+
+            return;
+
+          }
+
+
+          const all =
+            getTargets();
+
+          const tomorrow =
+            addDays(
+              dateKey(),
+              1
+            );
+
+
+          pending.forEach(
+            item => {
+
+              const original =
+                all.find(
+                  target =>
+                    target.id ===
+                    item.id
+                );
+
+              if (original) {
+
+                original.date =
+                  tomorrow;
+
+              }
+
+            }
+          );
+
+
+          setTargets(
+            all
+          );
+
+          closeModal();
+
+          renderTargets();
+
+        }
+
+      );
+
+    };
+
+
+
+/* =========================================================
+   FOCUS TIMER
+========================================================= */
+
+let activeFocusTarget =
+  null;
+
+let focusSeconds =
+  0;
+
+let focusStartedAt =
+  null;
+
+let focusInterval =
+  null;
+
+
+function selectFocusTarget(
+  id
+) {
+
+  const target =
+    getTargets()
+      .find(
+        item =>
+          item.id ===
+          id
+      );
+
+  if (!target) {
+
+    return;
+
+  }
+
+  activeFocusTarget =
+    id;
+
+  focusSeconds =
+    0;
+
+  focusStartedAt =
+    null;
+
+  clearInterval(
+    focusInterval
+  );
+
+  focusInterval =
+    null;
+
+  $("#focusTargetName")
+    .textContent =
+      target.title;
+
+  renderFocusTime();
+
+  $(".focus-card")
+    .scrollIntoView(
+      {
+        behavior:
+          "smooth",
+
+        block:
+          "center"
+      }
+    );
+
+}
+
+
+function renderFocusTime() {
+
+  const minutes =
+    Math.floor(
+      focusSeconds /
+      60
+    );
+
+  const seconds =
+    focusSeconds %
+    60;
+
+  $("#focusTime")
+    .textContent =
+      `${
+        String(
+          minutes
+        )
+          .padStart(
+            2,
+            "0"
+          )
+      }:${
+        String(
+          seconds
+        )
+          .padStart(
+            2,
+            "0"
+          )
+      }`;
+
+}
+
+
+$("#focusStart")
+  .onclick =
+    () => {
+
+      if (
+        !activeFocusTarget
+      ) {
+
+        return alert(
+          "Press START FOCUS on one of today's targets first."
+        );
+
+      }
+
+      if (
+        focusInterval
+      ) {
+
+        return;
+
+      }
+
+      focusStartedAt =
+        Date.now() -
+        focusSeconds *
+        1000;
+
+      focusInterval =
+        setInterval(
+          () => {
+
+            focusSeconds =
+              Math.floor(
+                (
+                  Date.now() -
+                  focusStartedAt
+                ) /
+                1000
+              );
+
+            renderFocusTime();
+
+          },
+          1000
+        );
+
+    };
+
+
+$("#focusPause")
+  .onclick =
+    () => {
+
+      clearInterval(
+        focusInterval
+      );
+
+      focusInterval =
+        null;
+
+    };
+
+
+$("#focusEnd")
+  .onclick =
+    () => {
+
+      if (
+        !activeFocusTarget
+      ) {
+
+        return;
+
+      }
+
+      clearInterval(
+        focusInterval
+      );
+
+      focusInterval =
+        null;
+
+
+      const minutes =
+        Math.max(
+          1,
+          Math.round(
+            focusSeconds /
+            60
+          )
+        );
+
+
+      const targets =
+        getTargets();
+
+      const target =
+        targets.find(
+          item =>
+            item.id ===
+            activeFocusTarget
+        );
+
+
+      if (target) {
+
+        target.actualMinutes =
+          Number(
+            target.actualMinutes ||
+            0
+          ) +
+          minutes;
+
+      }
+
+
+      setTargets(
+        targets
+      );
+
+
+      const sessions =
+        load(
+          STORE.sessions,
+          []
+        );
+
+
+      sessions.push({
+
+        id:
+          uid(
+            "session"
+          ),
+
+        targetId:
+          activeFocusTarget,
+
+        title:
+          target?.title ||
+          "Study",
+
+        minutes,
+
+        date:
+          dateKey(),
+
+        createdAt:
+          new Date()
+            .toISOString()
+
+      });
+
+
+      save(
+        STORE.sessions,
+        sessions
+      );
+
+
+      activeFocusTarget =
+        null;
+
+      focusSeconds =
+        0;
+
+      $("#focusTargetName")
+        .textContent =
+          "Session saved.";
+
+      renderFocusTime();
+
+      renderTargets();
+
+    };
+
+
+
+/* =========================================================
+   ROADMAP
+========================================================= */
+
+const ROADMAP = {
+
+  java: {
+
+    kicker:
+      "CURRENT FOUNDATION",
+
+    title:
+      "Core Java",
+
+    description:
+      "Your main programming foundation.",
+
+    why:
+      "Builds the base required for DSA, Spring Boot backend and Java systems projects.",
+
+    prerequisites:
+      "Start here.",
+
+    unlocks: [
+      "DSA",
+      "Spring Boot",
+      "Mini Redis"
+    ]
+
+  },
+
+
+  dsa: {
+
+    kicker:
+      "PLACEMENT TRACK",
+
+    title:
+      "DSA in Java",
+
+    description:
+      "Your long-running problem solving track.",
+
+    why:
+      "Builds algorithmic thinking and placement readiness.",
+
+    prerequisites:
+      "Comfortable Core Java foundation.",
+
+    unlocks: [
+      "LeetCode",
+      "Interviews",
+      "Problem Solving"
+    ]
+
+  },
+
+
+  backend: {
+
+    kicker:
+      "PARALLEL BUILD",
+
+    title:
+      "Growth Map Backend",
+
+    description:
+      "Learn backend by solving your own persistence problem.",
+
+    why:
+      "Connects Java with REST APIs, PostgreSQL and real application architecture.",
+
+    prerequisites:
+      "Basic Java. Learn Spring concepts while building.",
+
+    unlocks: [
+      "REST APIs",
+      "PostgreSQL",
+      "Backend Engineering"
+    ]
+
+  },
+
+
+  redis: {
+
+    kicker:
+      "JAVA SYSTEMS PROJECT",
+
+    title:
+      "Mini Redis",
+
+    description:
+      "A Java engineering project that becomes deeper as your knowledge grows.",
+
+    why:
+      "Turns Collections, File I/O, sockets, threads and concurrency into a real system.",
+
+    prerequisites:
+      "Core Java + Collections + basic DSA.",
+
+    unlocks: [
+      "Networking",
+      "Concurrency",
+      "Caching"
+    ]
+
+  },
+
+
+  system: {
+
+    kicker:
+      "ENGINEERING LAYER",
+
+    title:
+      "System Design",
+
+    description:
+      "Understand how software systems are structured.",
+
+    why:
+      "Connects backend, database, caching, networking, scaling and reliability.",
+
+    prerequisites:
+      "Real project experience first.",
+
+    unlocks: [
+      "Architecture",
+      "Scalability",
+      "Distributed Systems"
+    ]
+
+  },
+
+
+  hardware: {
+
+    kicker:
+      "SUPPORTING SKILL",
+
+    title:
+      "Hardware Literacy",
+
+    description:
+      "A side skill for understanding hardware projects properly.",
+
+    why:
+      "Helps with GPIO, sensors, protocols, power and component selection.",
+
+    prerequisites:
+      "Independent supporting track.",
+
+    unlocks: [
+      "Sensors",
+      "Embedded Basics",
+      "Circuit Planning"
+    ]
+
+  },
+
+
+  python: {
+
+    kicker:
+      "FUTURE PHASE",
+
+    title:
+      "Python",
+
+    description:
+      "Your serious second language for AI.",
+
+    why:
+      "Python becomes the practical language for ML and modern AI development.",
+
+    prerequisites:
+      "Java-first phase stabilised.",
+
+    unlocks: [
+      "AI / ML",
+      "Data",
+      "GenAI"
+    ]
+
+  },
+
+
+  genai: {
+
+    kicker:
+      "AI ENGINEERING",
+
+    title:
+      "Generative AI",
+
+    description:
+      "Move from consuming AI to engineering with LLMs.",
+
+    why:
+      "Covers LLM APIs, embeddings, RAG, structured outputs and evaluation.",
+
+    prerequisites:
+      "Python + APIs + AI fundamentals.",
+
+    unlocks: [
+      "RAG",
+      "LLM Apps",
+      "Tool Calling"
+    ]
+
+  },
+
+
+  agentic: {
+
+    kicker:
+      "ADVANCED AI",
+
+    title:
+      "Agentic AI",
+
+    description:
+      "AI systems that can use tools and execute multi-step workflows.",
+
+    why:
+      "Moves beyond generating answers toward systems that perform actions.",
+
+    prerequisites:
+      "GenAI + APIs + tool calling.",
+
+    unlocks: [
+      "Agents",
+      "MCP",
+      "AI Workflows"
+    ]
+
+  }
+
+};
+
+
+function selectRoadNode(
+  id
+) {
+
+  const data =
+    ROADMAP[
+      id
+    ];
+
+  if (!data) {
+
+    return;
+
+  }
+
+
+  $$(".road-node")
+    .forEach(
+      node =>
+        node.classList
+          .toggle(
+            "selected",
+            node.dataset
+              .roadNode ===
+              id
+          )
+    );
+
+
+  $$(".road-edge")
+    .forEach(
+      edge => {
+
+        const connected =
+          edge.dataset
+            .from ===
+            id ||
+          edge.dataset
+            .to ===
+            id;
+
+        edge.classList
+          .toggle(
+            "active",
+            connected
+          );
+
+      }
+    );
+
+
+  $("#roadKicker")
+    .textContent =
+      data.kicker;
+
+  $("#roadTitle")
+    .textContent =
+      data.title;
+
+  $("#roadDescription")
+    .textContent =
+      data.description;
+
+  $("#roadWhy")
+    .textContent =
+      data.why;
+
+  $("#roadPrerequisites")
+    .textContent =
+      data.prerequisites;
+
+  $("#roadUnlocks")
+    .innerHTML =
+      data.unlocks
+
+        .map(
+          item => `
+
+            <span>
+              ${escapeHTML(
+                item
+              )}
+            </span>
+
+          `
+        )
+
+        .join("");
+
+
+  const playlists =
+    getPlaylists();
+
+  const active =
+    playlists.find(
+      item =>
+        String(
+          item.status
+        )
+          .toLowerCase() ===
+        "active"
+    );
+
+
+  $("#roadCurrentTopic")
+    .textContent =
+      id === "java" &&
+      active?.current
+
+        ? active.current
+
+        : id === "java"
+
+          ? "Add an active playlist in LEARN."
+
+          : "Not active right now.";
+
+}
+
+
+$$(
+  "[data-road-node]"
+)
+  .forEach(
+    node =>
+      node.addEventListener(
+        "click",
+        () =>
+          selectRoadNode(
+            node.dataset
+              .roadNode
+          )
+      )
+  );
+
+
+
+/* =========================================================
+   PLAYLISTS
+========================================================= */
+
+function getPlaylists() {
+
+  return load(
+    STORE.playlists,
+    []
+  );
+
+}
+
+
+function setPlaylists(
+  value
+) {
+
+  save(
+    STORE.playlists,
+    value
+  );
+
+}
+
+
+function renderPlaylists() {
+
+  const grid =
+    $("#playlistGrid");
+
+  const items =
+    getPlaylists();
+
+
+  if (
+    !items.length
+  ) {
+
+    grid.innerHTML = `
+
+      <div
+        class="empty"
+        style="grid-column:1/-1;"
+      >
+
+        No playlists yet.
+
+        <br><br>
+
+        Add your current course or playlist.
+
+      </div>
+
+    `;
+
+    renderReview();
+
+    return;
+
+  }
+
+
+  grid.innerHTML =
+    items
+
+      .map(
+        item => {
+
+          const total =
+            Number(
+              item.total
+            ) || 0;
+
+          const completed =
+            Number(
+              item.completed
+            ) || 0;
+
+          const percentage =
+            total
+              ? Math.min(
+                  100,
+                  Math.round(
+                    completed /
+                    total *
+                    100
+                  )
+                )
+              : 0;
+
+          return `
+
+            <article class="playlist-card">
+
+              <span>
+
+                ${escapeHTML(
+                  String(
+                    item.status ||
+                    "ACTIVE"
+                  )
+                    .toUpperCase()
+                )}
+
+              </span>
+
+              <h3>
+                ${escapeHTML(
+                  item.title
+                )}
+              </h3>
+
+              <p>
+                ${escapeHTML(
+                  item.description ||
+                  item.teacher ||
+                  ""
+                )}
+              </p>
+
+
+              <div class="playlist-progress">
+
+                <div class="playlist-progress-head">
+
+                  <strong>
+                    ${completed}
+                    /
+                    ${total}
+                  </strong>
+
+                  <span>
+                    ${percentage}%
+                  </span>
+
+                </div>
+
+                <div class="bar">
+
+                  <span
+                    style="width:${percentage}%"
+                  ></span>
+
+                </div>
+
+              </div>
+
+
+              <div class="playlist-current">
+
+                <small>
+                  CURRENT
+                </small>
+
+                <strong>
+                  ${escapeHTML(
+                    item.current ||
+                    "Not set"
+                  )}
+                </strong>
+
+              </div>
+
+
+              <div class="playlist-actions">
+
+                ${
+                  item.playlist
+
+                    ? `
+
+                      <button
+                        class="mini-btn primary"
+                        data-playlist-open="${item.id}"
+                      >
+                        CONTINUE
+                      </button>
+
+                    `
+
+                    : ""
+                }
+
+                <button
+                  class="mini-btn"
+                  data-playlist-edit="${item.id}"
+                >
+                  EDIT
+                </button>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }
+      )
+
+      .join("");
+
+  renderReview();
+
+}
+
+
+function openPlaylistModal(
+  id = null
+) {
+
+  const items =
+    getPlaylists();
+
+  const existing =
+    id
+      ? items.find(
+          item =>
+            item.id ===
+            id
+        )
+      : null;
+
+
+  openModal(
+
+    existing
+      ? "EDIT COURSE"
+      : "NEW COURSE",
+
+    existing
+      ? "Edit Playlist"
+      : "Add Playlist",
+
+    inputField(
+      "PLAYLIST / COURSE",
+      "mPlaylistTitle",
+      existing?.title || "",
+      "Telusko Core Java"
+    )
+
+    +
+
+    inputField(
+      "TEACHER",
+      "mPlaylistTeacher",
+      existing?.teacher || "",
+      "Telusko"
+    )
+
+    +
+
+    inputField(
+      "TOTAL LESSONS",
+      "mPlaylistTotal",
+      existing?.total || "",
+      "95"
+    )
+
+    +
+
+    inputField(
+      "COMPLETED",
+      "mPlaylistCompleted",
+      existing?.completed || "",
+      "0"
+    )
+
+    +
+
+    inputField(
+      "CURRENT LESSON / TOPIC",
+      "mPlaylistCurrent",
+      existing?.current || "",
+      "Interfaces"
+    )
+
+    +
+
+    inputField(
+      "URL",
+      "mPlaylistUrl",
+      existing?.playlist || "",
+      "https://..."
+    ),
+
+    () => {
+
+      const title =
+        $("#mPlaylistTitle")
+          .value
+          .trim();
+
+      if (!title) {
+
+        return alert(
+          "Playlist name is required."
+        );
+
+      }
+
+
+      const data = {
+
+        id:
+          existing?.id ||
+          uid(
+            "playlist"
+          ),
+
+        title,
+
+        teacher:
+          $("#mPlaylistTeacher")
+            .value
+            .trim(),
+
+        description:
+          $("#mPlaylistTeacher")
+            .value
+            .trim(),
+
+        total:
+          Math.max(
+            0,
+            Number(
+              $("#mPlaylistTotal")
+                .value
+            ) || 0
+          ),
+
+        completed:
+          Math.max(
+            0,
+            Number(
+              $("#mPlaylistCompleted")
+                .value
+            ) || 0
+          ),
+
+        current:
+          $("#mPlaylistCurrent")
+            .value
+            .trim(),
+
+        playlist:
+          $("#mPlaylistUrl")
+            .value
+            .trim(),
+
+        status:
+          "Active"
+
+      };
+
+
+      if (existing) {
+
+        const index =
+          items.findIndex(
+            item =>
+              item.id ===
+              existing.id
+          );
+
+        items[index] =
+          data;
+
+      }
+
+      else {
+
+        items.unshift(
+          data
+        );
+
+      }
+
+
+      setPlaylists(
+        items
+      );
+
+      closeModal();
+
+      renderPlaylists();
+
+      selectRoadNode(
+        "java"
+      );
+
+    }
+
+  );
+
+}
+
+
+$("#addPlaylistButton")
+  .onclick =
+    () =>
+      openPlaylistModal();
+
+
+$("#playlistGrid")
+  .addEventListener(
+    "click",
+    event => {
+
+      const edit =
+        event.target.closest(
+          "[data-playlist-edit]"
+        );
+
+      const open =
+        event.target.closest(
+          "[data-playlist-open]"
+        );
+
+
+      if (edit) {
+
+        openPlaylistModal(
+          edit.dataset
+            .playlistEdit
+        );
+
+      }
+
+
+      if (open) {
+
+        const item =
+          getPlaylists()
+            .find(
+              playlist =>
+                playlist.id ===
+                open.dataset
+                  .playlistOpen
+            );
+
+        if (
+          item?.playlist
+        ) {
+
+          window.open(
+            item.playlist,
+            "_blank"
+          );
+
+        }
+
+      }
+
+    }
+  );
+
+
+
+/* =========================================================
+   PROBLEMS
+========================================================= */
+
+function getProblems() {
+
+  return load(
+    STORE.problems,
+    []
+  );
+
+}
+
+
+function renderProblems() {
+
+  const list =
+    $("#problemList");
+
+  const problems =
+    getProblems();
+
+  $("#problemSummary")
+    .textContent =
+      `${problems.length} problems`;
+
+
+  if (
+    !problems.length
+  ) {
+
+    list.innerHTML = `
+
+      <div class="empty">
+        No coding problems logged yet.
+      </div>
+
+    `;
+
+    renderReview();
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    problems
+
+      .map(
+        problem => `
+
+          <div class="simple-item">
+
+            <div>
+
+              <strong>
+                ${escapeHTML(
+                  problem.name
+                )}
+              </strong>
+
+              <small>
+
+                ${escapeHTML(
+                  problem.platform ||
+                  "Coding"
+                )}
+
+                ·
+
+                ${escapeHTML(
+                  problem.topic ||
+                  "General"
+                )}
+
+                ·
+
+                ${escapeHTML(
+                  problem.difficulty ||
+                  ""
+                )}
+
+              </small>
+
+            </div>
+
+            <button
+              class="item-remove"
+              data-problem-remove="${problem.id}"
+            >
+              REMOVE
+            </button>
+
+          </div>
+
+        `
+      )
+
+      .join("");
+
+  renderReview();
+
+}
+
+
+$("#addProblemButton")
+  .onclick =
+    () => {
+
+      openModal(
+
+        "PRACTICE",
+
+        "Add Coding Problem",
+
+        inputField(
+          "PROBLEM",
+          "mProblemName",
+          "",
+          "Two Sum"
+        )
+
+        +
+
+        inputField(
+          "PLATFORM",
+          "mProblemPlatform",
+          "",
+          "LeetCode"
+        )
+
+        +
+
+        inputField(
+          "TOPIC",
+          "mProblemTopic",
+          "",
+          "Arrays"
+        )
+
+        +
+
+        inputField(
+          "DIFFICULTY",
+          "mProblemDifficulty",
+          "",
+          "Easy"
+        ),
+
+        () => {
+
+          const name =
+            $("#mProblemName")
+              .value
+              .trim();
+
+          if (!name) {
+
+            return;
+
+          }
+
+          const problems =
+            getProblems();
+
+          problems.unshift({
+
+            id:
+              uid(
+                "problem"
+              ),
+
+            name,
+
+            platform:
+              $("#mProblemPlatform")
+                .value
+                .trim(),
+
+            topic:
+              $("#mProblemTopic")
+                .value
+                .trim(),
+
+            difficulty:
+              $("#mProblemDifficulty")
+                .value
+                .trim(),
+
+            date:
+              dateKey(),
+
+            createdAt:
+              new Date()
+                .toISOString()
+
+          });
+
+          save(
+            STORE.problems,
+            problems
+          );
+
+          closeModal();
+
+          renderProblems();
+
+        }
+
+      );
+
+    };
+
+
+$("#problemList")
+  .addEventListener(
+    "click",
+    event => {
+
+      const remove =
+        event.target.closest(
+          "[data-problem-remove]"
+        );
+
+      if (!remove) {
+
+        return;
+
+      }
+
+      save(
+        STORE.problems,
+
+        getProblems()
+          .filter(
+            item =>
+              item.id !==
+              remove.dataset
+                .problemRemove
+          )
+
+      );
+
+      renderProblems();
+
+    }
+  );
+
+
+
+/* =========================================================
+   VAULT GENERIC
+========================================================= */
+
+function renderVaultList(
+  key,
+  element,
+  titleField,
+  subField
+) {
+
+  const list =
+    $(element);
+
+  const items =
+    load(
+      key,
+      []
+    );
+
+
+  if (
+    !items.length
+  ) {
+
+    list.innerHTML = `
+
+      <div class="empty">
+        Nothing saved yet.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    items
+
+      .map(
+        item => `
+
+          <div class="simple-item">
+
+            <div>
+
+              <strong>
+                ${escapeHTML(
+                  item[
+                    titleField
+                  ] ||
+                  "Untitled"
+                )}
+              </strong>
+
+              <small>
+                ${escapeHTML(
+                  item[
+                    subField
+                  ] ||
+                  ""
+                )}
+              </small>
+
+            </div>
+
+            <button
+              class="item-remove"
+              data-vault-remove="${item.id}"
+              data-vault-key="${key}"
+            >
+              REMOVE
+            </button>
+
+          </div>
+
+        `
+      )
+
+      .join("");
+
+}
+
+
+function renderVault() {
+
+  renderVaultList(
+    STORE.notes,
+    "#noteList",
+    "title",
+    "summary"
+  );
+
+  renderVaultList(
+    STORE.doubts,
+    "#doubtList",
+    "question",
+    "subject"
+  );
+
+  renderVaultList(
+    STORE.resources,
+    "#resourceList",
+    "title",
+    "url"
+  );
+
+}
+
+
+$("#addNoteButton")
+  .onclick =
+    () => {
+
+      openModal(
+
+        "KNOWLEDGE",
+
+        "Add Note",
+
+        inputField(
+          "TITLE",
+          "mNoteTitle",
+          "",
+          "HashMap"
+        )
+
+        +
+
+        textareaField(
+          "MY UNDERSTANDING",
+          "mNoteSummary",
+          "",
+          "Explain it in your own words..."
+        ),
+
+        () => {
+
+          const title =
+            $("#mNoteTitle")
+              .value
+              .trim();
+
+          if (!title) {
+
+            return;
+
+          }
+
+          const items =
+            load(
+              STORE.notes,
+              []
+            );
+
+          items.unshift({
+
+            id:
+              uid(
+                "note"
+              ),
+
+            title,
+
+            summary:
+              $("#mNoteSummary")
+                .value
+                .trim(),
+
+            createdAt:
+              new Date()
+                .toISOString()
+
+          });
+
+          save(
+            STORE.notes,
+            items
+          );
+
+          closeModal();
+
+          renderVault();
+
+        }
+
+      );
+
+    };
+
+
+$("#addDoubtButton")
+  .onclick =
+    () => {
+
+      openModal(
+
+        "CONFUSION",
+
+        "Add Doubt",
+
+        textareaField(
+          "QUESTION",
+          "mDoubtQuestion",
+          "",
+          "What are you stuck on?"
+        )
+
+        +
+
+        inputField(
+          "SUBJECT / TOPIC",
+          "mDoubtSubject",
+          "",
+          "Java"
+        ),
+
+        () => {
+
+          const question =
+            $("#mDoubtQuestion")
+              .value
+              .trim();
+
+          if (!question) {
+
+            return;
+
+          }
+
+          const items =
+            load(
+              STORE.doubts,
+              []
+            );
+
+          items.unshift({
+
+            id:
+              uid(
+                "doubt"
+              ),
+
+            question,
+
+            subject:
+              $("#mDoubtSubject")
+                .value
+                .trim(),
+
+            createdAt:
+              new Date()
+                .toISOString()
+
+          });
+
+          save(
+            STORE.doubts,
+            items
+          );
+
+          closeModal();
+
+          renderVault();
+
+        }
+
+      );
+
+    };
+
+
+$("#addResourceButton")
+  .onclick =
+    () => {
+
+      openModal(
+
+        "RESOURCE",
+
+        "Add Resource",
+
+        inputField(
+          "TITLE",
+          "mResourceTitle",
+          "",
+          "Java Docs"
+        )
+
+        +
+
+        inputField(
+          "URL",
+          "mResourceUrl",
+          "",
+          "https://..."
+        ),
+
+        () => {
+
+          const title =
+            $("#mResourceTitle")
+              .value
+              .trim();
+
+          if (!title) {
+
+            return;
+
+          }
+
+          const items =
+            load(
+              STORE.resources,
+              []
+            );
+
+          items.unshift({
+
+            id:
+              uid(
+                "resource"
+              ),
+
+            title,
+
+            url:
+              $("#mResourceUrl")
+                .value
+                .trim(),
+
+            createdAt:
+              new Date()
+                .toISOString()
+
+          });
+
+          save(
+            STORE.resources,
+            items
+          );
+
+          closeModal();
+
+          renderVault();
+
+        }
+
+      );
+
+    };
+
+
+document
+  .addEventListener(
+    "click",
+    event => {
+
+      const remove =
+        event.target.closest(
+          "[data-vault-remove]"
+        );
+
+      if (!remove) {
+
+        return;
+
+      }
+
+      const key =
+        remove.dataset
+          .vaultKey;
+
+      const id =
+        remove.dataset
+          .vaultRemove;
+
+      save(
+        key,
+
+        load(
+          key,
+          []
+        )
+          .filter(
+            item =>
+              item.id !==
+              id
+          )
+
+      );
+
+      renderVault();
+
+    }
+  );
+
+
+
+/* =========================================================
+   WEEK PLAN
+========================================================= */
+
+function renderWeekGrid() {
+
+  const current =
+    new Date()
+      .getDay();
+
+  const order = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+  ];
+
+
+  $("#weekGrid")
+    .innerHTML =
+      order
+
+        .map(
+          day => {
+
+            const protocol =
+              WEEK_PROTOCOL[
+                day
+              ];
+
+            return `
+
+              <article
+                class="
+                  week-day
+                  ${day === current
+                    ? "current"
+                    : ""}
+                "
+              >
+
+                <span>
+
+                  ${day === current
+                    ? "YOU ARE HERE"
+                    : "WEEK PLAN"}
+
+                </span>
+
+                <h4>
+                  ${protocol.name}
+                </h4>
+
+                <small>
+                  ${protocol.type}
+                </small>
+
+                <ul>
+
+                  ${protocol.items
+
+                    .map(
+                      item => `
+
+                        <li>
+
+                          ${escapeHTML(
+                            item.title
+                          )}
+
+                        </li>
+
+                      `
+                    )
+
+                    .join("")}
+
+                </ul>
+
+              </article>
+
+            `;
+
+          }
+        )
+
+        .join("");
+
+}
+
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function weekKey() {
+
+  return dateKey(
+    startOfWeek()
+  );
+
+}
+
+
+function renderReview() {
+
+  renderWeekGrid();
+
+
+  const targets =
+    getTargets()
+      .filter(
+        item =>
+          sameWeek(
+            item.date
+          )
+      );
+
+  const completed =
+    targets.filter(
+      item =>
+        item.done
+    )
+      .length;
+
+
+  $("#weekTargetMetric")
+    .textContent =
+      `${completed} / ${targets.length}`;
+
+
+  const sessions =
+    load(
+      STORE.sessions,
+      []
+    )
+      .filter(
+        item =>
+          sameWeek(
+            item.date
+          )
+      );
+
+
+  const minutes =
+    sessions.reduce(
+      (
+        sum,
+        session
+      ) =>
+        sum +
+        Number(
+          session.minutes ||
+          0
+        ),
+      0
+    );
+
+
+  $("#weekFocusMetric")
+    .textContent =
+      formatMinutes(
+        minutes
+      );
+
+
+  const problems =
+    getProblems()
+      .filter(
+        problem =>
+          sameWeek(
+            problem.date ||
+            dateKey()
+          )
+      );
+
+
+  $("#weekProblemMetric")
+    .textContent =
+      problems.length;
+
+
+  const activeCourse =
+    getPlaylists()
+      .find(
+        item =>
+          String(
+            item.status
+          )
+            .toLowerCase() ===
+          "active"
+      );
+
+
+  $("#weekCourseMetric")
+    .textContent =
+      activeCourse?.title ||
+      "—";
+
+
+  const reviews =
+    load(
+      STORE.review,
+      {}
+    );
+
+
+  const current =
+    reviews[
+      weekKey()
+    ] || {};
+
+
+  if (
+    document.activeElement !==
+    $("#weekWin")
+  ) {
+
+    $("#weekWin")
+      .value =
+        current.win ||
+        "";
+
+  }
+
+
+  if (
+    document.activeElement !==
+    $("#weekBlocker")
+  ) {
+
+    $("#weekBlocker")
+      .value =
+        current.blocker ||
+        "";
+
+  }
+
+
+  if (
+    document.activeElement !==
+    $("#weekNext")
+  ) {
+
+    $("#weekNext")
+      .value =
+        current.next ||
+        "";
+
+  }
+
+}
+
+
+function saveReview() {
+
+  const all =
+    load(
+      STORE.review,
+      {}
+    );
+
+  all[
+    weekKey()
+  ] = {
+
+    win:
+      $("#weekWin")
+        .value,
+
+    blocker:
+      $("#weekBlocker")
+        .value,
+
+    next:
+      $("#weekNext")
+        .value
+
+  };
+
+  save(
+    STORE.review,
+    all
+  );
+
+}
+
+
+[
+  "#weekWin",
+  "#weekBlocker",
+  "#weekNext"
+]
+  .forEach(
+    selector => {
+
+      $(selector)
+        .addEventListener(
+          "input",
+          saveReview
+        );
+
+    }
+  );
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+renderDay();
+
+renderTargets();
+
+renderPlaylists();
+
+renderProblems();
+
+renderVault();
+
+renderReview();
+
+selectRoadNode(
+  "java"
+);
+
+</script>
+
+</body>
+</html>

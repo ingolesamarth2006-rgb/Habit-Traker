@@ -1,0 +1,1844 @@
+/* =========================================================
+   GROWTH MAP HUB
+========================================================= */
+
+:root {
+  --white: #f7fbff;
+
+  --yellow: #ffd84d;
+  --yellow-glow: rgba(255, 216, 77, 0.55);
+
+  --blue: #4ec7ff;
+  --blue-glow: rgba(78, 199, 255, 0.55);
+
+  --red: #ff4f68;
+  --red-glow: rgba(255, 79, 104, 0.55);
+
+  --purple: #a56dff;
+  --purple-glow: rgba(165, 109, 255, 0.55);
+
+  --green: #55e59c;
+  --green-glow: rgba(85, 229, 156, 0.55);
+
+  --orange: #ff9c4d;
+  --orange-glow: rgba(255, 156, 77, 0.55);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+
+  overflow: hidden;
+
+  background:
+    #03120e;
+
+  color:
+    var(--white);
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.hub-background {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -10;
+
+  overflow: hidden;
+}
+
+
+.hub-bg-image {
+  position: absolute;
+
+  inset: -5%;
+
+  background-image:
+    url("./assets/image/hub-bg.png");
+
+  background-size:
+    cover;
+
+  background-position:
+    center;
+
+  background-repeat:
+    no-repeat;
+
+  transform:
+    scale(1.08);
+
+  filter:
+    brightness(0.67)
+    saturate(1.18)
+    contrast(1.08);
+
+  transition:
+    transform 0.15s linear;
+}
+
+
+.hub-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(5, 25, 22, 0.10) 0%,
+      rgba(2, 9, 9, 0.25) 40%,
+      rgba(1, 5, 8, 0.78) 100%
+    );
+}
+
+
+.hub-depth-glow {
+  position: absolute;
+
+  width: 900px;
+  height: 900px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(52, 255, 188, 0.12),
+      rgba(77, 154, 255, 0.06) 35%,
+      transparent 70%
+    );
+
+  filter:
+    blur(80px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.hub-top {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 72px;
+
+  z-index: 50;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding:
+    0 34px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 7, 10, 0.50),
+      transparent
+    );
+}
+
+
+.hub-brand,
+.hub-status {
+  font-size: 9px;
+
+  letter-spacing:
+    0.19em;
+
+  font-weight: 900;
+}
+
+
+.hub-brand {
+  color:
+    rgba(255, 255, 255, 0.92);
+}
+
+
+.hub-status {
+  color:
+    rgba(221, 242, 240, 0.52);
+}
+
+
+/* =========================================================
+   UNIVERSE
+========================================================= */
+
+.growth-universe {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  perspective:
+    1200px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CENTER TITLE
+========================================================= */
+
+.universe-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 4;
+
+  width: 420px;
+
+  text-align: center;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.center-kicker {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    rgba(123, 255, 210, 0.78);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing:
+    0.28em;
+}
+
+
+.universe-center h1 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      56px,
+      7vw,
+      96px
+    );
+
+  line-height:
+    0.83;
+
+  letter-spacing:
+    -0.055em;
+
+  font-weight: 950;
+
+  background:
+    linear-gradient(
+      110deg,
+      #ffffff,
+      #88ffe2 38%,
+      #8bcaff 70%,
+      #ffffff
+    );
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  color:
+    transparent;
+
+  text-shadow:
+    0 0 45px
+    rgba(91, 255, 204, 0.12);
+}
+
+
+.universe-center p {
+  margin:
+    22px auto 0;
+
+  color:
+    rgba(222, 238, 240, 0.48);
+
+  font-size: 12px;
+
+  letter-spacing:
+    0.04em;
+}
+
+
+/* =========================================================
+   STONE BASE
+========================================================= */
+
+.stone-portal {
+  --stone-color: white;
+  --stone-glow: rgba(255, 255, 255, 0.45);
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  z-index: 10;
+
+  transform-style:
+    preserve-3d;
+
+  cursor: pointer;
+
+  animation:
+    stoneFloat 5.6s ease-in-out infinite;
+
+  transition:
+    filter 0.28s ease;
+}
+
+
+.stone-portal:nth-of-type(2) {
+  animation-delay:
+    -1.4s;
+}
+
+.stone-portal:nth-of-type(3) {
+  animation-delay:
+    -2.7s;
+}
+
+.stone-portal:nth-of-type(4) {
+  animation-delay:
+    -0.8s;
+}
+
+.stone-portal:nth-of-type(5) {
+  animation-delay:
+    -3.6s;
+}
+
+.stone-portal:nth-of-type(6) {
+  animation-delay:
+    -2.1s;
+}
+
+
+/* =========================================================
+   POSITIONS
+========================================================= */
+
+.stone-mind {
+  --stone-color:
+    var(--yellow);
+
+  --stone-glow:
+    var(--yellow-glow);
+
+  left: 15%;
+  top: 17%;
+}
+
+
+.stone-space {
+  --stone-color:
+    var(--blue);
+
+  --stone-glow:
+    var(--blue-glow);
+
+  left: 46%;
+  top: 8%;
+}
+
+
+.stone-reality {
+  --stone-color:
+    var(--red);
+
+  --stone-glow:
+    var(--red-glow);
+
+  right: 14%;
+  top: 18%;
+}
+
+
+.stone-power {
+  --stone-color:
+    var(--purple);
+
+  --stone-glow:
+    var(--purple-glow);
+
+  right: 14%;
+  bottom: 13%;
+}
+
+
+.stone-time {
+  --stone-color:
+    var(--green);
+
+  --stone-glow:
+    var(--green-glow);
+
+  left: 46%;
+  bottom: 5%;
+}
+
+
+.stone-soul {
+  --stone-color:
+    var(--orange);
+
+  --stone-glow:
+    var(--orange-glow);
+
+  left: 13%;
+  bottom: 14%;
+}
+
+
+/* =========================================================
+   AURA
+========================================================= */
+
+.stone-aura {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 150px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--stone-glow) 0%,
+      rgba(255, 255, 255, 0.06) 32%,
+      transparent 68%
+    );
+
+  filter:
+    blur(16px);
+
+  opacity:
+    0.88;
+
+  animation:
+    auraPulse 2.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GEM
+========================================================= */
+
+.stone-gem {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 72px;
+  height: 96px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(8deg);
+
+  clip-path:
+    polygon(
+      50% 0%,
+      82% 12%,
+      100% 44%,
+      84% 84%,
+      50% 100%,
+      17% 84%,
+      0% 44%,
+      19% 12%
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      var(--stone-color) 18%,
+      var(--stone-color) 48%,
+      rgba(255, 255, 255, 0.35) 66%,
+      var(--stone-color) 100%
+    );
+
+  box-shadow:
+    0 0 24px
+    var(--stone-glow),
+    0 0 55px
+    var(--stone-glow);
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      var(--stone-glow)
+    );
+
+  transition:
+    transform 0.35s cubic-bezier(.2, .8, .2, 1),
+    filter 0.35s ease;
+
+  animation:
+    gemRotate 8s ease-in-out infinite;
+}
+
+
+.stone-gem::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  clip-path:
+    inherit;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.75),
+      transparent 33%,
+      rgba(255, 255, 255, 0.13) 68%,
+      transparent
+    );
+
+  opacity: 0.70;
+}
+
+
+.stone-gem::after {
+  content: "";
+
+  position: absolute;
+
+  left: 17%;
+  top: 12%;
+
+  width: 26%;
+  height: 58%;
+
+  transform:
+    rotate(-20deg);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255, 255, 255, 0.46);
+
+  filter:
+    blur(5px);
+
+  opacity:
+    0.52;
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.stone-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    1px solid
+    var(--stone-color);
+
+  border-radius:
+    50%;
+
+  opacity:
+    0.28;
+
+  pointer-events:
+    none;
+}
+
+
+.orbit-one {
+  width: 112px;
+  height: 52px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-14deg);
+
+  animation:
+    orbitOne 6s linear infinite;
+}
+
+
+.orbit-two {
+  width: 134px;
+  height: 68px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(48deg);
+
+  opacity:
+    0.16;
+
+  animation:
+    orbitTwo 7.8s linear infinite reverse;
+}
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.stone-info {
+  position: absolute;
+
+  left: 50%;
+  top: calc(100% + 12px);
+
+  width: 235px;
+
+  transform:
+    translateX(-50%)
+    translateY(12px)
+    scale(0.96);
+
+  padding:
+    14px 16px;
+
+  border-radius:
+    14px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--stone-color) 40%,
+      transparent
+    );
+
+  background:
+    rgba(5, 10, 18, 0.82);
+
+  backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 15px 45px
+    rgba(0, 0, 0, 0.28);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition:
+    0.28s ease;
+
+  pointer-events: none;
+}
+
+
+.stone-info small {
+  display: block;
+
+  color:
+    var(--stone-color);
+
+  font-size:
+    8px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.16em;
+}
+
+
+.stone-info strong {
+  display: block;
+
+  margin-top:
+    6px;
+
+  color:
+    white;
+
+  font-size:
+    17px;
+
+  letter-spacing:
+    -0.02em;
+}
+
+
+.stone-info > span {
+  display: block;
+
+  margin-top:
+    6px;
+
+  color:
+    rgba(230, 239, 250, 0.52);
+
+  font-size:
+    10px;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.stone-portal:hover {
+  z-index: 30;
+}
+
+
+.stone-portal:hover
+.stone-gem {
+  transform:
+    translate(-50%, -50%)
+    scale(1.18)
+    rotate(-4deg);
+
+  filter:
+    brightness(1.22)
+    drop-shadow(
+      0 0 30px
+      var(--stone-glow)
+    );
+}
+
+
+.stone-portal:hover
+.stone-aura {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.22);
+}
+
+
+.stone-portal:hover
+.stone-info {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+
+.stone-portal:hover
+.orbit-one {
+  opacity: 0.56;
+}
+
+
+.stone-portal:hover
+.orbit-two {
+  opacity: 0.34;
+}
+
+
+/* =========================================================
+   CONNECTION LINES
+========================================================= */
+
+.stone-connections {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  opacity:
+    0.26;
+}
+
+
+.stone-connections path {
+  fill: none;
+
+  stroke:
+    rgba(114, 255, 214, 0.32);
+
+  stroke-width:
+    1;
+
+  stroke-dasharray:
+    4 11;
+
+  animation:
+    connectionMove 8s linear infinite;
+}
+
+
+/* =========================================================
+   BOTTOM HINT
+========================================================= */
+
+.hub-hint {
+  position: fixed;
+
+  left: 50%;
+  bottom: 24px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 50;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color:
+    rgba(225, 239, 241, 0.34);
+
+  font-size:
+    8px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.18em;
+}
+
+
+.hub-hint span {
+  width: 38px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(112, 255, 212, 0.8),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CLICK / ZOOM STATE
+========================================================= */
+
+body.portal-entering
+.stone-portal {
+  opacity: 0;
+
+  transition:
+    opacity 0.5s ease;
+}
+
+
+body.portal-entering
+.universe-center {
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+
+body.portal-entering
+.hub-top,
+body.portal-entering
+.hub-hint {
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+}
+
+
+body.portal-entering
+.stone-portal.is-entering {
+  opacity: 1;
+
+  z-index: 100;
+
+  animation: none;
+
+  transform:
+    scale(6);
+
+  transition:
+    transform 0.8s cubic-bezier(.16, .84, .28, 1),
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes stoneFloat {
+
+  0% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      rotate(-1deg);
+  }
+
+  25% {
+    transform:
+      translate3d(
+        8px,
+        -11px,
+        0
+      )
+      rotate(1.5deg);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -4px,
+        -20px,
+        0
+      )
+      rotate(-1deg);
+  }
+
+  75% {
+    transform:
+      translate3d(
+        -10px,
+        -8px,
+        0
+      )
+      rotate(1deg);
+  }
+
+  100% {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      )
+      rotate(-1deg);
+  }
+
+}
+
+
+@keyframes auraPulse {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.92);
+
+    opacity:
+      0.65;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.10);
+
+    opacity:
+      1;
+  }
+
+}
+
+
+@keyframes gemRotate {
+
+  0%,
+  100% {
+    rotate: -2deg;
+  }
+
+  50% {
+    rotate: 3deg;
+  }
+
+}
+
+
+@keyframes orbitOne {
+
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+
+}
+
+
+@keyframes orbitTwo {
+
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+
+}
+
+
+@keyframes connectionMove {
+
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -80;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .stone-portal {
+    width: 130px;
+    height: 130px;
+  }
+
+
+  .stone-mind {
+    left: 8%;
+  }
+
+
+  .stone-reality {
+    right: 8%;
+  }
+
+
+  .stone-power {
+    right: 8%;
+  }
+
+
+  .stone-soul {
+    left: 8%;
+  }
+
+
+  .universe-center {
+    width: 330px;
+  }
+
+}
+
+
+@media (max-width: 720px) {
+
+  body {
+    overflow-y: auto;
+  }
+
+
+  .growth-universe {
+    height: 1050px;
+  }
+
+
+  .universe-center {
+    top: 40%;
+
+    width: 280px;
+  }
+
+
+  .stone-mind {
+    left: 5%;
+    top: 12%;
+  }
+
+
+  .stone-space {
+    left: 56%;
+    top: 8%;
+  }
+
+
+  .stone-reality {
+    right: 5%;
+    top: 35%;
+  }
+
+
+  .stone-power {
+    right: 5%;
+    bottom: 13%;
+  }
+
+
+  .stone-time {
+    left: 52%;
+    bottom: 5%;
+  }
+
+
+  .stone-soul {
+    left: 5%;
+    bottom: 18%;
+  }
+
+
+  .stone-connections {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   CREATIVE STONE INFO PANEL
+========================================================= */
+
+.stone-info {
+  width: 260px;
+
+  padding:
+    16px 17px 15px;
+
+  border-radius:
+    18px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--stone-color) 52%,
+      rgba(255, 255, 255, 0.10)
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5, 10, 18, 0.92),
+      rgba(8, 13, 24, 0.74)
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.34),
+    0 0 28px
+    color-mix(
+      in srgb,
+      var(--stone-color) 18%,
+      transparent
+    );
+
+  overflow: hidden;
+}
+
+
+.stone-info::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      color-mix(
+        in srgb,
+        var(--stone-color) 20%,
+        transparent
+      ),
+      transparent
+    );
+
+  transform:
+    translateX(-120%);
+
+  transition:
+    transform 0.55s ease;
+
+  pointer-events: none;
+}
+
+
+.stone-portal:hover
+.stone-info::before {
+  transform:
+    translateX(120%);
+}
+
+
+.stone-info::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background:
+    var(--stone-color);
+
+  box-shadow:
+    0 0 18px
+    var(--stone-glow);
+}
+
+
+.stone-info-head {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+.stone-info-head small {
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.20em;
+
+  color:
+    color-mix(
+      in srgb,
+      var(--stone-color) 86%,
+      white
+    );
+}
+
+
+.stone-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    var(--stone-color);
+
+  box-shadow:
+    0 0 16px
+    var(--stone-color);
+
+  animation:
+    stoneDotPulse 1.8s ease-in-out infinite;
+}
+
+
+.stone-info strong {
+  display: block;
+
+  margin-top: 9px;
+
+  font-family:
+    "Orbitron",
+    sans-serif;
+
+  font-size:
+    19px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.08em;
+
+  color:
+    white;
+
+  text-shadow:
+    0 0 18px
+    color-mix(
+      in srgb,
+      var(--stone-color) 22%,
+      transparent
+    );
+}
+
+
+.stone-description {
+  display: block;
+
+  margin-top: 7px;
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.45;
+
+  color:
+    rgba(228, 238, 248, 0.58);
+}
+
+
+.stone-enter {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 13px;
+
+  padding-top: 11px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  font-family:
+    "Space Grotesk",
+    sans-serif;
+
+  font-size:
+    8px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.16em;
+
+  color:
+    rgba(238, 246, 255, 0.52);
+}
+
+
+.stone-enter b {
+  color:
+    var(--stone-color);
+
+  font-size:
+    15px;
+
+  transition:
+    transform 0.22s ease;
+}
+
+
+.stone-portal:hover
+.stone-enter b {
+  transform:
+    translate(3px, -3px);
+}
+
+
+@keyframes stoneDotPulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+
+}
+
+/* =========================================================
+   REALISTIC STONE IMAGE SIZE FIX
+========================================================= */
+
+.stone-image {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 135px;
+  height: 135px;
+
+  object-fit: contain;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(0 0 10px var(--stone-glow))
+    drop-shadow(0 0 22px var(--stone-glow));
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+
+/* Individual visual balancing */
+
+.stone-mind .stone-image {
+  width: 138px;
+  height: 138px;
+}
+
+.stone-space .stone-image {
+  width: 142px;
+  height: 142px;
+}
+
+.stone-reality .stone-image {
+  width: 136px;
+  height: 136px;
+}
+
+.stone-power .stone-image {
+  width: 138px;
+  height: 138px;
+}
+
+.stone-time .stone-image {
+  width: 140px;
+  height: 140px;
+}
+
+.stone-soul .stone-image {
+  width: 136px;
+  height: 136px;
+}
+
+
+/* Images already have beautiful orbital rings */
+.stone-orbit {
+  display: none;
+}
+
+
+/* Hover */
+.stone-portal:hover .stone-image {
+  transform:
+    translate(-50%, -50%)
+    scale(1.16);
+
+  filter:
+    drop-shadow(0 0 14px var(--stone-glow))
+    drop-shadow(0 0 32px var(--stone-glow));
+}
+
+/* SIMPLE STONE NAMES */
+
+.stone-info {
+  display: none !important;
+}
+
+.stone-name {
+  position: absolute;
+
+  left: 50%;
+  top: calc(50% + 92px);
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  text-shadow:
+    0 0 10px var(--stone-glow);
+
+  pointer-events: none;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    letter-spacing 0.25s ease;
+}
+
+.stone-portal:hover .stone-name {
+  color: #ffffff;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 0 8px #ffffff,
+    0 0 18px var(--stone-glow);
+}
+
+/* =========================================================
+   FREE FLOATING STONES
+========================================================= */
+
+.stone-portal {
+  --x1: 12px;
+  --y1: -10px;
+  --x2: -10px;
+  --y2: 8px;
+
+  animation: universeFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+/* Different movement for every stone */
+
+.stone-mind {
+  --x1: 14px;
+  --y1: -12px;
+  --x2: -8px;
+  --y2: 10px;
+
+  animation-duration: 7.2s;
+}
+
+
+.stone-space {
+  --x1: -12px;
+  --y1: -15px;
+  --x2: 11px;
+  --y2: 8px;
+
+  animation-duration: 8.1s;
+  animation-delay: -2s;
+}
+
+
+.stone-reality {
+  --x1: 10px;
+  --y1: 13px;
+  --x2: -14px;
+  --y2: -8px;
+
+  animation-duration: 7.6s;
+  animation-delay: -4s;
+}
+
+
+.stone-power {
+  --x1: -15px;
+  --y1: 10px;
+  --x2: 9px;
+  --y2: -13px;
+
+  animation-duration: 8.5s;
+  animation-delay: -1s;
+}
+
+
+.stone-time {
+  --x1: 9px;
+  --y1: -14px;
+  --x2: -12px;
+  --y2: 7px;
+
+  animation-duration: 7.9s;
+  animation-delay: -3s;
+}
+
+
+.stone-soul {
+  --x1: 13px;
+  --y1: 9px;
+  --x2: -10px;
+  --y2: -12px;
+
+  animation-duration: 8.3s;
+  animation-delay: -5s;
+}
+
+
+/* Main floating path */
+
+@keyframes universeFloat {
+
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-1deg);
+  }
+
+  25% {
+    transform:
+      translate3d(var(--x1), var(--y1), 0)
+      rotate(1.2deg);
+  }
+
+  50% {
+    transform:
+      translate3d(var(--x2), var(--y2), 0)
+      rotate(-0.7deg);
+  }
+
+  75% {
+    transform:
+      translate3d(
+        calc(var(--x1) * 0.45),
+        calc(var(--y2) * 0.55),
+        0
+      )
+      rotate(0.8deg);
+  }
+
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-1deg);
+  }
+
+}
+/* =========================================================
+   6 STONES — ONE CIRCULAR ORBIT
+========================================================= */
+
+.growth-universe {
+  --orbit-radius: min(40vw, 38vh);
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* All stones start from exact center */
+.stone-portal {
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 50% !important;
+
+  width: 180px;
+  height: 180px;
+
+  margin-left: -90px;
+  margin-top: -90px;
+
+  animation:
+    infinityOrbit 38s linear infinite !important;
+
+  transform-origin: center center;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   STARTING POSITION OF EACH STONE
+========================================================= */
+
+
+/* TOP */
+.stone-mind {
+  --start: -90deg;
+  --counter: 90deg;
+}
+
+
+/* UPPER RIGHT */
+.stone-space {
+  --start: -30deg;
+  --counter: 30deg;
+}
+
+
+/* LOWER RIGHT */
+.stone-reality {
+  --start: 30deg;
+  --counter: -30deg;
+}
+
+
+/* BOTTOM */
+.stone-time {
+  --start: 90deg;
+  --counter: -90deg;
+}
+
+
+/* LOWER LEFT */
+.stone-power {
+  --start: 150deg;
+  --counter: -150deg;
+}
+
+
+/* UPPER LEFT */
+.stone-soul {
+  --start: 210deg;
+  --counter: -210deg;
+}
+
+
+/* =========================================================
+   MAIN CIRCULAR MOVEMENT
+========================================================= */
+
+@keyframes infinityOrbit {
+
+  from {
+    transform:
+      rotate(var(--start))
+      translateX(var(--orbit-radius))
+      rotate(var(--counter));
+  }
+
+  to {
+    transform:
+      rotate(calc(var(--start) + 360deg))
+      translateX(var(--orbit-radius))
+      rotate(calc(var(--counter) - 360deg));
+  }
+
+}
+
+
+/* =========================================================
+   PAUSE WHOLE UNIVERSE WHEN HOVERING A STONE
+========================================================= */
+
+.growth-universe:has(.stone-portal:hover)
+.stone-portal {
+  animation-play-state: paused !important;
+}
+
+
+/* Hovered stone comes slightly forward */
+.stone-portal:hover {
+  z-index: 50;
+}
+
+
+/* Stone zoom still works */
+.stone-portal:hover .stone-image {
+  transform:
+    translate(-50%, -50%)
+    scale(1.16);
+}

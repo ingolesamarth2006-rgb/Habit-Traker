@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Body System | Growth Map
+  </title>
+  <link href="body.css?v=7" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+  <div class="body-background">
+  </div>
+  <div class="body-overlay">
+  </div>
+  <!-- =====================================================
+       TOP NAVIGATION
+  ====================================================== -->
+  <header class="body-topbar">
+   <a class="topbar-link" href="hub.html">
+    ← GROWTH HUB
+   </a>
+   <div class="topbar-center">
+    <span class="system-dot">
+    </span>
+    <span>
+     PHYSICAL SYSTEM
+    </span>
+   </div>
+   <a class="tracker-gateway" href="tracker.html" title="Open Habit Tracker">
+    <span class="tracker-gateway-dot"></span>
+    <span>HABIT TRACKER</span>
+   </a>
+  </header>
+  <main class="body-system">
+   <!-- =====================================================
+         HERO
+    ====================================================== -->
+   <section class="body-hero">
+    <div class="hero-copy">
+     <p class="eyebrow">
+      GROWTH MAP / PHYSICAL
+     </p>
+     <h1>
+      BODY
+      <span>
+       SYSTEM
+      </span>
+     </h1>
+     <p class="hero-description">
+      Train. Recover. Fuel. Repeat.
+     </p>
+    </div>
+    <div class="hero-score">
+     <span class="score-label">
+      TODAY
+     </span>
+     <strong id="todayPhysicalScore">
+      --
+     </strong>
+     <span class="score-status">
+      START LOGGING
+     </span>
+    </div>
+   </section>
+   <!-- =====================================================
+         BODY SYSTEM NAVIGATION
+    ====================================================== -->
+   <nav class="body-tabs">
+    <button class="body-tab active" data-section="overview">
+     OVERVIEW
+    </button>
+    <button class="body-tab" data-section="diet">
+     DIET
+    </button>
+    <button class="body-tab" data-section="training">
+     TRAINING
+    </button>
+    <button class="body-tab" data-section="running">
+     RUNNING
+    </button>
+    <button class="body-tab" data-section="recovery">
+     RECOVERY
+    </button>
+    <button class="body-tab" data-section="care">
+     CARE
+    </button>
+   </nav>
+   <!-- =====================================================
+         OVERVIEW
+    ====================================================== -->
+   <section class="body-section active-section" id="overview">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">
+       CURRENT STATUS
+      </p>
+      <h2>
+       Today's Physical Dashboard
+      </h2>
+     </div>
+     <div class="current-date" id="currentBodyDate">
+      --
+     </div>
+    </div>
+    <!-- TODAY CARDS -->
+    <div class="today-grid">
+     <article class="status-card training-card">
+      <span class="card-label">
+       TRAINING
+      </span>
+      <strong id="todayTraining">
+       NOT LOGGED
+      </strong>
+      <small>
+       Today's workout
+      </small>
+     </article>
+     <article class="status-card running-card">
+      <span class="card-label">
+       RUNNING
+      </span>
+      <strong id="todayRunning">
+       0 / 0
+      </strong>
+      <small>
+       Weekly target
+      </small>
+     </article>
+     <article class="status-card protein-card">
+      <span class="card-label">
+       PROTEIN
+      </span>
+      <strong id="todayProtein">
+       -- g
+      </strong>
+      <small>
+       Today's intake
+      </small>
+     </article>
+     <article class="status-card water-card">
+      <span class="card-label">
+       WATER
+      </span>
+      <strong id="todayWater">
+       -- L
+      </strong>
+      <small>
+       Today's intake
+      </small>
+     </article>
+     
+     
+     
+    </div>
+    <!-- WEEKLY PROGRESS -->
+    <div class="dashboard-row">
+     <article class="dashboard-panel weekly-score-panel">
+      <div class="panel-head">
+       <div>
+        <span class="panel-kicker">
+         THIS WEEK
+        </span>
+        <h3>
+         Physical Score
+        </h3>
+       </div>
+       <strong class="big-week-score" id="weeklyPhysicalScore">
+        --
+       </strong>
+      </div>
+      <div class="score-bars">
+       <div class="score-row">
+        <span>
+         Training
+        </span>
+        <div class="score-track">
+         <span id="trainingScoreBar">
+         </span>
+        </div>
+        <strong id="trainingScore">
+         --
+        </strong>
+       </div>
+       <div class="score-row">
+        <span>
+         Running
+        </span>
+        <div class="score-track">
+         <span id="runningScoreBar">
+         </span>
+        </div>
+        <strong id="runningScore">
+         --
+        </strong>
+       </div>
+       <div class="score-row">
+        <span>
+         Nutrition
+        </span>
+        <div class="score-track">
+         <span id="nutritionScoreBar">
+         </span>
+        </div>
+        <strong id="nutritionScore">
+         --
+        </strong>
+       </div>
+       <div class="score-row">
+        <span>
+         Care
+        </span>
+        <div class="score-track">
+         <span id="careScoreBar">
+         </span>
+        </div>
+        <strong id="careScore">
+         --
+        </strong>
+       </div>
+      </div>
+     </article>
+     <!-- RUNNING ANIMATION -->
+     <article class="dashboard-panel run-progress-panel">
+      <div class="panel-head">
+       <div>
+        <span class="panel-kicker">
+         WEEKLY RUN
+        </span>
+        <h3>
+         Keep Moving
+        </h3>
+       </div>
+       <strong id="runWeekCount">
+        0 / 0
+       </strong>
+      </div>
+      <div class="runner-track">
+       <div class="runner-line">
+       </div>
+       <div class="runner-character" id="runnerCharacter">
+        RUN
+       </div>
+       <div class="finish-point">
+        FINISH
+       </div>
+      </div>
+      <p class="running-message" id="runningMessage">
+       Set your weekly running target.
+      </p>
+     </article>
+    </div>
+    <!-- GRAPH AREA -->
+    <div class="graph-section">
+     <div class="section-heading compact">
+      <div>
+       <p class="section-kicker">
+        LONG TERM
+       </p>
+       <h2>
+        Progress Analytics
+       </h2>
+      </div>
+      <div class="graph-range">
+       <button data-range="7">
+        7 DAYS
+       </button>
+       <button class="active" data-range="28">
+        4 WEEKS
+       </button>
+       <button data-range="90">
+        3 MONTHS
+       </button>
+       <button data-range="all">
+        ALL
+       </button>
+      </div>
+     </div>
+     <div class="graph-grid">
+      <article class="graph-card">
+       <div class="graph-card-head">
+        <div>
+         <span>
+          STRENGTH
+         </span>
+         <h3>
+          Training Progress
+         </h3>
+        </div>
+        <select id="strengthExerciseSelect">
+         <option value="">
+          Select Exercise
+         </option>
+        </select>
+       </div>
+       <div class="graph-box">
+        <canvas id="strengthChart">
+        </canvas>
+        <div class="empty-graph" id="strengthEmpty">
+         Log workouts to see strength progress.
+        </div>
+       </div>
+      </article>
+      <article class="graph-card">
+       <div class="graph-card-head">
+        <div>
+         <span>
+          RUNNING
+         </span>
+         <h3>
+          Weekly Running
+         </h3>
+        </div>
+       </div>
+       <div class="graph-box">
+        <canvas id="runningChart">
+        </canvas>
+        <div class="empty-graph" id="runningEmpty">
+         Complete runs to build your trend.
+        </div>
+       </div>
+      </article>
+      <article class="graph-card nutrition-wide-v3">
+       <div class="graph-card-head">
+        <div>
+         <span>
+          NUTRITION
+         </span>
+         <h3>
+          Protein &amp; Water
+         </h3>
+        </div>
+       </div>
+       <div class="graph-box">
+        <canvas id="nutritionChart">
+        </canvas>
+        <div class="empty-graph" id="nutritionEmpty">
+         Nutrition data will appear here.
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <!-- =====================================================
+         DIET
+    ====================================================== -->
+   <!-- =====================================================
+     DIET & NUTRITION
+====================================================== -->
+   <section class="body-section" id="diet">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">
+       FUEL
+      </p>
+      <h2>
+       Diet &amp; Nutrition
+      </h2>
+     </div>
+     <button class="primary-action" id="addDietItemButton">
+      + ADD DIET
+     </button>
+    </div>
+    <!-- ===================================================
+       DAILY TARGETS
+  ==================================================== -->
+    <div class="nutrition-target-grid">
+     <!-- PROTEIN -->
+     <article class="nutrition-target-card protein-target-card">
+      <div class="nutrition-target-head">
+       <div>
+        <span class="panel-kicker">
+         TODAY
+        </span>
+        <h3>
+         Protein
+        </h3>
+       </div>
+       <button class="secondary-action" id="editProteinTargetButton">
+        EDIT TARGET
+       </button>
+      </div>
+      <div class="nutrition-main-number">
+       <strong id="dietProteinCurrent">
+        0
+       </strong>
+       <span>
+        /
+        <b id="proteinTargetValue">
+         120
+        </b>
+        g
+       </span>
+      </div>
+      <div class="nutrition-progress-track">
+       <span class="nutrition-progress-fill protein-fill" id="proteinProgressFill">
+       </span>
+      </div>
+      <div class="nutrition-progress-footer">
+       <span id="proteinProgressText">
+        0% COMPLETE
+       </span>
+       <span id="proteinRemaining">
+        120g remaining
+       </span>
+      </div>
+     </article>
+     <!-- WATER -->
+     <article class="nutrition-target-card water-target-card">
+      <div class="nutrition-target-head">
+       <div>
+        <span class="panel-kicker">
+         TODAY
+        </span>
+        <h3>
+         Water
+        </h3>
+       </div>
+       <button class="secondary-action" id="editWaterTargetButton">
+        EDIT TARGET
+       </button>
+      </div>
+      <div class="nutrition-main-number">
+       <strong id="dietWaterCurrent">
+        0.0
+       </strong>
+       <span>
+        /
+        <b id="waterTargetValue">
+         4
+        </b>
+        L
+       </span>
+      </div>
+      <div class="nutrition-progress-track">
+       <span class="nutrition-progress-fill water-fill" id="waterProgressFill">
+       </span>
+      </div>
+      <div class="nutrition-progress-footer">
+       <span id="waterProgressText">
+        0% COMPLETE
+       </span>
+       <span id="waterRemaining">
+        4L remaining
+       </span>
+      </div>
+      <div class="water-quick-actions">
+       <button class="water-quick-button" data-water="0.25">
+        +250 ML
+       </button>
+       <button class="water-quick-button" data-water="0.5">
+        +500 ML
+       </button>
+       <button class="water-quick-button" data-water="1">
+        +1 L
+       </button>
+       <button class="water-quick-button" id="customWaterButton">
+        CUSTOM
+       </button>
+      </div>
+     </article>
+    </div>
+    <!-- ===================================================
+     DIET DATE NAVIGATOR
+==================================================== -->
+    <div class="diet-history-panel">
+     <button class="diet-date-arrow" id="previousDietDay" type="button">
+      ←
+     </button>
+     <div class="diet-selected-date">
+      <span id="dietSelectedDayLabel">
+       TODAY
+      </span>
+      <strong id="dietSelectedDateLabel">
+       --
+      </strong>
+     </div>
+     <button class="diet-today-button" id="dietTodayButton" type="button">
+      TODAY
+     </button>
+     <button class="diet-date-arrow" id="nextDietDay" type="button">
+      →
+     </button>
+    </div>
+    <div class="diet-week-strip" id="dietWeekStrip">
+    </div>
+    <!-- ===================================================
+       TODAY'S DIET
+  ==================================================== -->
+    <article class="diet-tracker-panel">
+     <div class="module-title-row">
+      <div>
+       <span class="panel-kicker">
+        DAILY LOG
+       </span>
+       <h3 id="dietLogTitle">
+        Today's Diet
+       </h3>
+      </div>
+     </div>
+     <div class="diet-entry-list" id="todayMeals">
+      <p class="empty-state">
+       No diet logged yet.
+      </p>
+     </div>
+    </article>
+    <!-- ===================================================
+       SUPPLEMENTS
+  ==================================================== -->
+    <article class="diet-tracker-panel supplement-panel">
+     <div class="module-title-row">
+      <div>
+       <span class="panel-kicker">
+        CONSISTENCY
+       </span>
+       <h3>
+        Supplements
+       </h3>
+      </div>
+      <button class="secondary-action" id="manageSupplementsButton">
+       MANAGE
+      </button>
+     </div>
+     <div class="supplement-tracker-list" id="supplementList">
+      <p class="empty-state">
+       No supplements added.
+      </p>
+     </div>
+    </article>
+   </section>
+   <!-- =====================================================
+         TRAINING
+    ====================================================== -->
+   <section class="body-section" id="training">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">PERFORMANCE</p>
+      <h2>Training System</h2>
+     </div>
+     <button class="primary-action" id="editWeeklySplitButton" type="button">EDIT 6-DAY SPLIT</button>
+    </div>
+
+    <article class="training-reactor-v4">
+     <div class="reactor-copy-v4">
+      <span class="panel-kicker">REPEATABLE TRAINING</span>
+      <h3 id="trainingTodayTitleV4">Today's Plan</h3>
+      <p id="trainingReactorTextV4">Your split repeats every week. Tick what you actually did and save the weight for memory.</p>
+     </div>
+     <div class="barbell-stage-v4" aria-hidden="true">
+      <span class="barbell-plate-v4 left"></span>
+      <span class="barbell-bar-v4"></span>
+      <span class="barbell-plate-v4 right"></span>
+     </div>
+     <div class="reactor-score-v4">
+      <strong id="trainingWeekProgressV4">0 / 0</strong>
+      <span>THIS WEEK</span>
+     </div>
+    </article>
+
+    <article class="module-card wide training-date-navigator-v4">
+     <div class="training-nav-top-v4">
+      <button class="training-date-arrow-v4" id="previousTrainingDayV4" type="button">←</button>
+      <div class="training-selected-date-v4">
+       <span id="selectedTrainingDayLabelV4">TODAY</span>
+       <strong id="selectedTrainingDateLabelV4">--</strong>
+      </div>
+      <button class="training-today-button-v4" id="trainingTodayButtonV4" type="button">TODAY</button>
+      <button class="training-date-arrow-v4" id="nextTrainingDayV4" type="button">→</button>
+     </div>
+     <div class="training-date-strip-v4" id="trainingDateStripV4"></div>
+    </article>
+
+    <article class="module-card wide training-day-tracker-v4">
+     <div class="module-title-row">
+      <div>
+       <span class="panel-kicker" id="trainingSelectedKickerV4">SELECTED DAY</span>
+       <h3 id="trainingSelectedPlanNameV4">Training Plan</h3>
+      </div>
+      <span class="today-plan-badge-v4" id="trainingSelectedStateV4">--</span>
+     </div>
+     <div class="training-exercise-tracker-v4" id="trainingExerciseTrackerV4">
+      <p class="empty-state">Set your 6-day split to begin.</p>
+     </div>
+     <div class="training-day-actions-v4">
+      <button class="secondary-action" id="clearTrainingDayV4" type="button">CLEAR LOG</button>
+      <button class="primary-action" id="saveTrainingDayV4" type="button">SAVE DAY</button>
+     </div>
+    </article>
+
+    <article class="module-card wide training-history-card-v4">
+     <div class="module-title-row">
+      <div>
+       <span class="panel-kicker">LONG TERM MEMORY</span>
+       <h3>Previous Records</h3>
+      </div>
+      <span class="today-plan-badge-v4">CLICK A RECORD TO OPEN</span>
+     </div>
+     <div class="training-history-list-v4" id="trainingHistoryV4">
+      <p class="empty-state">Your previous workout records will appear here.</p>
+     </div>
+    </article>
+
+    <div class="module-grid training-metrics-v4">
+     <article class="module-card">
+      <h3>Completed Sessions</h3>
+      <div class="metric-large"><strong id="weeklyTrainingSessions">0</strong><span>this week</span></div>
+     </article>
+     <article class="module-card">
+      <h3>Personal Records</h3>
+      <div class="metric-large"><strong id="weeklyPRCount">0</strong><span>this week</span></div>
+     </article>
+    </div>
+   </section>
+
+   <section class="body-section" id="running">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">
+       ENDURANCE
+      </p>
+      <h2>
+       Running
+      </h2>
+     </div>
+     <button class="primary-action" id="logRunButton">
+      + LOG RUN
+     </button>
+    </div>
+    <article class="module-card wide">
+     <div class="runner-stat-row">
+      <div>
+       <span class="panel-kicker">
+        WEEKLY TARGET
+       </span>
+       <h3>
+        Run Progress
+       </h3>
+      </div>
+      <div class="runner-stat-row">
+       <strong id="runningTargetProgress">
+        0 / 3 RUNS
+       </strong>
+       <button class="secondary-action" id="editRunningTargetButton">
+        EDIT TARGET
+       </button>
+      </div>
+     </div>
+     <div class="large-runner-zone">
+      <div class="large-runner-track">
+       <div class="large-runner" id="largeRunner">
+        RUN
+       </div>
+       <div class="large-finish">
+        FINISH
+       </div>
+      </div>
+     </div>
+    </article>
+    <div class="module-grid">
+     <article class="module-card">
+      <h3>
+       Weekly Distance
+      </h3>
+      <div class="metric-large">
+       <strong id="weeklyRunDistance">
+        0.0
+       </strong>
+       <span>
+        km
+       </span>
+      </div>
+     </article>
+     <article class="module-card">
+      <h3>
+       Weekly Time
+      </h3>
+      <div class="metric-large">
+       <strong id="weeklyRunTime">
+        0
+       </strong>
+       <span>
+        minutes
+       </span>
+      </div>
+     </article>
+    </div>
+   </section>
+   <!-- =====================================================
+         RECOVERY
+    ====================================================== -->
+   <section class="body-section" id="recovery">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">
+       RECOVER
+      </p>
+      <h2>
+       Rest Day Mode
+      </h2>
+     </div>
+    </div>
+    <article class="rest-day-console-v3">
+     <div aria-hidden="true" class="rest-orbit-v3">
+      <div class="rest-core-v3">
+       <span>
+        REST
+       </span>
+      </div>
+      <span class="rest-dot-v3 dot-a">
+      </span>
+      <span class="rest-dot-v3 dot-b">
+      </span>
+      <span class="rest-dot-v3 dot-c">
+      </span>
+     </div>
+     <div class="rest-copy-v3">
+      <span class="panel-kicker">
+       RECOVERY SWITCH
+      </span>
+      <h3 id="restDayStateV3">
+       REST DAY OFF
+      </h3>
+      <p id="restDayMessageV3">
+       Turn it on when you intentionally take a recovery day. That date will be excluded from your expected training count.
+      </p>
+      <div class="rest-date-row-v3">
+       <label for="restDayDateV3">
+        DATE
+       </label>
+       <input id="restDayDateV3" type="date"/>
+      </div>
+      <button aria-pressed="false" class="rest-toggle-v3" id="restDayToggleButtonV3" type="button">
+       <span class="rest-toggle-knob-v3">
+       </span>
+       <b id="restToggleTextV3">
+        TURN REST DAY ON
+       </b>
+      </button>
+     </div>
+     <div class="rest-week-stat-v3">
+      <strong id="weeklyRestDaysV3">
+       0
+      </strong>
+      <span>
+       REST DAYS THIS WEEK
+      </span>
+     </div>
+    </article>
+    <article class="module-card wide rest-explainer-v3">
+     <span class="panel-kicker">
+      HOW IT WORKS
+     </span>
+     <h3>
+      Recovery without penalty
+     </h3>
+     <p>
+      A Rest Day does not delete your data. It simply removes that scheduled training day from the week's expected sessions, so an intentional recovery day is not treated like a missed workout.
+     </p>
+    </article>
+   </section>
+   <!-- =====================================================
+         CARE
+    ====================================================== -->
+   <section class="body-section" id="care">
+    <div class="section-heading">
+     <div>
+      <p class="section-kicker">
+       ROUTINE
+      </p>
+      <h2>
+       Skin &amp; Hair Care
+      </h2>
+     </div>
+     <button class="primary-action" id="addCareRoutineButton">
+      + ADD ROUTINE
+     </button>
+    </div>
+    <div class="module-grid">
+     <article class="module-card wide">
+      <div class="module-title-row">
+       <h3>
+        Skin Care
+       </h3>
+       <button class="secondary-action" id="manageSkinCareButton">
+        MANAGE
+       </button>
+      </div>
+      <div id="skinCareList">
+       <p class="empty-state">
+        No skin care routines added.
+       </p>
+      </div>
+     </article>
+     <article class="module-card wide">
+      <div class="module-title-row">
+       <h3>
+        Hair Care
+       </h3>
+       <button class="secondary-action" id="manageHairCareButton">
+        MANAGE
+       </button>
+      </div>
+      <div id="hairCareList">
+       <p class="empty-state">
+        No hair care routines added.
+       </p>
+      </div>
+     </article>
+    </div>
+   </section>
+  </main>
+  <!-- =====================================================
+       UNIVERSAL MODAL
+  ====================================================== -->
+  <div aria-hidden="true" class="body-modal" id="bodyModal">
+   <div class="modal-backdrop">
+   </div>
+   <div class="modal-panel">
+    <button class="modal-close" id="bodyModalClose">
+     ×
+    </button>
+    <div id="bodyModalContent">
+    </div>
+   </div>
+  </div>
+  <script src="body.js?v=8">
+  </script>
+ </body>
+</html>

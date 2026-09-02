@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>The Inner World | Growth Map</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="journal.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       CINEMATIC BACKGROUND
+  ====================================================== -->
+
+  <div class="journal-background"></div>
+  <div class="journal-background-shade"></div>
+  <div class="journal-noise"></div>
+
+
+
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
+  <header class="topbar">
+
+    <a
+      href="hub.html"
+      class="back-button"
+    >
+      BACK TO HUB
+    </a>
+
+
+    <div class="topbar-center">
+
+      <span>
+        SOUL STONE
+      </span>
+
+      <strong>
+        THE INNER WORLD
+      </strong>
+
+    </div>
+
+
+    <div class="topbar-actions">
+
+      <a
+        href="day.html"
+        class="daily-journal-link"
+      >
+        DAILY JOURNAL
+      </a>
+
+      <span class="saved-label">
+        SAVED LOCALLY
+      </span>
+
+    </div>
+
+  </header>
+
+
+
+  <main class="journal-page">
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <section class="journal-hero">
+
+      <div class="hero-copy">
+
+        <span
+          class="hero-date"
+          id="heroDate"
+        >
+          25 AUGUST 2026
+        </span>
+
+
+        <span class="hero-kicker">
+          THE INNER WORLD
+        </span>
+
+
+        <h1>
+
+          A place for everything
+          <br>
+
+          <em>
+            going on inside.
+          </em>
+
+        </h1>
+
+
+        <p>
+
+          Thoughts, goals, mistakes, lessons, memories,
+          books, movies, dreams and the person you are
+          slowly becoming.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <button
+            id="startWritingButton"
+            class="primary-button"
+            type="button"
+          >
+            START WRITING
+          </button>
+
+
+          <a
+            href="day.html"
+            class="secondary-button"
+          >
+            OPEN TODAY'S JOURNAL
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-quote">
+
+        <span>
+          TODAY'S QUESTION
+        </span>
+
+        <p id="heroQuestion">
+
+          If I repeat this exact week
+          for a year, where will I end up?
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         QUICK LIFE PULSE
+    =================================================== -->
+
+    <section class="life-pulse">
+
+      <article>
+
+        <span>
+          THIS WEEK
+        </span>
+
+        <strong id="weekConsistency">
+          —
+        </strong>
+
+        <small>
+          Overall consistency
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          STUDY
+        </span>
+
+        <strong id="weekStudy">
+          —
+        </strong>
+
+        <small>
+          This week
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          CODING
+        </span>
+
+        <strong id="weekCoding">
+          —
+        </strong>
+
+        <small>
+          Problems solved
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          PROJECTS
+        </span>
+
+        <strong id="weekProjects">
+          —
+        </strong>
+
+        <small>
+          Build hours
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          JOURNALED
+        </span>
+
+        <strong id="journalDays">
+          —
+        </strong>
+
+        <small>
+          Days this month
+        </small>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         QUICK CAPTURE
+    =================================================== -->
+
+    <section class="quick-capture">
+
+      <div class="capture-copy">
+
+        <span>
+          QUICK CAPTURE
+        </span>
+
+        <h2>
+          What is taking space in your mind?
+        </h2>
+
+      </div>
+
+
+      <textarea
+        id="quickCaptureText"
+        placeholder="Write anything. No structure. No pressure."
+      ></textarea>
+
+
+      <div class="capture-bottom">
+
+        <div class="capture-types">
+
+          <button
+            class="capture-type active"
+            data-type="Thought"
+            type="button"
+          >
+            THOUGHT
+          </button>
+
+
+          <button
+            class="capture-type"
+            data-type="Idea"
+            type="button"
+          >
+            IDEA
+          </button>
+
+
+          <button
+            class="capture-type"
+            data-type="Lesson"
+            type="button"
+          >
+            LESSON
+          </button>
+
+
+          <button
+            class="capture-type"
+            data-type="Memory"
+            type="button"
+          >
+            MEMORY
+          </button>
+
+
+          <button
+            class="capture-type"
+            data-type="Question"
+            type="button"
+          >
+            QUESTION
+          </button>
+
+
+          <button
+            class="capture-type"
+            data-type="Random"
+            type="button"
+          >
+            RANDOM
+          </button>
+
+        </div>
+
+
+        <button
+          id="saveQuickCapture"
+          class="capture-save-button"
+          type="button"
+        >
+          SAVE TO MY WORLD
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         DIRECTION
+    =================================================== -->
+
+    <section class="journal-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            DIRECTION
+          </span>
+
+          <h2>
+            Where am I going?
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addTargetButton"
+          class="section-button"
+          type="button"
+        >
+          + ADD TARGET
+        </button>
+
+      </div>
+
+
+      <div class="target-world">
+
+
+        <article class="target-zone">
+
+          <div class="target-zone-heading">
+
+            <span class="target-number">
+              01
+            </span>
+
+            <div>
+
+              <small>
+                IMMEDIATE
+              </small>
+
+              <h3>
+                Next Few Days
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="shortTargetList"
+            class="target-list"
+          ></div>
+
+        </article>
+
+
+
+        <article class="target-zone">
+
+          <div class="target-zone-heading">
+
+            <span class="target-number">
+              02
+            </span>
+
+            <div>
+
+              <small>
+                EXECUTION
+              </small>
+
+              <h3>
+                This Week
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="weeklyTargetList"
+            class="target-list"
+          ></div>
+
+        </article>
+
+
+
+        <article class="target-zone">
+
+          <div class="target-zone-heading">
+
+            <span class="target-number">
+              03
+            </span>
+
+            <div>
+
+              <small>
+                CHAPTER
+              </small>
+
+              <h3>
+                This Month
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="monthlyTargetList"
+            class="target-list"
+          ></div>
+
+        </article>
+
+
+
+        <article class="target-zone target-zone-wide">
+
+          <div class="target-zone-heading">
+
+            <span class="target-number">
+              90
+            </span>
+
+            <div>
+
+              <small>
+                FUTURE SELF
+              </small>
+
+              <h3>
+                90 Day Direction
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <textarea
+            id="ninetyDayDirection"
+            placeholder="Who am I trying to become in the next 90 days?"
+          ></textarea>
+
+
+          <div class="future-grid">
+
+            <textarea
+              id="futureSkills"
+              placeholder="Skills I must build..."
+            ></textarea>
+
+
+            <textarea
+              id="futureHabits"
+              placeholder="Habits that must become normal..."
+            ></textarea>
+
+
+            <textarea
+              id="futureLeaveBehind"
+              placeholder="Things I need to leave behind..."
+            ></textarea>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         TARGET VS REALITY
+    =================================================== -->
+
+    <section class="journal-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            ACCOUNTABILITY
+          </span>
+
+          <h2>
+            Target vs Reality
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="realityGrid"
+        class="reality-grid"
+      >
+
+        <article class="reality-card">
+
+          <span>
+            GYM
+          </span>
+
+          <strong id="gymReality">
+            —
+          </strong>
+
+          <small>
+            Target vs actual
+          </small>
+
+        </article>
+
+
+        <article class="reality-card">
+
+          <span>
+            STUDIES
+          </span>
+
+          <strong id="studyReality">
+            —
+          </strong>
+
+          <small>
+            Target vs actual
+          </small>
+
+        </article>
+
+
+        <article class="reality-card">
+
+          <span>
+            CODING
+          </span>
+
+          <strong id="codingReality">
+            —
+          </strong>
+
+          <small>
+            Target vs actual
+          </small>
+
+        </article>
+
+
+        <article class="reality-card">
+
+          <span>
+            PROJECTS
+          </span>
+
+          <strong id="projectsReality">
+            —
+          </strong>
+
+          <small>
+            Target vs actual
+          </small>
+
+        </article>
+
+      </div>
+
+
+      <div class="reality-reflection">
+
+        <label>
+
+          WHY DID I MISS WHAT I MISSED?
+
+          <textarea
+            id="missedReason"
+            placeholder="Be specific. What actually happened?"
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT WILL I CHANGE?
+
+          <textarea
+            id="changeNext"
+            placeholder="What will be different next time?"
+          ></textarea>
+
+        </label>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         THOUGHT VAULT
+    =================================================== -->
+
+    <section class="journal-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            YOUR MIND
+          </span>
+
+          <h2>
+            Thought Vault
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addThoughtButton"
+          class="section-button"
+          type="button"
+        >
+          + WRITE
+        </button>
+
+      </div>
+
+
+      <div class="vault-controls">
+
+        <input
+          id="thoughtSearch"
+          type="search"
+          placeholder="Search your thoughts..."
+        >
+
+
+        <div class="vault-filters">
+
+          <button
+            class="thought-filter active"
+            data-filter="all"
+            type="button"
+          >
+            ALL
+          </button>
+
+          <button
+            class="thought-filter"
+            data-filter="Thought"
+            type="button"
+          >
+            THOUGHTS
+          </button>
+
+          <button
+            class="thought-filter"
+            data-filter="Idea"
+            type="button"
+          >
+            IDEAS
+          </button>
+
+          <button
+            class="thought-filter"
+            data-filter="Lesson"
+            type="button"
+          >
+            LESSONS
+          </button>
+
+          <button
+            class="thought-filter"
+            data-filter="Memory"
+            type="button"
+          >
+            MEMORIES
+          </button>
+
+          <button
+            class="thought-filter"
+            data-filter="Question"
+            type="button"
+          >
+            QUESTIONS
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="thoughtGrid"
+        class="thought-grid"
+      >
+
+        <div class="empty-state">
+          Your thoughts will start living here.
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LESSON LIBRARY
+    =================================================== -->
+
+    <section class="journal-section lesson-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            PERSONAL WISDOM
+          </span>
+
+          <h2>
+            Lessons I Don't Want to Forget
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addLessonButton"
+          class="section-button"
+          type="button"
+        >
+          + ADD LESSON
+        </button>
+
+      </div>
+
+
+      <div
+        id="lessonList"
+        class="lesson-list"
+      >
+
+        <div class="empty-state">
+          Save lessons from life, mistakes, people and experiences.
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         WEEKLY REVIEW
+    =================================================== -->
+
+    <section class="journal-section weekly-review-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            WEEKLY MIRROR
+          </span>
+
+          <h2>
+            How did I actually live this week?
+          </h2>
+
+        </div>
+
+
+        <span
+          class="period-label"
+          id="weeklyPeriodLabel"
+        >
+          THIS WEEK
+        </span>
+
+      </div>
+
+
+      <div class="consistency-board">
+
+        <article>
+
+          <span>
+            HEALTH
+          </span>
+
+          <strong id="healthConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="healthConsistencyBar"></i>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            STUDIES
+          </span>
+
+          <strong id="studyConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="studyConsistencyBar"></i>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            CODING
+          </span>
+
+          <strong id="codingConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="codingConsistencyBar"></i>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            PROJECTS
+          </span>
+
+          <strong id="projectConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="projectConsistencyBar"></i>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            HABITS
+          </span>
+
+          <strong id="habitConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="habitConsistencyBar"></i>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            COMMUNICATION
+          </span>
+
+          <strong id="communicationConsistency">
+            —
+          </strong>
+
+          <div class="consistency-line">
+            <i id="communicationConsistencyBar"></i>
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <div class="reflection-grid">
+
+        <label>
+
+          WHAT WENT WELL?
+
+          <textarea
+            data-weekly-field="wentWell"
+            placeholder="Wins, good decisions, moments you handled well..."
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHERE WAS I INCONSISTENT?
+
+          <textarea
+            data-weekly-field="inconsistent"
+            placeholder="Where did your actions not match your intentions?"
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT MADE ME HAPPY?
+
+          <textarea
+            data-weekly-field="happy"
+            placeholder="People, moments, work, experiences..."
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT DRAINED ME?
+
+          <textarea
+            data-weekly-field="drained"
+            placeholder="What took energy without giving anything back?"
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT DID I AVOID?
+
+          <textarea
+            data-weekly-field="avoided"
+            placeholder="What did you keep postponing or running from?"
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT AM I PROUD OF?
+
+          <textarea
+            data-weekly-field="proud"
+            placeholder="Even if nobody else noticed."
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          ONE UNCOMFORTABLE TRUTH
+
+          <textarea
+            data-weekly-field="truth"
+            placeholder="Something you know but don't enjoy admitting..."
+          ></textarea>
+
+        </label>
+
+
+        <label>
+
+          WHAT CHANGES NEXT WEEK?
+
+          <textarea
+            data-weekly-field="change"
+            placeholder="Specific actions, not vague motivation."
+          ></textarea>
+
+        </label>
+
+      </div>
+
+
+      <div class="signature-question">
+
+        <span>
+          THE QUESTION
+        </span>
+
+        <h3>
+          If I repeat this exact week 52 times,
+          where will I end up?
+        </h3>
+
+        <textarea
+          data-weekly-field="futureResult"
+          placeholder="Write the answer you need to hear."
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MONTHLY CHAPTER
+    =================================================== -->
+
+    <section class="journal-section monthly-chapter">
+
+      <div class="chapter-number">
+
+        <span>
+          CHAPTER
+        </span>
+
+        <strong id="chapterNumber">
+          08
+        </strong>
+
+      </div>
+
+
+      <div class="chapter-main">
+
+        <span id="chapterMonth">
+          AUGUST 2026
+        </span>
+
+
+        <h2>
+          Give this month a title.
+        </h2>
+
+
+        <input
+          id="monthTitle"
+          class="chapter-title-input"
+          type="text"
+          placeholder='"Learning to actually execute."'
+        >
+
+
+        <textarea
+          id="monthSentence"
+          class="month-sentence"
+          placeholder="My month in one sentence..."
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+    <section class="monthly-reflection-grid">
+
+      <label>
+        BIGGEST WIN
+        <textarea data-monthly-field="biggestWin"></textarea>
+      </label>
+
+      <label>
+        BIGGEST FAILURE
+        <textarea data-monthly-field="biggestFailure"></textarea>
+      </label>
+
+      <label>
+        BEST MEMORY
+        <textarea data-monthly-field="bestMemory"></textarea>
+      </label>
+
+      <label>
+        HARDEST MOMENT
+        <textarea data-monthly-field="hardestMoment"></textarea>
+      </label>
+
+      <label>
+        BEST DECISION
+        <textarea data-monthly-field="bestDecision"></textarea>
+      </label>
+
+      <label>
+        WORST DECISION
+        <textarea data-monthly-field="worstDecision"></textarea>
+      </label>
+
+      <label>
+        WHAT CHANGED IN ME?
+        <textarea data-monthly-field="changed"></textarea>
+      </label>
+
+      <label>
+        WHAT SURPRISED ME?
+        <textarea data-monthly-field="surprised"></textarea>
+      </label>
+
+    </section>
+
+
+    <section class="start-stop-continue">
+
+      <article>
+
+        <span>
+          START
+        </span>
+
+        <textarea
+          data-monthly-field="start"
+          placeholder="What should I start?"
+        ></textarea>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          STOP
+        </span>
+
+        <textarea
+          data-monthly-field="stop"
+          placeholder="What should I stop?"
+        ></textarea>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          CONTINUE
+        </span>
+
+        <textarea
+          data-monthly-field="continue"
+          placeholder="What is working?"
+        ></textarea>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LIFE BALANCE
+    =================================================== -->
+
+    <section class="journal-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            LIFE CHECK
+          </span>
+
+          <h2>
+            How does my life feel right now?
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="lifeBalanceGrid"
+        class="life-balance-grid"
+      >
+
+        <div class="life-rating" data-area="Body">
+          <span>BODY</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Mind">
+          <span>MIND</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Studies">
+          <span>STUDIES</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Skills">
+          <span>SKILLS</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Projects">
+          <span>PROJECTS</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="People">
+          <span>PEOPLE</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Discipline">
+          <span>DISCIPLINE</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+        <div class="life-rating" data-area="Happiness">
+          <span>HAPPINESS</span>
+          <input type="range" min="1" max="10" value="5">
+          <strong>5</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MEDIA UNIVERSE
+    =================================================== -->
+
+    <section class="journal-section media-universe">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            STORIES THAT SHAPE ME
+          </span>
+
+          <h2>
+            Media Universe
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addMediaButton"
+          class="section-button"
+          type="button"
+        >
+          + ADD
+        </button>
+
+      </div>
+
+
+      <div class="media-tabs">
+
+        <button
+          class="media-filter active"
+          data-media-filter="all"
+          type="button"
+        >
+          ALL
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Book"
+          type="button"
+        >
+          BOOKS
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Movie"
+          type="button"
+        >
+          MOVIES
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Series"
+          type="button"
+        >
+          SERIES
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Anime"
+          type="button"
+        >
+          ANIME
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Documentary"
+          type="button"
+        >
+          DOCUMENTARIES
+        </button>
+
+        <button
+          class="media-filter"
+          data-media-filter="Podcast"
+          type="button"
+        >
+          PODCASTS
+        </button>
+
+      </div>
+
+
+      <div
+        id="mediaGrid"
+        class="media-grid"
+      >
+
+        <div class="empty-state">
+          Books, movies, series and anime you want to experience will appear here.
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CURIOSITY / SOMEDAY
+    =================================================== -->
+
+    <section class="journal-section curiosity-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            SOMEDAY
+          </span>
+
+          <h2>
+            Things I want to experience.
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addCuriosityButton"
+          class="section-button"
+          type="button"
+        >
+          + ADD SOMETHING
+        </button>
+
+      </div>
+
+
+      <div class="curiosity-columns">
+
+        <article>
+
+          <span>
+            LEARN
+          </span>
+
+          <div
+            id="learnCuriosityList"
+            class="curiosity-list"
+          ></div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            VISIT
+          </span>
+
+          <div
+            id="visitCuriosityList"
+            class="curiosity-list"
+          ></div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            BUILD
+          </span>
+
+          <div
+            id="buildCuriosityList"
+            class="curiosity-list"
+          ></div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            TRY
+          </span>
+
+          <div
+            id="tryCuriosityList"
+            class="curiosity-list"
+          ></div>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            EXPERIENCE
+          </span>
+
+          <div
+            id="experienceCuriosityList"
+            class="curiosity-list"
+          ></div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         LETTERS
+    =================================================== -->
+
+    <section class="journal-section letters-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            WORDS ACROSS TIME
+          </span>
+
+          <h2>
+            Letters
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addLetterButton"
+          class="section-button"
+          type="button"
+        >
+          + WRITE LETTER
+        </button>
+
+      </div>
+
+
+      <div
+        id="letterGrid"
+        class="letter-grid"
+      >
+
+        <button
+          class="letter-template"
+          data-letter-template="Future Me"
+          type="button"
+        >
+
+          <span>
+            TO
+          </span>
+
+          <strong>
+            Future Me
+          </strong>
+
+          <small>
+            Write something your future self should remember.
+          </small>
+
+        </button>
+
+
+        <button
+          class="letter-template"
+          data-letter-template="Younger Me"
+          type="button"
+        >
+
+          <span>
+            TO
+          </span>
+
+          <strong>
+            Younger Me
+          </strong>
+
+          <small>
+            Say what you wish you understood earlier.
+          </small>
+
+        </button>
+
+
+        <button
+          class="letter-template"
+          data-letter-template="Unsent"
+          type="button"
+        >
+
+          <span>
+            UNSENT
+          </span>
+
+          <strong>
+            A letter I may never send.
+          </strong>
+
+          <small>
+            Write without needing an outcome.
+          </small>
+
+        </button>
+
+      </div>
+
+
+      <div
+        id="savedLetterList"
+        class="saved-letter-list"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         HARD TRUTHS
+    =================================================== -->
+
+    <section class="journal-section hard-truth-section">
+
+      <div class="truth-heading">
+
+        <span>
+          PRIVATE
+        </span>
+
+        <h2>
+          Things I know but keep avoiding.
+        </h2>
+
+        <p>
+          No score. No productivity. Just truth.
+        </p>
+
+      </div>
+
+
+      <textarea
+        id="hardTruths"
+        placeholder="What do you know deep down but keep avoiding?"
+      ></textarea>
+
+
+      <div class="hard-truth-grid">
+
+        <textarea
+          id="repeatedExcuses"
+          placeholder="Excuses I keep repeating..."
+        ></textarea>
+
+        <textarea
+          id="needToAccept"
+          placeholder="Things I need to accept..."
+        ></textarea>
+
+        <textarea
+          id="needToLetGo"
+          placeholder="Things I need to let go..."
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         QUESTION BANK
+    =================================================== -->
+
+    <section class="journal-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            QUESTIONS WORTH KEEPING
+          </span>
+
+          <h2>
+            Question Bank
+          </h2>
+
+        </div>
+
+
+        <button
+          id="addQuestionButton"
+          class="section-button"
+          type="button"
+        >
+          + QUESTION
+        </button>
+
+      </div>
+
+
+      <div
+        id="questionGrid"
+        class="question-grid"
+      >
+
+        <article class="question-card">
+
+          <span>
+            01
+          </span>
+
+          <p>
+            What kind of person am I becoming?
+          </p>
+
+        </article>
+
+
+        <article class="question-card">
+
+          <span>
+            02
+          </span>
+
+          <p>
+            What do I want only because other people value it?
+          </p>
+
+        </article>
+
+
+        <article class="question-card">
+
+          <span>
+            03
+          </span>
+
+          <p>
+            What would I do if nobody could see the result?
+          </p>
+
+        </article>
+
+
+        <article class="question-card">
+
+          <span>
+            04
+          </span>
+
+          <p>
+            Which part of my life looks good but does not feel good?
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MY STORY
+    =================================================== -->
+
+    <section class="journal-section story-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            MY STORY
+          </span>
+
+          <h2>
+            The archive of becoming.
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="story-layout">
+
+        <div class="story-year">
+
+          <span>
+            YEAR
+          </span>
+
+          <strong id="storyYear">
+            2026
+          </strong>
+
+        </div>
+
+
+        <div
+          id="storyTimeline"
+          class="story-timeline"
+        >
+
+          <div class="empty-state">
+            Thoughts, reviews, lessons and memories will slowly build your story here.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FINAL NOTE
+    =================================================== -->
+
+    <section class="journal-ending">
+
+      <span>
+        BEFORE YOU LEAVE
+      </span>
+
+      <h2>
+        What do you want to remember
+        from this version of yourself?
+      </h2>
+
+
+      <textarea
+        id="rememberThisVersion"
+        placeholder="Write one thing worth carrying forward..."
+      ></textarea>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       UNIVERSAL MODAL
+  ====================================================== -->
+
+  <div
+    id="journalModal"
+    class="modal-overlay"
+    aria-hidden="true"
+  >
+
+    <div class="journal-modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <span id="journalModalKicker">
+            ADD
+          </span>
+
+          <h2 id="journalModalTitle">
+            New Entry
+          </h2>
+
+        </div>
+
+
+        <button
+          id="journalModalClose"
+          class="modal-close"
+          type="button"
+        >
+          CLOSE
+        </button>
+
+      </div>
+
+
+      <div
+        id="journalModalBody"
+        class="modal-body"
+      ></div>
+
+
+      <div class="modal-footer">
+
+        <button
+          id="journalModalDelete"
+          class="modal-delete"
+          type="button"
+          hidden
+        >
+          DELETE
+        </button>
+
+
+        <div>
+
+          <button
+            id="journalModalCancel"
+            class="modal-cancel"
+            type="button"
+          >
+            CANCEL
+          </button>
+
+
+          <button
+            id="journalModalSave"
+            class="modal-save"
+            type="button"
+          >
+            SAVE
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="journal.js"></script>
+
+
+</body>
+
+</html>

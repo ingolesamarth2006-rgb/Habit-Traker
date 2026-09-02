@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Daily Journal | Growth Map</title>
+
+  <link
+    rel="stylesheet"
+    href="day.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+
+  <div class="page-background">
+
+    <div class="background-image"></div>
+
+    <div class="background-overlay"></div>
+
+    <div class="background-glow glow-red"></div>
+
+    <div class="background-glow glow-blue"></div>
+
+    <div class="background-glow glow-purple"></div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
+  <header class="top-bar">
+
+    <a
+      href="tracker.html"
+      class="back-button"
+    >
+      <span class="back-arrow">←</span>
+      BACK TO TRACKER
+    </a>
+
+
+    <div class="top-center">
+
+      <span class="top-label">
+        GROWTH MAP
+      </span>
+
+      <span class="top-dot"></span>
+
+      <span id="topDate">
+        DAILY RECORD
+      </span>
+
+    </div>
+
+
+    <div
+      class="save-status"
+      id="saveStatus"
+    >
+      <span class="save-dot"></span>
+      AUTOSAVED
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       SIDE NAVIGATION
+  ====================================================== -->
+
+  <nav class="journal-nav">
+
+    <a href="#overview">
+      <span>01</span>
+      Overview
+    </a>
+
+    <a href="#metrics">
+      <span>02</span>
+      Metrics
+    </a>
+
+    <a href="#story">
+      <span>03</span>
+      Story
+    </a>
+
+    <a href="#reflection">
+      <span>04</span>
+      Reflection
+    </a>
+
+    <a href="#vault">
+      <span>05</span>
+      Important
+    </a>
+
+    <a href="#tomorrow">
+      <span>06</span>
+      Tomorrow
+    </a>
+
+  </nav>
+
+
+
+  <main class="journal-page">
+
+
+    <!-- =====================================================
+         HERO / DAY OVERVIEW
+    ====================================================== -->
+
+    <section
+      class="day-hero"
+      id="overview"
+    >
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          YOUR DAILY RECORD
+        </p>
+
+
+        <h1 id="journalDate">
+          AUGUST 25
+        </h1>
+
+
+        <div class="weekday-row">
+
+          <span id="journalWeekday">
+            TUESDAY
+          </span>
+
+          <span class="hero-divider"></span>
+
+          <span id="journalYear">
+            2026
+          </span>
+
+        </div>
+
+
+        <p class="hero-line">
+          A day becomes a memory only when you record it.
+        </p>
+
+      </div>
+
+
+
+      <div class="hero-score-area">
+
+        <div
+          class="day-score-ring"
+          id="dayScoreRing"
+          style="--score: 0"
+        >
+
+          <div class="score-inner">
+
+            <span class="score-number">
+              <strong id="dayScore">
+                0
+              </strong>
+              <small>%</small>
+            </span>
+
+            <span class="score-label">
+              DAY SCORE
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="completion-text">
+
+          <strong id="completedTasks">
+            0 / 0
+          </strong>
+
+          <span>
+            COMMITMENTS COMPLETED
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MIND STATE
+    ====================================================== -->
+
+    <section class="state-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            STATE
+          </span>
+
+          <h2>
+            How did you feel today?
+          </h2>
+
+        </div>
+
+
+        <p>
+          Your internal state matters as much as your output.
+        </p>
+
+      </div>
+
+
+
+      <div class="state-grid">
+
+
+        <article class="state-card state-mood">
+
+          <div class="state-card-top">
+
+            <span>
+              MOOD
+            </span>
+
+            <strong id="moodValue">
+              5
+            </strong>
+
+          </div>
+
+
+          <input
+            id="moodInput"
+            class="state-slider"
+            type="range"
+            min="1"
+            max="10"
+            value="5"
+          >
+
+
+          <div class="slider-scale">
+
+            <span>LOW</span>
+
+            <span>HIGH</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="state-card state-energy">
+
+          <div class="state-card-top">
+
+            <span>
+              ENERGY
+            </span>
+
+            <strong id="energyValue">
+              5
+            </strong>
+
+          </div>
+
+
+          <input
+            id="energyInput"
+            class="state-slider"
+            type="range"
+            min="1"
+            max="10"
+            value="5"
+          >
+
+
+          <div class="slider-scale">
+
+            <span>EMPTY</span>
+
+            <span>FULL</span>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="state-card state-focus">
+
+          <div class="state-card-top">
+
+            <span>
+              FOCUS
+            </span>
+
+            <strong id="focusValue">
+              5
+            </strong>
+
+          </div>
+
+
+          <input
+            id="focusInput"
+            class="state-slider"
+            type="range"
+            min="1"
+            max="10"
+            value="5"
+          >
+
+
+          <div class="slider-scale">
+
+            <span>SCATTERED</span>
+
+            <span>LOCKED IN</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TODAY IN NUMBERS
+    ====================================================== -->
+
+    <section
+      class="content-section metrics-section"
+      id="metrics"
+    >
+<div class="section-heading">
+
+  <div>
+
+    <span class="section-number">
+      01 / METRICS
+    </span>
+
+    <h2>
+      Today in numbers
+    </h2>
+
+  </div>
+
+
+  <div class="section-heading-actions">
+
+    <p>
+      The measurable part of your day.
+    </p>
+
+    <div class="metric-action-buttons">
+
+      <button
+        id="addMetricButton"
+        class="metric-action-button"
+        type="button"
+      >
+        + ADD METRIC
+      </button>
+
+      <button
+        id="editMetricsButton"
+        class="metric-action-button"
+        type="button"
+      >
+        EDIT METRICS
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+      <div class="metrics-grid">
+
+
+        <article class="metric-card metric-water">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              WATER
+            </span>
+
+            <span class="metric-unit">
+              LITRES
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="waterInput"
+              type="number"
+              step="0.1"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              / 4.0 L
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="waterProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="metric-card metric-protein">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              PROTEIN
+            </span>
+
+            <span class="metric-unit">
+              GRAMS
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="proteinInput"
+              type="number"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              / 120 g
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="proteinProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="metric-card metric-sleep">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              SLEEP
+            </span>
+
+            <span class="metric-unit">
+              HOURS
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="sleepInput"
+              type="number"
+              step="0.1"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              / 8 h
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="sleepProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="metric-card metric-study">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              STUDY
+            </span>
+
+            <span class="metric-unit">
+              HOURS
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="studyInput"
+              type="number"
+              step="0.1"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              h
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="studyProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="metric-card metric-communication">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              COMMUNICATION
+            </span>
+
+            <span class="metric-unit">
+              MINUTES
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="communicationInput"
+              type="number"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              min
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="communicationProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="metric-card metric-meditation">
+
+          <div class="metric-top">
+
+            <span class="metric-name">
+              MEDITATION
+            </span>
+
+            <span class="metric-unit">
+              MINUTES
+            </span>
+
+          </div>
+
+
+          <div class="metric-input-row">
+
+            <input
+              id="meditationInput"
+              type="number"
+              min="0"
+              placeholder="0"
+            >
+
+            <span>
+              min
+            </span>
+
+          </div>
+
+
+          <div class="metric-progress">
+
+            <div
+              class="metric-progress-fill"
+              id="meditationProgress"
+            ></div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN STORY
+    ====================================================== -->
+
+    <section
+      class="content-section story-section"
+      id="story"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            02 / STORY
+          </span>
+
+          <h2>
+            What happened today?
+          </h2>
+
+        </div>
+
+
+        <p>
+          Don't make it perfect. Make it real.
+        </p>
+
+      </div>
+
+
+
+      <div class="main-journal-card">
+
+        <div class="journal-card-label">
+
+          <span>
+            THE STORY OF TODAY
+          </span>
+
+          <span id="journalWordCount">
+            0 WORDS
+          </span>
+
+        </div>
+
+
+        <textarea
+          id="mainJournal"
+          placeholder="Write your day here...
+
+What happened?
+Where did you go?
+What did you work on?
+Who did you meet?
+What stayed in your mind?"
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REFLECTION
+    ====================================================== -->
+
+    <section
+      class="content-section reflection-section"
+      id="reflection"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            03 / REFLECTION
+          </span>
+
+          <h2>
+            Look at the day clearly.
+          </h2>
+
+        </div>
+
+
+        <p>
+          Progress needs reflection, not just tracking.
+        </p>
+
+      </div>
+
+
+
+      <div class="reflection-grid">
+
+
+        <article class="reflection-card card-win">
+
+          <span class="card-kicker">
+            TODAY'S WIN
+          </span>
+
+          <h3>
+            What are you proud of?
+          </h3>
+
+          <textarea
+            id="todayWin"
+            placeholder="The best thing I did today was..."
+          ></textarea>
+
+        </article>
+
+
+
+        <article class="reflection-card card-hard">
+
+          <span class="card-kicker">
+            WHAT WAS DIFFICULT
+          </span>
+
+          <h3>
+            Where did you struggle?
+          </h3>
+
+          <textarea
+            id="todayDifficult"
+            placeholder="Today became difficult when..."
+          ></textarea>
+
+        </article>
+
+
+
+        <article class="reflection-card card-learn">
+
+          <span class="card-kicker">
+            WHAT I LEARNED
+          </span>
+
+          <h3>
+            What did today teach you?
+          </h3>
+
+          <textarea
+            id="todayLearned"
+            placeholder="One lesson I want to remember..."
+          ></textarea>
+
+        </article>
+
+
+
+        <article class="reflection-card card-gratitude">
+
+          <span class="card-kicker">
+            GRATITUDE
+          </span>
+
+          <h3>
+            What are you grateful to God for?
+          </h3>
+
+          <textarea
+            id="gratitudeInput"
+            placeholder="Today I am grateful for..."
+          ></textarea>
+
+        </article>
+
+
+
+        <article class="reflection-card card-missed">
+
+          <span class="card-kicker">
+            WHAT I COULDN'T COMPLETE
+          </span>
+
+          <h3>
+            What remained unfinished?
+          </h3>
+
+          <textarea
+            id="notCompleted"
+            placeholder="I couldn't complete..."
+          ></textarea>
+
+        </article>
+
+
+
+        <article class="reflection-card card-why">
+
+          <span class="card-kicker">
+            WHY?
+          </span>
+
+          <h3>
+            Find the actual reason.
+          </h3>
+
+          <textarea
+            id="notCompletedReason"
+            placeholder="The real reason was..."
+          ></textarea>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         IMPORTANT VAULT
+    ====================================================== -->
+
+    <section
+      class="content-section vault-section"
+      id="vault"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            04 / IMPORTANT
+          </span>
+
+          <h2>
+            The Daily Vault
+          </h2>
+
+        </div>
+
+
+        <p>
+          Save anything from today that deserves to survive tomorrow.
+        </p>
+
+      </div>
+
+
+
+      <div class="vault-shell">
+
+
+        <div class="vault-actions">
+
+          <button
+            class="vault-add-button vault-note"
+            data-type="note"
+            type="button"
+          >
+            <span>+</span>
+            NOTE
+          </button>
+
+
+          <button
+            class="vault-add-button vault-link"
+            data-type="link"
+            type="button"
+          >
+            <span>+</span>
+            LINK
+          </button>
+
+
+          <button
+            class="vault-add-button vault-idea"
+            data-type="idea"
+            type="button"
+          >
+            <span>+</span>
+            IDEA
+          </button>
+
+
+          <button
+            class="vault-add-button vault-event"
+            data-type="event"
+            type="button"
+          >
+            <span>+</span>
+            EVENT
+          </button>
+
+
+          <button
+            class="vault-add-button vault-person"
+            data-type="person"
+            type="button"
+          >
+            <span>+</span>
+            PERSON
+          </button>
+
+
+          <button
+            class="vault-add-button vault-decision"
+            data-type="decision"
+            type="button"
+          >
+            <span>+</span>
+            DECISION
+          </button>
+
+
+          <button
+            class="vault-add-button vault-memory"
+            data-type="memory"
+            type="button"
+          >
+            <span>+</span>
+            MEMORY
+          </button>
+
+        </div>
+
+
+
+        <div
+          class="vault-items"
+          id="vaultItems"
+        >
+
+          <div
+            class="vault-empty"
+            id="vaultEmpty"
+          >
+
+            <span>
+              NOTHING SAVED YET
+            </span>
+
+            <p>
+              Add an idea, link, memory, person, decision or important note from today.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MEMORY OF THE DAY
+    ====================================================== -->
+
+    <section class="memory-section">
+
+      <div class="memory-card">
+
+        <span class="memory-label">
+          MEMORY OF THE DAY
+        </span>
+
+
+        <h2>
+          If you could keep only one thing from today, what would it be?
+        </h2>
+
+
+        <textarea
+          id="memoryOfDay"
+          placeholder="Years from now, I want to remember..."
+        ></textarea>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TOMORROW
+    ====================================================== -->
+
+    <section
+      class="content-section tomorrow-section"
+      id="tomorrow"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            05 / TOMORROW
+          </span>
+
+          <h2>
+            Don't end the day without direction.
+          </h2>
+
+        </div>
+
+
+        <p>
+          Give tomorrow a starting point before you sleep.
+        </p>
+
+      </div>
+
+
+
+      <div class="tomorrow-layout">
+
+
+        <div class="top-three-card">
+
+          <div class="tomorrow-card-header">
+
+            <span>
+              TOMORROW'S TOP 3
+            </span>
+
+            <strong>
+              PRIORITIES
+            </strong>
+
+          </div>
+
+
+          <label class="priority-row">
+
+            <span>
+              01
+            </span>
+
+            <input
+              id="priorityOne"
+              type="text"
+              placeholder="Most important thing tomorrow..."
+            >
+
+          </label>
+
+
+          <label class="priority-row">
+
+            <span>
+              02
+            </span>
+
+            <input
+              id="priorityTwo"
+              type="text"
+              placeholder="Second priority..."
+            >
+
+          </label>
+
+
+          <label class="priority-row">
+
+            <span>
+              03
+            </span>
+
+            <input
+              id="priorityThree"
+              type="text"
+              placeholder="Third priority..."
+            >
+
+          </label>
+
+        </div>
+
+
+
+        <div class="carry-card">
+
+          <span class="card-kicker">
+            CARRY FORWARD
+          </span>
+
+
+          <h3>
+            What must not get lost?
+          </h3>
+
+
+          <textarea
+            id="carryForward"
+            placeholder="Move this into tomorrow..."
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FREE NOTES
+    ====================================================== -->
+
+    <section class="free-notes-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">
+            FREE SPACE
+          </span>
+
+          <h2>
+            Anything else?
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <textarea
+        id="freeNotes"
+        class="free-notes-input"
+        placeholder="Thoughts, random notes, quotes, reminders, anything..."
+      ></textarea>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DAY SUMMARY
+    ====================================================== -->
+
+    <section class="day-summary">
+
+      <div class="summary-top">
+
+        <div>
+
+          <span>
+            YOUR DAY
+          </span>
+
+          <h2 id="summaryDate">
+            AUG 25, 2026
+          </h2>
+
+        </div>
+
+
+        <strong
+          class="summary-score"
+          id="summaryScore"
+        >
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="summary-grid">
+
+        <div>
+
+          <span>
+            MOOD
+          </span>
+
+          <strong id="summaryMood">
+            5/10
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            ENERGY
+          </span>
+
+          <strong id="summaryEnergy">
+            5/10
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            FOCUS
+          </span>
+
+          <strong id="summaryFocus">
+            5/10
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            WATER
+          </span>
+
+          <strong id="summaryWater">
+            0 L
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="summary-message">
+
+        <span>
+          REMEMBER
+        </span>
+
+        <p id="summaryMemory">
+          Write something worth remembering.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <footer class="journal-footer">
+
+      <span>
+        GROWTH MAP
+      </span>
+
+      <p>
+        One day at a time.
+      </p>
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       VAULT MODAL
+  ====================================================== -->
+
+  <div
+    class="vault-modal-overlay"
+    id="vaultModalOverlay"
+  >
+
+    <div class="vault-modal">
+
+      <button
+        class="vault-modal-close"
+        id="vaultModalClose"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <span
+        class="vault-modal-type"
+        id="vaultModalType"
+      >
+        IMPORTANT NOTE
+      </span>
+
+
+      <h2 id="vaultModalTitle">
+        Save something important
+      </h2>
+
+
+      <label>
+
+        TITLE
+
+        <input
+          id="vaultTitleInput"
+          type="text"
+          placeholder="Give this a title..."
+        >
+
+      </label>
+
+
+      <label>
+
+        DETAILS
+
+        <textarea
+          id="vaultContentInput"
+          placeholder="Write the details..."
+        ></textarea>
+
+      </label>
+
+
+      <label
+        id="vaultLinkField"
+        class="vault-link-field"
+      >
+
+        LINK
+
+        <input
+          id="vaultLinkInput"
+          type="url"
+          placeholder="https://..."
+        >
+
+      </label>
+
+
+      <div class="vault-modal-actions">
+
+        <button
+          id="vaultCancelButton"
+          class="vault-cancel-button"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          id="vaultSaveButton"
+          class="vault-save-button"
+          type="button"
+        >
+          SAVE TO TODAY
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+<!-- =====================================================
+     ADD METRIC MODAL
+====================================================== -->
+
+<div
+  class="vault-modal-overlay"
+  id="metricModalOverlay"
+>
+
+  <div class="vault-modal">
+
+    <button
+      class="vault-modal-close"
+      id="metricModalClose"
+      type="button"
+    >
+      ×
+    </button>
+
+    <span class="vault-modal-type">
+      DAILY METRIC
+    </span>
+
+    <h2>
+      Add a new metric
+    </h2>
+
+    <label>
+      METRIC NAME
+
+      <input
+        id="newMetricName"
+        type="text"
+        placeholder="Example: Running"
+      >
+    </label>
+
+    <label>
+      UNIT
+
+      <input
+        id="newMetricUnit"
+        type="text"
+        placeholder="km, kcal, pages, min..."
+      >
+    </label>
+
+    <label>
+      DAILY TARGET
+
+      <input
+        id="newMetricTarget"
+        type="number"
+        step="0.1"
+        min="0"
+        placeholder="Example: 5"
+      >
+    </label>
+
+    <label>
+      COLOR
+
+      <select id="newMetricColor">
+
+        <option value="blue">
+          BLUE
+        </option>
+
+        <option value="red">
+          RED
+        </option>
+
+        <option value="purple">
+          PURPLE
+        </option>
+
+        <option value="yellow">
+          YELLOW
+        </option>
+
+        <option value="green">
+          GREEN
+        </option>
+
+        <option value="pink">
+          PINK
+        </option>
+
+        <option value="orange">
+          ORANGE
+        </option>
+
+      </select>
+    </label>
+
+    <div class="vault-modal-actions">
+
+      <button
+        id="cancelMetricButton"
+        class="vault-cancel-button"
+        type="button"
+      >
+        CANCEL
+      </button>
+
+      <button
+        id="saveMetricButton"
+        class="vault-save-button"
+        type="button"
+      >
+        ADD METRIC
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =====================================================
+     EDIT METRICS MANAGER
+====================================================== -->
+
+<div
+  class="vault-modal-overlay"
+  id="editMetricsOverlay"
+>
+
+  <div class="vault-modal metric-manager-modal">
+
+    <button
+      class="vault-modal-close"
+      id="editMetricsClose"
+      type="button"
+    >
+      ×
+    </button>
+
+    <span class="vault-modal-type">
+      METRIC MANAGER
+    </span>
+
+    <h2>
+      Edit your metrics
+    </h2>
+
+    <div
+      class="metric-manager-list"
+      id="metricManagerList"
+    ></div>
+
+    <div class="vault-modal-actions">
+
+      <button
+        id="editMetricsDone"
+        class="vault-save-button"
+        type="button"
+      >
+        DONE
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+  <script src="day.js"></script>
+
+</body>
+
+</html>

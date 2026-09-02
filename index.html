@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Growth Map</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- ==================================
+         BACKGROUND VIDEO
+    =================================== -->
+
+    <video
+        id="introVideo"
+        class="intro-video"
+        playsinline
+        preload="auto"
+        loop
+        poster="assets/image/intro-bg.jpg"
+    >
+
+        <source
+            src="assets/animation/intro-scene.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+
+    <!-- Soft cinematic layers -->
+
+    <div class="scene-overlay"></div>
+
+    <div class="scene-vignette"></div>
+
+
+
+    <!-- ==================================
+         START SCREEN
+    =================================== -->
+
+    <div
+        id="startScreen"
+        class="start-screen"
+    >
+
+        <button
+            id="startButton"
+            class="start-button"
+        >
+
+            <span class="start-dot"></span>
+
+            ENTER THE SCENE
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================================
+         MAIN INTRO
+    =================================== -->
+
+    <main class="intro-content">
+
+
+        <!-- TOP -->
+
+        <header
+            id="topBar"
+            class="top-bar"
+        >
+
+            <span class="brand">
+                GROWTH MAP
+            </span>
+
+        </header>
+
+
+
+        <!-- ==================================
+             QUOTE
+        =================================== -->
+
+        <section
+            id="quoteArea"
+            class="quote-area"
+        >
+
+            <p class="quote-label">
+                A PROMISE TO MYSELF
+            </p>
+
+
+            <h1 class="quote">
+
+                <span class="quote-soft">
+                    You will either become
+                </span>
+
+                <span class="quote-main">
+                    who you were meant to be,
+                </span>
+
+                <span class="quote-soft">
+                    or spend your life explaining
+                </span>
+
+                <span class="quote-main">
+                    why you weren't.
+                </span>
+
+            </h1>
+
+        </section>
+
+
+
+        <!-- ==================================
+             BOTTOM
+        =================================== -->
+
+        <footer
+            id="bottomArea"
+            class="bottom-area"
+        >
+
+
+            <!-- SOUND PLAYER -->
+
+            <div class="sound-player">
+
+
+                <div class="sound-control">
+
+                    <span class="sound-title">
+                        SOUND
+                    </span>
+
+
+                    <button
+                        class="sound-option active"
+                        data-mode="scene"
+                    >
+                        SCENE
+                    </button>
+
+
+                    <button
+                        class="sound-option"
+                        data-mode="rise"
+                    >
+                        RISE
+                    </button>
+
+
+                    <button
+                        class="sound-option"
+                        data-mode="push"
+                    >
+                        PUSH
+                    </button>
+
+
+                    <button
+                        class="sound-option"
+                        data-mode="mute"
+                    >
+                        MUTE
+                    </button>
+
+                </div>
+
+
+
+                <!-- SEEK BAR -->
+
+                <div class="seek-area">
+
+                    <input
+                        id="seekBar"
+                        class="seek-bar"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                    >
+
+
+                    <div class="time-row">
+
+                        <span id="currentTime">
+                            00:00
+                        </span>
+
+                        <span id="totalTime">
+                            00:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENTER -->
+
+            <button
+                id="enterButton"
+                class="enter-button"
+            >
+
+                <span>
+                    ENTER GROWTH MAP
+                </span>
+
+                <span class="enter-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- RISE / PUSH PLAYER -->
+
+    <audio
+        id="customAudio"
+        preload="metadata"
+        loop
+    ></audio>
+
+
+
+    <!-- VIDEO ERROR -->
+
+    <div
+        id="videoError"
+        class="video-error"
+    >
+        VIDEO COULD NOT LOAD
+    </div>
+
+
+<div class="page-transition"></div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

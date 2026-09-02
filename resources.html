@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Resources | Growth Map</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="resources.css"
+  >
+</head>
+
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="resources-background"></div>
+  <div class="resources-overlay"></div>
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <a
+      href="hub.html"
+      class="back-button"
+    >
+      BACK TO HUB
+    </a>
+
+
+    <div class="topbar-title">
+
+      <span>
+        SPACE STONE
+      </span>
+
+      <strong>
+        RESOURCES
+      </strong>
+
+    </div>
+
+
+    <div class="save-status">
+      SAVED LOCALLY
+    </div>
+
+  </header>
+
+
+  <!-- MAIN PAGE -->
+
+  <main class="resources-page">
+
+
+    <!-- HERO -->
+
+    <section class="resources-hero">
+
+      <div class="hero-copy">
+
+        <span class="hero-kicker">
+          PERSONAL KNOWLEDGE SYSTEM
+        </span>
+
+        <h1>
+          Your Knowledge
+          <br>
+          <span>Vault.</span>
+        </h1>
+
+        <p>
+          Save anything worth remembering.
+          Find it when you actually need it.
+        </p>
+
+        <button
+          class="hero-add-button"
+          id="heroAddResource"
+          type="button"
+        >
+          + ADD RESOURCE
+        </button>
+
+      </div>
+
+
+      <div class="hero-orbit">
+
+        <div class="orbit orbit-one"></div>
+
+        <div class="orbit orbit-two"></div>
+
+        <div class="orbit-center"></div>
+
+        <span class="orbit-dot dot-one"></span>
+
+        <span class="orbit-dot dot-two"></span>
+
+        <span class="orbit-dot dot-three"></span>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="resource-stats">
+
+      <article>
+
+        <span>
+          TOTAL
+        </span>
+
+        <strong id="totalResources">
+          0
+        </strong>
+
+        <small>
+          Resources
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          PINNED
+        </span>
+
+        <strong id="pinnedResources">
+          0
+        </strong>
+
+        <small>
+          Important
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          COLLECTIONS
+        </span>
+
+        <strong id="collectionCount">
+          0
+        </strong>
+
+        <small>
+          Organized Spaces
+        </small>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          RECENT
+        </span>
+
+        <strong id="recentCount">
+          0
+        </strong>
+
+        <small>
+          Added This Week
+        </small>
+
+      </article>
+
+    </section>
+
+
+    <!-- SEARCH + FILTER -->
+
+    <section class="command-section">
+
+      <div class="search-wrapper">
+
+        <input
+          id="resourceSearch"
+          type="search"
+          placeholder="Search your vault..."
+        >
+
+      </div>
+
+
+      <div class="resource-filters">
+
+        <button
+          class="filter-button active"
+          data-filter="all"
+          type="button"
+        >
+          ALL
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="link"
+          type="button"
+        >
+          LINKS
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="pdf"
+          type="button"
+        >
+          PDF
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="video"
+          type="button"
+        >
+          VIDEOS
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="course"
+          type="button"
+        >
+          COURSES
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="code"
+          type="button"
+        >
+          CODE
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="note"
+          type="button"
+        >
+          NOTES
+        </button>
+
+
+        <button
+          class="filter-button"
+          data-filter="pinned"
+          type="button"
+        >
+          PINNED
+        </button>
+
+      </div>
+
+
+      <button
+        class="main-add-button"
+        id="addResourceButton"
+        type="button"
+      >
+        + ADD
+      </button>
+
+    </section>
+
+
+    <!-- PINNED -->
+
+    <section class="vault-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            PRIORITY ACCESS
+          </span>
+
+          <h2>
+            Pinned
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="pinned-grid"
+        id="pinnedGrid"
+      >
+
+        <div class="empty-state">
+          Pin important resources and they will appear here.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ALL RESOURCES -->
+
+    <section class="vault-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            KNOWLEDGE LIBRARY
+          </span>
+
+          <h2>
+            Your Resources
+          </h2>
+
+        </div>
+
+
+        <div class="result-count">
+
+          <strong id="visibleResourceCount">
+            0
+          </strong>
+
+          <span>
+            ITEMS
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="resource-grid"
+        id="resourceGrid"
+      >
+
+        <div class="empty-state">
+          Your vault is empty. Add your first resource.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COLLECTIONS -->
+
+    <section class="vault-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            ORGANIZE
+          </span>
+
+          <h2>
+            Collections
+          </h2>
+
+        </div>
+
+
+        <button
+          class="section-button"
+          id="addCollectionButton"
+          type="button"
+        >
+          + NEW COLLECTION
+        </button>
+
+      </div>
+
+
+      <div
+        class="collection-grid"
+        id="collectionGrid"
+      >
+
+        <div class="empty-state">
+          Create collections like AI, DSA, Design,
+          Career, Research or Inspiration.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUICK NOTES -->
+
+    <section class="vault-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            CAPTURE FAST
+          </span>
+
+          <h2>
+            Quick Notes
+          </h2>
+
+        </div>
+
+
+        <button
+          class="section-button"
+          id="addQuickNoteButton"
+          type="button"
+        >
+          + ADD NOTE
+        </button>
+
+      </div>
+
+
+      <div
+        class="quick-notes-grid"
+        id="quickNotesGrid"
+      >
+
+        <div class="empty-state">
+          Small ideas, useful commands,
+          references and things you don't want to forget.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RECENT -->
+
+    <section class="vault-section recent-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            HISTORY
+          </span>
+
+          <h2>
+            Recently Added
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="recent-list"
+        id="recentResourceList"
+      >
+
+        <div class="empty-state">
+          Recently added resources will appear here.
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- RESOURCE MODAL -->
+
+  <div
+    class="modal-overlay"
+    id="resourceModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <span id="resourceModalKicker">
+            ADD
+          </span>
+
+          <h2 id="resourceModalTitle">
+            New Resource
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="resourceModalClose"
+          type="button"
+        >
+          CLOSE
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <label>
+
+          TITLE
+
+          <input
+            id="resourceTitle"
+            type="text"
+            placeholder="Resource name"
+          >
+
+        </label>
+
+
+        <label>
+
+          TYPE
+
+          <select id="resourceType">
+
+            <option value="link">
+              Link
+            </option>
+
+            <option value="pdf">
+              PDF
+            </option>
+
+            <option value="video">
+              Video
+            </option>
+
+            <option value="course">
+              Course
+            </option>
+
+            <option value="code">
+              Code / Repository
+            </option>
+
+            <option value="note">
+              Note
+            </option>
+
+            <option value="article">
+              Article
+            </option>
+
+            <option value="tool">
+              Tool
+            </option>
+
+            <option value="other">
+              Other
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+
+          LINK / URL
+
+          <input
+            id="resourceUrl"
+            type="url"
+            placeholder="https://..."
+          >
+
+        </label>
+
+
+        <label>
+
+          COLLECTION
+
+          <select id="resourceCollection">
+
+            <option value="">
+              No Collection
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label>
+
+          TAGS
+
+          <input
+            id="resourceTags"
+            type="text"
+            placeholder="AI, Java, Career..."
+          >
+
+        </label>
+
+
+        <label>
+
+          NOTE
+
+          <textarea
+            id="resourceNote"
+            placeholder="Why did you save this?"
+          ></textarea>
+
+        </label>
+
+
+        <label class="pin-option">
+
+          <input
+            id="resourcePinned"
+            type="checkbox"
+          >
+
+          <span>
+            Pin this resource
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          class="cancel-button"
+          id="resourceModalCancel"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="save-button"
+          id="resourceModalSave"
+          type="button"
+        >
+          SAVE RESOURCE
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- COLLECTION MODAL -->
+
+  <div
+    class="modal-overlay"
+    id="collectionModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal small-modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <span>
+            ORGANIZE
+          </span>
+
+          <h2>
+            New Collection
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="collectionModalClose"
+          type="button"
+        >
+          CLOSE
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <label>
+
+          COLLECTION NAME
+
+          <input
+            id="collectionName"
+            type="text"
+            placeholder="Example: AI Research"
+          >
+
+        </label>
+
+
+        <label>
+
+          DESCRIPTION
+
+          <textarea
+            id="collectionDescription"
+            placeholder="What belongs here?"
+          ></textarea>
+
+        </label>
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          class="cancel-button"
+          id="collectionModalCancel"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="save-button"
+          id="collectionModalSave"
+          type="button"
+        >
+          CREATE
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUICK NOTE MODAL -->
+
+  <div
+    class="modal-overlay"
+    id="quickNoteModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal small-modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <span>
+            CAPTURE
+          </span>
+
+          <h2 id="quickNoteModalTitle">
+            Quick Note
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="quickNoteModalClose"
+          type="button"
+        >
+          CLOSE
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <label>
+
+          TITLE
+
+          <input
+            id="quickNoteTitle"
+            type="text"
+            placeholder="Short title"
+          >
+
+        </label>
+
+
+        <label>
+
+          NOTE
+
+          <textarea
+            id="quickNoteText"
+            placeholder="Write anything worth remembering..."
+          ></textarea>
+
+        </label>
+
+      </div>
+
+
+      <div class="modal-footer">
+
+        <button
+          class="cancel-button"
+          id="quickNoteModalCancel"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="save-button"
+          id="quickNoteModalSave"
+          type="button"
+        >
+          SAVE NOTE
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="resources.js"></script>
+
+</body>
+
+</html>

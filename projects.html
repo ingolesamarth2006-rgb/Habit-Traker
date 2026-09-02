@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Project OS | Growth Map</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="projects.css"
+  >
+</head>
+
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="cosmos">
+
+    <div
+      class="cosmos-image"
+      id="cosmosImage"
+    ></div>
+
+    <div class="cosmos-overlay"></div>
+
+    <div
+      class="stars"
+      id="stars"
+    ></div>
+
+    <div
+      class="cursor-light"
+      id="cursorLight"
+    ></div>
+
+  </div>
+
+
+  <!-- TOPBAR -->
+
+  <header class="topbar">
+
+    <a
+      href="hub.html"
+      class="back-link magnetic"
+    >
+      ← BACK TO HUB
+    </a>
+
+
+    <div class="top-title">
+
+      <span>
+        POWER STONE
+      </span>
+
+      <strong>
+        PROJECT OS
+      </strong>
+
+    </div>
+
+
+    <div class="top-actions">
+
+      <button
+        class="command-button magnetic"
+        id="commandButton"
+        type="button"
+      >
+        COMMAND
+
+        <kbd>
+          CTRL K
+        </kbd>
+      </button>
+
+
+      <div class="save-status">
+
+        <i></i>
+
+        SAVED LOCALLY
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- PROJECT SWITCHER -->
+
+  <section class="project-switcher">
+
+    <div class="switcher-title">
+
+      <span>
+        PROJECT UNIVERSE
+      </span>
+
+      <strong>
+        YOUR BUILDS
+      </strong>
+
+    </div>
+
+
+    <div
+      class="project-rail"
+      id="projectRail"
+    ></div>
+
+
+    <button
+      class="new-project-mini magnetic"
+      id="newProjectMini"
+      type="button"
+    >
+      +
+    </button>
+
+  </section>
+
+
+
+  <main
+    class="project-os"
+    id="projectOS"
+  >
+
+
+    <!-- EMPTY STATE -->
+
+    <section
+      class="empty-state"
+      id="emptyState"
+    >
+
+      <div class="empty-core-system">
+
+        <div class="empty-orbit orbit-a"></div>
+        <div class="empty-orbit orbit-b"></div>
+        <div class="empty-orbit orbit-c"></div>
+
+        <div class="empty-energy"></div>
+
+      </div>
+
+
+      <span class="section-kicker">
+        PROJECT OS
+      </span>
+
+
+      <h1>
+        Build something
+        <br>
+        worth remembering.
+      </h1>
+
+
+      <p>
+        Research it. Plan it. Build it. Document it.
+        Track every important decision from idea to deployment.
+      </p>
+
+
+      <button
+        class="create-project-main magnetic"
+        id="createProjectMain"
+        type="button"
+      >
+        + CREATE PROJECT
+      </button>
+
+    </section>
+
+
+
+    <!-- ACTIVE PROJECT -->
+
+    <div
+      class="active-project"
+      id="activeProject"
+    >
+
+
+      <!-- PROJECT HEADER -->
+
+      <section class="project-header">
+
+        <div class="project-identity">
+
+          <span
+            class="project-live-dot"
+            id="projectLiveDot"
+          ></span>
+
+
+          <div>
+
+            <span
+              class="project-category"
+              id="projectCategory"
+            >
+              PROJECT
+            </span>
+
+            <h1 id="projectTitle">
+              Project
+            </h1>
+
+          </div>
+
+        </div>
+
+
+        <div class="header-progress">
+
+          <div class="header-progress-copy">
+
+            <span>
+              PROJECT PROGRESS
+            </span>
+
+            <strong id="headerProgressText">
+              0%
+            </strong>
+
+          </div>
+
+
+          <div class="header-progress-track">
+
+            <i id="headerProgressBar"></i>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-header-actions">
+
+          <button
+            class="header-action magnetic"
+            id="editProjectButton"
+            type="button"
+          >
+            EDIT PROJECT
+          </button>
+
+
+          <button
+            class="header-action magnetic"
+            id="githubButton"
+            type="button"
+          >
+            GITHUB ↗
+          </button>
+
+
+          <button
+            class="header-action magnetic"
+            id="demoButton"
+            type="button"
+          >
+            LIVE ↗
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           COMMAND STAGE
+      =================================================== -->
+
+      <section class="command-stage">
+
+
+        <!-- CORE SIDE -->
+
+        <article class="core-stage">
+
+          <div class="stage-grid"></div>
+
+
+          <svg
+            class="core-connectors"
+            viewBox="0 0 900 540"
+            preserveAspectRatio="none"
+          >
+
+            <defs>
+
+              <linearGradient
+                id="wireGradient"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="0"
+              >
+
+                <stop
+                  offset="0%"
+                  stop-color="#438cff"
+                  stop-opacity=".12"
+                />
+
+                <stop
+                  offset="50%"
+                  stop-color="#69ddff"
+                  stop-opacity=".9"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#8e68ff"
+                  stop-opacity=".15"
+                />
+
+              </linearGradient>
+
+            </defs>
+
+
+            <path
+              class="wire wire-tasks"
+              d="M450 270 C560 160 640 130 744 110"
+            />
+
+            <path
+              class="wire wire-research"
+              d="M450 270 C330 160 265 140 150 115"
+            />
+
+            <path
+              class="wire wire-files"
+              d="M450 270 C620 270 690 270 805 270"
+            />
+
+            <path
+              class="wire wire-buildLog"
+              d="M450 270 C335 380 270 410 155 430"
+            />
+
+            <path
+              class="wire wire-deployment"
+              d="M450 270 C570 385 635 410 745 432"
+            />
+
+          </svg>
+
+
+
+          <!-- RESEARCH NODE -->
+
+          <button
+            class="core-node research-node"
+            data-core-module="research"
+            type="button"
+          >
+
+            <span class="core-node-icon">
+              ⌕
+            </span>
+
+            <div>
+
+              <strong>
+                RESEARCH
+              </strong>
+
+              <small id="researchNodeMeta">
+                0 ITEMS
+              </small>
+
+            </div>
+
+          </button>
+
+
+
+          <!-- TASK NODE -->
+
+          <button
+            class="core-node tasks-node"
+            data-core-module="tasks"
+            type="button"
+          >
+
+            <span class="core-node-icon">
+              ✓
+            </span>
+
+            <div>
+
+              <strong>
+                TASKS
+              </strong>
+
+              <small id="tasksNodeMeta">
+                0 / 0 DONE
+              </small>
+
+            </div>
+
+          </button>
+
+
+
+          <!-- FILE NODE -->
+
+          <button
+            class="core-node files-node"
+            data-core-module="files"
+            type="button"
+          >
+
+            <span class="core-node-icon">
+              ▣
+            </span>
+
+            <div>
+
+              <strong>
+                FILE VAULT
+              </strong>
+
+              <small id="filesNodeMeta">
+                0 FILES
+              </small>
+
+            </div>
+
+          </button>
+
+
+
+          <!-- BUILD NODE -->
+
+          <button
+            class="core-node build-node"
+            data-core-module="buildLog"
+            type="button"
+          >
+
+            <span class="core-node-icon">
+              ↗
+            </span>
+
+            <div>
+
+              <strong>
+                BUILD LOG
+              </strong>
+
+              <small id="buildNodeMeta">
+                NO ACTIVITY
+              </small>
+
+            </div>
+
+          </button>
+
+
+
+          <!-- DEPLOY NODE -->
+
+          <button
+            class="core-node deploy-node"
+            data-core-module="deployment"
+            type="button"
+          >
+
+            <span class="core-node-icon">
+              △
+            </span>
+
+            <div>
+
+              <strong>
+                DEPLOYMENT
+              </strong>
+
+              <small id="deployNodeMeta">
+                NOT DEPLOYED
+              </small>
+
+            </div>
+
+          </button>
+
+
+
+          <!-- PROJECT CORE -->
+
+          <button
+            class="project-core"
+            id="projectCore"
+            type="button"
+          >
+
+            <span class="core-halo halo-one"></span>
+
+            <span class="core-halo halo-two"></span>
+
+
+            <span class="core-orbit core-orbit-one">
+
+              <i></i>
+              <i></i>
+
+            </span>
+
+
+            <span class="core-orbit core-orbit-two">
+
+              <i></i>
+
+            </span>
+
+
+            <span class="core-energy">
+
+              <i></i>
+
+            </span>
+
+
+            <span class="core-content">
+
+              <small>
+                PROJECT CORE
+              </small>
+
+              <strong id="coreProjectName">
+                PROJECT
+              </strong>
+
+              <b id="coreProgressValue">
+                0%
+              </b>
+
+            </span>
+
+          </button>
+
+
+        </article>
+
+
+
+        <!-- PROJECT INTELLIGENCE -->
+
+        <aside class="project-intelligence">
+
+          <header class="intelligence-head">
+
+            <div>
+
+              <span>
+                LIVE PROJECT INTELLIGENCE
+              </span>
+
+              <h2>
+                Current State
+              </h2>
+
+            </div>
+
+
+            <span class="intelligence-live">
+
+              <i></i>
+
+              LIVE
+
+            </span>
+
+          </header>
+
+
+
+          <section class="next-action-card">
+
+            <span>
+              NEXT ACTION
+            </span>
+
+            <strong id="nextAction">
+              Define your first task.
+            </strong>
+
+            <small id="nextActionMeta">
+              No active execution item
+            </small>
+
+          </section>
+
+
+
+          <section class="intelligence-stats">
+
+            <article>
+
+              <span>
+                TARGET
+              </span>
+
+              <strong id="intelDeadline">
+                —
+              </strong>
+
+            </article>
+
+
+            <article>
+
+              <span>
+                BLOCKERS
+              </span>
+
+              <strong id="intelBlockers">
+                0
+              </strong>
+
+            </article>
+
+
+            <article>
+
+              <span>
+                RESEARCH
+              </span>
+
+              <strong id="intelResearch">
+                0
+              </strong>
+
+            </article>
+
+
+            <article>
+
+              <span>
+                FILES
+              </span>
+
+              <strong id="intelFiles">
+                0
+              </strong>
+
+            </article>
+
+          </section>
+
+
+
+          <section class="project-health-card">
+
+            <div>
+
+              <span>
+                PROJECT HEALTH
+              </span>
+
+              <strong id="projectHealthText">
+                0%
+              </strong>
+
+              <small id="projectHealthLabel">
+                BUILD THE FOUNDATION
+              </small>
+
+            </div>
+
+
+            <div
+              class="health-ring"
+              id="healthRing"
+            >
+
+              <span id="healthRingText">
+                0
+              </span>
+
+            </div>
+
+          </section>
+
+
+
+          <section class="recent-context">
+
+            <header>
+
+              <span>
+                RECENT ACTIVITY
+              </span>
+
+              <button
+                data-open-module="buildLog"
+                type="button"
+              >
+                VIEW LOG
+              </button>
+
+            </header>
+
+
+            <div id="recentContextList"></div>
+
+          </section>
+
+        </aside>
+
+
+      </section>
+
+
+
+      <!-- ==================================================
+           WORKSPACE
+      =================================================== -->
+
+      <section class="workspace-system">
+
+
+        <!-- MODULE NAV -->
+
+        <nav class="workspace-navigation">
+
+          <span class="workspace-navigation-title">
+            PROJECT MODULES
+          </span>
+
+
+          <button
+            class="workspace-nav active"
+            data-module="overview"
+            type="button"
+          >
+            <span>◎</span>
+            OVERVIEW
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="tasks"
+            type="button"
+          >
+            <span>✓</span>
+            TASKS
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="milestones"
+            type="button"
+          >
+            <span>⚑</span>
+            MILESTONES
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="research"
+            type="button"
+          >
+            <span>⌕</span>
+            RESEARCH
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="resources"
+            type="button"
+          >
+            <span>◇</span>
+            RESOURCES
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="files"
+            type="button"
+          >
+            <span>▣</span>
+            FILES / PDFs
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="notes"
+            type="button"
+          >
+            <span>≡</span>
+            NOTES
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="buildLog"
+            type="button"
+          >
+            <span>↗</span>
+            BUILD LOG
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="decisions"
+            type="button"
+          >
+            <span>◎</span>
+            DECISIONS
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="blockers"
+            type="button"
+          >
+            <span>!</span>
+            BLOCKERS
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="timeline"
+            type="button"
+          >
+            <span>⌁</span>
+            TIMELINE
+          </button>
+
+
+          <button
+            class="workspace-nav"
+            data-module="deployment"
+            type="button"
+          >
+            <span>△</span>
+            DEPLOYMENT
+          </button>
+
+        </nav>
+
+
+
+        <!-- MAIN WORKSPACE -->
+
+        <section class="workspace-main">
+
+          <header class="workspace-main-header">
+
+            <div>
+
+              <span>
+                ACTIVE WORKSPACE
+              </span>
+
+              <h2 id="workspaceHeading">
+                Overview
+              </h2>
+
+            </div>
+
+
+            <div>
+
+              <button
+                class="workspace-action magnetic"
+                id="workspaceAction"
+                type="button"
+              >
+                EDIT PROJECT
+              </button>
+
+
+              <button
+                class="workspace-command magnetic"
+                id="workspaceCommand"
+                type="button"
+              >
+                CTRL K
+              </button>
+
+            </div>
+
+          </header>
+
+
+          <div
+            class="workspace-content"
+            id="workspaceContent"
+          ></div>
+
+        </section>
+
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- POWER STONE QUICK ACTIONS -->
+
+  <div
+    class="power-menu"
+    id="powerMenu"
+  >
+
+    <button
+      class="quick-action quick-task"
+      data-quick-action="tasks"
+      type="button"
+    >
+      TASK
+    </button>
+
+
+    <button
+      class="quick-action quick-research"
+      data-quick-action="research"
+      type="button"
+    >
+      RESEARCH
+    </button>
+
+
+    <button
+      class="quick-action quick-file"
+      data-quick-action="files"
+      type="button"
+    >
+      FILE
+    </button>
+
+
+    <button
+      class="quick-action quick-log"
+      data-quick-action="buildLog"
+      type="button"
+    >
+      LOG WORK
+    </button>
+
+
+    <button
+      class="power-stone"
+      id="powerStone"
+      type="button"
+    >
+
+      <span class="power-stone-ring"></span>
+
+      <span class="power-stone-core"></span>
+
+    </button>
+
+  </div>
+
+
+
+  <!-- COMMAND PALETTE -->
+
+  <div
+    class="command-overlay"
+    id="commandOverlay"
+  >
+
+    <section class="command-palette">
+
+      <header>
+
+        <span>
+          ⌕
+        </span>
+
+        <input
+          id="commandSearch"
+          type="text"
+          placeholder="Search actions or projects..."
+          autocomplete="off"
+        >
+
+        <kbd>
+          ESC
+        </kbd>
+
+      </header>
+
+
+      <div
+        class="command-list"
+        id="commandList"
+      ></div>
+
+
+      <footer>
+
+        <span>
+          ↑ ↓ Navigate
+        </span>
+
+        <span>
+          ENTER Select
+        </span>
+
+        <span>
+          CTRL K Toggle
+        </span>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- PROJECT MODAL -->
+
+  <div
+    class="modal-overlay"
+    id="projectModal"
+  >
+
+    <section class="modal-card project-modal">
+
+      <header class="modal-header">
+
+        <div>
+
+          <span id="projectModalKicker">
+            NEW PROJECT
+          </span>
+
+          <h2 id="projectModalTitle">
+            Create Project
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="projectModalClose"
+          type="button"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <div class="form-grid">
+
+
+        <label class="form-field">
+
+          <span>
+            PROJECT NAME
+          </span>
+
+          <input
+            id="projectName"
+            type="text"
+            placeholder="Growth Core"
+          >
+
+        </label>
+
+
+        <label class="form-field">
+
+          <span>
+            CATEGORY
+          </span>
+
+          <input
+            id="projectCategoryInput"
+            type="text"
+            placeholder="AI / Backend"
+          >
+
+        </label>
+
+
+        <label class="form-field">
+
+          <span>
+            STATUS
+          </span>
+
+          <select id="projectStatus">
+
+            <option value="planning">
+              Planning
+            </option>
+
+            <option value="active">
+              Active
+            </option>
+
+            <option value="on-hold">
+              On Hold
+            </option>
+
+            <option value="shipped">
+              Shipped
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label class="form-field">
+
+          <span>
+            PRIORITY
+          </span>
+
+          <select id="projectPriority">
+
+            <option value="Low">
+              Low
+            </option>
+
+            <option
+              value="Medium"
+              selected
+            >
+              Medium
+            </option>
+
+            <option value="High">
+              High
+            </option>
+
+            <option value="Critical">
+              Critical
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <label class="form-field">
+
+          <span>
+            START DATE
+          </span>
+
+          <input
+            id="projectStartDate"
+            type="date"
+          >
+
+        </label>
+
+
+        <label class="form-field">
+
+          <span>
+            TARGET DATE
+          </span>
+
+          <input
+            id="projectDeadline"
+            type="date"
+          >
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            TECH STACK
+          </span>
+
+          <input
+            id="projectTech"
+            type="text"
+            placeholder="Java, Node.js, PostgreSQL"
+          >
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            TAGS
+          </span>
+
+          <input
+            id="projectTags"
+            type="text"
+            placeholder="AI, agent, backend"
+          >
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            SHORT DESCRIPTION
+          </span>
+
+          <textarea
+            id="projectDescription"
+            placeholder="What are you building?"
+          ></textarea>
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            PROBLEM / WHY
+          </span>
+
+          <textarea
+            id="projectProblem"
+            placeholder="What problem does it solve?"
+          ></textarea>
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            OBJECTIVE
+          </span>
+
+          <textarea
+            id="projectObjective"
+            placeholder="What should the final result achieve?"
+          ></textarea>
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            GITHUB
+          </span>
+
+          <input
+            id="projectGithub"
+            type="url"
+            placeholder="https://github.com/..."
+          >
+
+        </label>
+
+
+        <label class="form-field full">
+
+          <span>
+            LIVE DEMO
+          </span>
+
+          <input
+            id="projectDemo"
+            type="url"
+            placeholder="https://..."
+          >
+
+        </label>
+
+
+      </div>
+
+
+      <footer class="modal-footer">
+
+        <button
+          class="modal-secondary"
+          id="projectModalCancel"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="modal-primary"
+          id="projectModalSave"
+          type="button"
+        >
+          CREATE PROJECT
+        </button>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- UNIVERSAL ITEM MODAL -->
+
+  <div
+    class="modal-overlay"
+    id="itemModal"
+  >
+
+    <section class="modal-card item-modal">
+
+      <header class="modal-header">
+
+        <div>
+
+          <span id="itemModalKicker">
+            PROJECT
+          </span>
+
+          <h2 id="itemModalTitle">
+            Add Item
+          </h2>
+
+        </div>
+
+
+        <button
+          class="modal-close"
+          id="itemModalClose"
+          type="button"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <div
+        class="item-modal-content"
+        id="itemModalContent"
+      ></div>
+
+
+      <footer class="modal-footer">
+
+        <button
+          class="modal-secondary"
+          id="itemModalCancel"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="modal-primary"
+          id="itemModalSave"
+          type="button"
+        >
+          SAVE
+        </button>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- FILE DRAWER -->
+
+  <aside
+    class="file-drawer"
+    id="fileDrawer"
+  >
+
+    <header>
+
+      <div>
+
+        <span>
+          FILE VAULT
+        </span>
+
+        <h2 id="drawerFileTitle">
+          File
+        </h2>
+
+      </div>
+
+
+      <button
+        id="closeFileDrawer"
+        type="button"
+      >
+        ×
+      </button>
+
+    </header>
+
+
+    <div
+      class="file-preview"
+      id="filePreview"
+    >
+      PDF
+    </div>
+
+
+    <div class="drawer-details">
+
+      <article>
+
+        <span>
+          TYPE
+        </span>
+
+        <strong id="drawerFileType">
+          —
+        </strong>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          ADDED
+        </span>
+
+        <strong id="drawerFileDate">
+          —
+        </strong>
+
+      </article>
+
+
+      <article class="full">
+
+        <span>
+          PATH / URL
+        </span>
+
+        <strong id="drawerFilePath">
+          —
+        </strong>
+
+      </article>
+
+    </div>
+
+
+    <p
+      class="drawer-description"
+      id="drawerFileDescription"
+    ></p>
+
+
+    <button
+      class="drawer-open-button"
+      id="drawerOpenFile"
+      type="button"
+    >
+      OPEN FILE ↗
+    </button>
+
+  </aside>
+
+
+
+  <script src="projects.js"></script>
+
+</body>
+
+</html>

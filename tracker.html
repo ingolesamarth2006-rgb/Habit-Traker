@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growth Map — Tracker</title>
+  <link rel="stylesheet" href="tracker.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       1) YEAR HERO + SAME-SCENE CAMERA DIVE
+  ========================================================== -->
+
+  <section class="story-stage" id="storyStage">
+
+    <div class="year-hero" id="yearHero">
+
+      <div class="hero-background" id="heroBackground"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-depth" id="heroDepth"></div>
+      <div class="hero-vignette"></div>
+
+
+      <!-- TOP BAR -->
+
+      <header class="hero-top" id="heroTop">
+
+        <span class="hero-brand">
+          GROWTH MAP
+        </span>
+
+        <span class="hero-year" id="currentYear">
+          2026
+        </span>
+
+      </header>
+
+
+      <!-- COUNTDOWN -->
+
+      <div class="countdown-area" id="countdownArea">
+
+        <p class="countdown-label">
+          DAYS LEFT THIS YEAR
+        </p>
+
+        <div class="days-left" id="daysLeft">
+          000
+        </div>
+
+        <div class="live-timer">
+
+          <span id="hoursLeft">
+            00
+          </span>
+
+          <span>
+            :
+          </span>
+
+          <span id="minutesLeft">
+            00
+          </span>
+
+          <span>
+            :
+          </span>
+
+          <span id="secondsLeft">
+            00
+          </span>
+
+        </div>
+
+        <p class="countdown-message">
+          WHAT YOU DO WITH THE REST IS STILL YOURS.
+        </p>
+
+      </div>
+
+
+      <!-- YEAR PROGRESS -->
+
+      <div class="year-progress-area" id="yearProgress">
+
+        <div class="progress-stat">
+
+          <span class="stat-label">
+            PAST
+          </span>
+
+          <span class="stat-value" id="pastPercent">
+            0.0%
+          </span>
+
+        </div>
+
+
+        <div class="journey-progress">
+
+          <div class="journey-years">
+
+            <span id="journeyStartYear">
+              2026
+            </span>
+
+            <span>
+              YOUR YEAR
+            </span>
+
+            <span id="journeyEndYear">
+              2027
+            </span>
+
+          </div>
+
+
+          <div class="journey-track">
+
+            <div
+              class="journey-past"
+              id="journeyPast"
+            ></div>
+
+
+            <div
+              class="journey-marker"
+              id="journeyMarker"
+            >
+
+              <span class="web-thread"></span>
+
+              <span class="swing-hero">
+
+                <span class="hero-head"></span>
+
+                <span class="hero-body"></span>
+
+                <span class="hero-leg hero-leg-one"></span>
+
+                <span class="hero-leg hero-leg-two"></span>
+
+              </span>
+
+              <span class="marker-glow"></span>
+
+            </div>
+
+          </div>
+
+
+          <div class="journey-meta">
+
+            <span id="daysLived">
+              0 DAYS LIVED
+            </span>
+
+            <span id="daysRemaining">
+              0 DAYS REMAINING
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="progress-stat future-stat">
+
+          <span class="stat-label">
+            FUTURE IN HAND
+          </span>
+
+          <span class="stat-value" id="futurePercent">
+            0.0%
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- PORTAL -->
+
+      <div class="portal" id="portal">
+
+        <div class="portal-ring ring-a"></div>
+
+        <div class="portal-ring ring-b"></div>
+
+        <div class="portal-core"></div>
+
+      </div>
+
+
+      <!-- CHAPTER -->
+
+      <div class="chapter-reveal" id="chapterReveal">
+
+        <span>
+          YOUR NEXT CHAPTER
+        </span>
+
+        <h2>
+
+          MONTHLY
+
+          <strong>
+            GROWTH TRACKER
+          </strong>
+
+        </h2>
+
+        <p>
+          Turn intention into evidence.
+        </p>
+
+      </div>
+
+
+      <a
+  href="hub.html"
+  class="camera-dive-label infinity-gateway"
+  id="cameraDiveLabel"
+>
+
+  <div class="gateway-orbit">
+    <span class="gateway-dot mind"></span>
+    <span class="gateway-dot space"></span>
+    <span class="gateway-dot reality"></span>
+    <span class="gateway-dot power"></span>
+    <span class="gateway-dot time"></span>
+    <span class="gateway-dot soul"></span>
+  </div>
+
+  <div class="gateway-core">
+    ∞
+  </div>
+
+  <div class="gateway-copy">
+    <span>ENTER DEEPER</span>
+    <small>GROWTH UNIVERSE</small>
+  </div>
+
+</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       2) MONTHLY TRACKER
+  ========================================================== -->
+
+  <section
+    class="monthly-section"
+    id="monthly"
+  >
+
+    <div
+      class="monthly-ambient"
+      id="monthlyAmbient"
+    ></div>
+
+
+    <!-- TITLE -->
+
+    <div class="monthly-head reveal-block">
+
+      <span class="section-kicker">
+        MONTHLY SYSTEM
+      </span>
+
+
+      <div class="monthly-title-row">
+
+        <div>
+
+          <h2>
+            GROWTH TRACKER
+          </h2>
+
+          <p>
+            What you repeat becomes visible.
+          </p>
+
+        </div>
+
+
+        <div class="month-controller">
+
+          <button
+            class="month-arrow"
+            id="previousMonth"
+            type="button"
+          >
+            ←
+          </button>
+
+          <span id="monthName">
+            AUGUST 2026
+          </span>
+
+          <button
+            class="month-arrow"
+            id="nextMonth"
+            type="button"
+          >
+            →
+          </button>
+
+        </div>
+<div class="tracker-actions">
+
+  <button
+    class="tracker-action-btn"
+    id="addTaskButton"
+    type="button"
+  >
+    + ADD TASK
+  </button>
+
+  <button
+    class="tracker-action-btn"
+    id="editTasksButton"
+    type="button"
+  >
+    EDIT TASKS
+  </button>
+
+</div>
+      </div>
+
+    </div>
+
+
+    <!-- DAILY NAVIGATION -->
+
+    <div class="day-navigation reveal-block">
+
+      <div>
+
+        <span class="section-kicker">
+          DAILY RECORD
+        </span>
+
+        <p>
+          One day = one fixed score based on completed habits.
+        </p>
+
+      </div>
+
+
+      <div class="day-nav-buttons">
+
+        <button
+          class="quick-day-button"
+          id="yesterdayButton"
+          type="button"
+        >
+          YESTERDAY
+        </button>
+
+
+        <button
+          class="quick-day-button active-quick"
+          id="todayButton"
+          type="button"
+        >
+          TODAY
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TRACKER GRID -->
+
+    <div
+      class="tracker-perspective"
+      id="trackerPerspective"
+    >
+
+      <div
+        class="tracker-shell reveal-block"
+        id="trackerShell"
+      >
+
+        <div class="tracker-top-glow"></div>
+
+
+        <div class="tracker-scroll">
+
+          <div
+            class="tracker-grid"
+            id="trackerGrid"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SELECTED DAY -->
+
+    <section class="selected-day-panel reveal-block">
+
+      <div class="selected-day-copy">
+
+        <span class="section-kicker">
+          SELECTED DAY
+        </span>
+
+        <h3 id="selectedDate">
+          TODAY
+        </h3>
+
+        <p>
+          Today stays live. Past days remain part of the monthly line.
+        </p>
+
+      </div>
+
+
+      <div
+        class="large-score-ring"
+        id="largeScoreRing"
+      >
+
+        <div>
+
+          <strong id="selectedPercentage">
+            0%
+          </strong>
+
+          <span id="selectedCount">
+            0 / 6 DONE
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="selected-details">
+
+        <div>
+
+          <span>
+            COMPLETED
+          </span>
+
+          <strong id="selectedCompleted">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            MISSED
+          </span>
+
+          <strong id="selectedMissed">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            UNMARKED
+          </span>
+
+          <strong id="selectedUnmarked">
+            6
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TODAY VS YESTERDAY -->
+
+    <section class="compare-strip reveal-block">
+
+      <div class="compare-side">
+
+        <span>
+          YESTERDAY
+        </span>
+
+        <strong id="yesterdayScore">
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="compare-center">
+
+        <span class="compare-line"></span>
+
+        <div>
+
+          <strong id="scoreDelta">
+            0%
+          </strong>
+
+          <span id="compareMessage">
+            BUILD THE PATTERN
+          </span>
+
+        </div>
+
+        <span class="compare-line"></span>
+
+      </div>
+
+
+      <div class="compare-side compare-today">
+
+        <span>
+          TODAY
+        </span>
+
+        <strong id="todayScore">
+          0%
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- MONTH PERFORMANCE -->
+
+    <section class="month-performance">
+
+      <div class="performance-heading reveal-block">
+
+        <span class="section-kicker">
+          MONTH PERFORMANCE
+        </span>
+
+        <h3>
+          The numbers behind the feeling.
+        </h3>
+
+      </div>
+
+
+      <div class="performance-stats">
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            MONTH AVERAGE
+          </span>
+
+          <strong id="monthAverage">
+            0%
+          </strong>
+
+        </div>
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            BEST DAY
+          </span>
+
+          <strong id="bestDay">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            70%+ STREAK
+          </span>
+
+          <strong id="monthStreak">
+            0 DAYS
+          </strong>
+
+        </div>
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            PERFECT DAYS
+          </span>
+
+          <strong id="perfectDays">
+            0
+          </strong>
+
+        </div>
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            STRONGEST HABIT
+          </span>
+
+          <strong id="bestHabit">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="performance-stat reveal-block">
+
+          <span>
+            NEEDS ATTENTION
+          </span>
+
+          <strong id="weakestHabit">
+            —
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </section>
+
+
+  <!-- =========================================================
+       3) TRACKER → GRAPH TRANSITION
+  ========================================================== -->
+
+  <section
+    class="graph-transition-stage"
+    id="graphTransitionStage"
+  >
+
+    <div
+      class="graph-transition-scene"
+      id="graphTransitionScene"
+    >
+
+      <div
+        class="transition-aurora"
+        id="transitionAurora"
+      ></div>
+
+
+      <svg
+        class="transition-svg"
+        id="transitionSvg"
+        viewBox="0 0 1200 650"
+        preserveAspectRatio="xMidYMid meet"
+      ></svg>
+
+
+      <div
+        class="transition-nodes"
+        id="transitionNodes"
+      ></div>
+
+
+      <div
+        class="transition-copy"
+        id="transitionCopy"
+      >
+
+        <span>
+          YOUR DATA IS CONNECTING
+        </span>
+
+        <h2>
+
+          YOUR CONSISTENCY
+
+          <strong>
+            HAS A SHAPE.
+          </strong>
+
+        </h2>
+
+        <p>
+          Every day becomes a point. Every point becomes a pattern.
+        </p>
+
+      </div>
+
+
+      <div
+        class="transition-progress"
+        id="transitionProgress"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       4) WEB OF PROGRESS
+  ========================================================== -->
+
+  <section
+    class="graph-section"
+    id="graphSection"
+  >
+
+    <div
+      class="graph-ambient"
+      id="graphAmbient"
+    ></div>
+
+
+    <!-- GRAPH INTRO -->
+
+    <header class="graph-intro reveal-block">
+
+      <span class="section-kicker">
+        DAILY GROWTH
+      </span>
+
+      <h2>
+
+        WEB OF
+
+        <span>
+          PROGRESS
+        </span>
+
+      </h2>
+
+      <p>
+        One continuous line. One point for every elapsed day of the month.
+      </p>
+
+    </header>
+
+
+    <!-- DAILY GRAPH -->
+
+    <div
+      class="main-web-card reveal-block"
+      id="mainWebCard"
+    >
+
+      <div class="graph-top-row">
+
+        <div>
+
+          <span>
+            DAILY CONSISTENCY
+          </span>
+
+          <strong id="graphMonthTitle">
+            AUGUST 2026
+          </strong>
+
+        </div>
+
+
+        <div class="graph-legend">
+
+          <span>
+            <i class="legend-low"></i>
+            LOW
+          </span>
+
+          <span>
+            <i class="legend-mid"></i>
+            MID
+          </span>
+
+          <span>
+            <i class="legend-high"></i>
+            HIGH
+          </span>
+
+          <span>
+            <i class="legend-today"></i>
+            TODAY
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="web-chart-shell">
+
+        <svg
+          id="growthChart"
+          viewBox="0 0 1200 440"
+          preserveAspectRatio="none"
+        ></svg>
+
+
+        <div
+          class="graph-tooltip"
+          id="graphTooltip"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HABIT RADAR -->
+
+    <section class="habit-web-section">
+
+      <div class="habit-web-copy reveal-block">
+
+        <span class="section-kicker">
+          HABIT BALANCE
+        </span>
+
+        <h3>
+          Your month as a web.
+        </h3>
+
+        <p>
+          This graph answers a different question:
+          which habits are strongest or weakest across the month?
+        </p>
+
+
+        <div class="habit-web-insight">
+
+          <span>
+            CURRENT BALANCE
+          </span>
+
+          <strong id="balanceScore">
+            0%
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="radar-shell reveal-block">
+
+        <div class="radar-glow"></div>
+
+        <svg
+          id="habitRadar"
+          viewBox="0 0 600 560"
+        ></svg>
+
+      </div>
+
+    </section>
+
+
+    <!-- ENDING -->
+
+    <div class="graph-ending reveal-block">
+
+      <span>
+        THIS IS NOT A SCOREBOARD.
+      </span>
+
+      <h3>
+        It is evidence of who you are becoming.
+      </h3>
+
+    </div>
+
+  </section>
+<!-- =========================================================
+     TASK MANAGER MODAL
+========================================================= -->
+
+<div
+  class="task-modal-overlay"
+  id="taskModalOverlay"
+>
+
+  <div class="task-modal">
+
+
+    <!-- HEADER -->
+
+    <div class="task-modal-header">
+
+      <div>
+
+        <span class="section-kicker">
+          TRACKER CONTROL
+        </span>
+
+        <h2 id="taskModalTitle">
+          ADD NEW TASK
+        </h2>
+
+      </div>
+
+
+      <button
+        class="task-modal-close"
+        id="taskModalClose"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD / EDIT TASK FORM
+    ====================================================== -->
+
+    <div
+      class="task-form"
+      id="taskForm"
+    >
+
+
+      <!-- TASK NAME -->
+
+      <label class="task-field">
+
+        <span>
+          TASK NAME
+        </span>
+
+        <input
+          type="text"
+          id="taskNameInput"
+          placeholder="Example: Study"
+          autocomplete="off"
+        >
+
+      </label>
+
+
+
+      <!-- TRACKING TYPE -->
+
+      <label class="task-field">
+
+        <span>
+          TRACKING TYPE
+        </span>
+
+        <select id="taskTypeInput">
+
+          <option value="boolean">
+            YES / NO
+          </option>
+
+          <option value="hours">
+            HOURS
+          </option>
+
+          <option value="minutes">
+            MINUTES
+          </option>
+
+          <option value="number">
+            NUMBER
+          </option>
+
+          <option value="grams">
+            GRAMS
+          </option>
+
+          <option value="litres">
+            LITRES
+          </option>
+
+        </select>
+
+      </label>
+
+
+
+      <!-- TARGET -->
+
+      <label
+        class="task-field"
+        id="taskTargetField"
+      >
+
+        <span>
+          DAILY TARGET
+        </span>
+
+        <input
+          type="number"
+          id="taskTargetInput"
+          placeholder="Example: 5"
+          min="0"
+          step="0.1"
+        >
+
+      </label>
+
+
+
+      <!-- CATEGORY -->
+
+      <label class="task-field">
+
+        <span>
+          CATEGORY
+        </span>
+
+        <select id="taskCategoryInput">
+
+          <option value="habit">
+            HABIT
+          </option>
+
+          <option value="study">
+            STUDY
+          </option>
+
+          <option value="health">
+            HEALTH
+          </option>
+
+          <option value="skill">
+            SKILL
+          </option>
+
+          <option value="career">
+            CAREER
+          </option>
+
+          <option value="personal">
+            PERSONAL
+          </option>
+
+        </select>
+
+      </label>
+
+
+
+      <!-- FREQUENCY -->
+
+      <label class="task-field">
+
+        <span>
+          FREQUENCY
+        </span>
+
+        <select id="taskFrequencyInput">
+
+          <option value="daily">
+            DAILY
+          </option>
+
+          <option value="weekdays">
+            WEEKDAYS
+          </option>
+
+          <option value="weekends">
+            WEEKENDS
+          </option>
+
+        </select>
+
+      </label>
+
+
+
+      <!-- ACTIONS -->
+
+      <div class="task-form-actions">
+
+        <button
+          class="task-secondary-btn"
+          id="cancelTaskButton"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+        <button
+          class="task-primary-btn"
+          id="saveTaskButton"
+          type="button"
+        >
+          CREATE TASK
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT TASKS LIST
+    ====================================================== -->
+
+    <div
+      class="task-list-panel"
+      id="taskListPanel"
+    >
+
+      <div class="task-list-heading">
+
+        <span>
+          ACTIVE TASKS
+        </span>
+
+        <button
+          id="createFromEditButton"
+          type="button"
+        >
+          + ADD NEW
+        </button>
+
+      </div>
+
+
+      <div
+        class="task-list"
+        id="taskList"
+      >
+
+        <!-- JS WILL CREATE TASK ROWS HERE -->
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+  <!-- =========================================================
+       BODY SYSTEM GATEWAY
+       Habit Tracker -> Physical System
+  ========================================================== -->
+
+  <a
+    href="body.html"
+    class="body-system-stone"
+    aria-label="Open Body System"
+    title="Body System"
+  >
+
+    <span class="body-stone-aura"></span>
+
+    <span class="body-stone-orbit body-stone-orbit-one"></span>
+    <span class="body-stone-orbit body-stone-orbit-two"></span>
+
+    <span class="body-stone-gem">
+      <span class="body-stone-gem-core"></span>
+    </span>
+
+    <span class="body-stone-copy">
+      <strong>BODY SYSTEM</strong>
+      <small>PHYSICAL</small>
+    </span>
+
+  </a>
+
+  <script src="tracker.js"></script>
+
+</body>
+</html>
